@@ -6,7 +6,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "bundle exec middleman server",
     "build": "bundle exec middleman build --clean",
-    "deploy": "git subtree push --prefix build origin gh-pages"
+    "deploy": "npm run build && git subtree push --prefix build origin gh-pages"
   },
   "repository": {
     "type": "git",
