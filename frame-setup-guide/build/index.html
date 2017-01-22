@@ -1,0 +1,345 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Openframe Setup Guide</title>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic,900' rel='stylesheet' type='text/css'>
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #272822;
+  background-color: #f92672;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #f8f8f2;
+}
+.highlight .p, .highlight .pi {
+  color: #f8f8f2;
+}
+.highlight .gi {
+  color: #a6e22e;
+}
+.highlight .gd {
+  color: #f92672;
+}
+.highlight .gh {
+  color: #66d9ef;
+  background-color: #272822;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #ae81ff;
+}
+.highlight .kc {
+  color: #fd971f;
+}
+.highlight .kt {
+  color: #fd971f;
+}
+.highlight .kd {
+  color: #fd971f;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #a6e22e;
+}
+.highlight .sr {
+  color: #a1efe4;
+}
+.highlight .si {
+  color: #cc6633;
+}
+.highlight .se {
+  color: #cc6633;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #66d9ef;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #a6e22e;
+}
+.highlight .ss {
+  color: #a6e22e;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+  </head>
+
+  <body class="index" data-languages="[&quot;Raspberry Pi terminal&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="images/of-logo.svg" alt="Of logo" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="Raspberry Pi terminal">Raspberry Pi terminal</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
+        <ul class="toc-footer">
+            <li><a href='https://github.com/OpenframeProject'>Openframe on Github</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="a-quick-note-before-you-start">A quick note, before you start&hellip;</h1>
+
+<p>This project is in an early state, and is under active development — we cannot promise everything will work 100%. Feedback and contributions are welcome!</p>
+
+<aside class="info">Please post questions to the <a href='https://groups.google.com/forum/#!forum/openframeio'>Google Group</a> so that others may benefit! Specific software bugs can be submitted as Github issues in the appropriate repo.</aside>
+
+<h1 id="1-create-a-user-account">1. Create a user account</h1>
+
+<p>Go to <a href="openframe.io">openframe.io</a> and create a new account.</p>
+
+<h1 id="2-setup-a-frame">2. Setup a frame</h1>
+
+<p>Although technically it can run on any computer that runs Node.js, Openframe is designed for the Raspberry Pi.</p>
+
+<h3 id="requirements">Requirements</h3>
+
+<ul>
+<li>Raspberry Pi 1, 2, or 3 w/ power adaptor</li>
+<li>HDMI monitor (or any monitor with an HDMI adaptor)</li>
+<li>SD card pre-flashed w/ <a href="https://www.raspberrypi.org/help/noobs-setup/">NOOBS</a></li>
+<li>WiFi dongle (note: RPi 3 has built-in wifi)</li>
+<li>Keyboard + Mouse</li>
+<li>HDMI Cable</li>
+</ul>
+
+<p>If you&rsquo;re looking for a Raspberry Pi starter pack, this would work well: <a href="https://www.amazon.com/CanaKit-Raspberry-Complete-Starter-Kit/dp/B01C6Q2GSY">Starter pack</a></p>
+
+<h2 id="2-0-preparing-the-pi">2.0 Preparing the Pi</h2>
+
+<aside class="info">If you already have a Raspberry Pi setup with WiFi connected, jump to step 2.1 Install Openframe. People have reported issues using Raspbian Wheezy — we recommend using Jessie (from the latest NOOBS).</aside>
+
+<ol>
+<li>Insert the SD card, WiFi dongle, and connect the monitor, keyboard and mouse.</li>
+<li>Plug in the Pi, and follow the directions on screen, selecting Rasbian.
+a. Once the installation finishes, the Pi will reboot and open to the configuration screen.
+b. If your RPi booted to Desktop, find Terminal in the Menu and type <code class="prettyprint">sudo raspi-config</code> to access the configuration screen. <strong>We recommend booting the RPi to terminal: Select &lsquo;Boot Options&rsquo; and select &#39;B2 Console Autologin&rsquo;.</strong></li>
+<li>Select your timezone in Internationalisation Options &gt; Change Timezone</li>
+<li>If you wish, change your password (the default password is raspberry)</li>
+<li>Select &#39;Finish&rsquo;, then &#39;Yes&rsquo; when it asks about rebooting.</li>
+<li>When the Pi reboots, login with the root user (<code class="prettyprint">pi</code>) and password (<code class="prettyprint">raspberry</code>, unless you changed it).</li>
+</ol>
+
+<h3 id="setup-wifi">Setup WiFi</h3>
+
+<ol>
+<li>After you&rsquo;re logged in at the command line, we&rsquo;ll start up the GUI in order to configure WiFi. At the command line type <code class="prettyprint">startx</code> to launch the GUI.</li>
+<li>Once the GUI is open, click the network icon in the upper right-hand corner, and select your WiFi network. Enter the password at the prompt, and connect.</li>
+<li>Assuming the WiFi has connected successfully, click &#39;Menu&rsquo; on the upper left and select &#39;Shutdown&rsquo;, then select the &#39;Logout&rsquo; or &#39;Exit to command line&rsquo;, and press &#39;Ok&rsquo;.</li>
+</ol>
+
+<h2 id="2-1-install-openframe">2.1 Install Openframe</h2>
+<pre class="highlight shell_session"><code><span class="w">$ </span><span class="nc">bash</span><span class="kv"> -c "$(curl https://openframe.io/install.sh)"
+</span></code></pre>
+<p>In the command line on the Raspberry Pi, execute the install shell script.</p>
+
+<p>The installation takes around 20 minutes (could be longer on a slow connection). Follow the instructions at the end of the installation, you may need to restart the RPi.</p>
+
+<h2 id="2-2-start-the-frame">2.2 Start the frame</h2>
+<pre class="highlight shell_session"><code><span class="w">$ </span><span class="nc">openframe</span><span class="kv">
+</span>? Enter your Openframe username: lewisc
+? Enter your Openframe password: ****
+? Enter a name for this Frame: Living Room Frame
+? Do you want to boot openframe on startup? (Y/n): No
+
+[o]   Connected! You can now push artwork to this frame.
+
+This frame should now appear as Living Room Frame when you log in to Openframe at https://openframe.io.
+</code></pre>
+<blockquote>
+<p>If you haven&rsquo;t selected to autoboot, you can exit <code class="prettyprint">openframe</code> with Ctrl+C, or Ctrl+W in web artworks.</p>
+</blockquote>
+
+<p>After installation, just type <code class="prettyprint">openframe</code> at the command line.</p>
+
+<p>If it&rsquo;s the first time you start the frame, it will ask you for your Openframe username and password, a name for this frame, and if you want to boot into openframe automatically when the Pi starts.</p>
+
+<aside class="warning">If you choose to autoboot (the default), holding 'n&rsquo; during startup of the Pi will bring you to the command line instead of launching openframe.</aside>
+
+<p>You&rsquo;re now ready to start displaying artwork!</p>
+
+<p>We recommend setting a timer so the frame goes to sleep at night. See how below.</p>
+
+<h1 id="3-displaying-artwork">3. Displaying artwork</h1>
+
+<p><strong>Quick guide</strong> to send artwork to your frame:</p>
+
+<ul>
+<li>Go to <a href="http://openframe.io">openframe.io</a> and login to your account.</li>
+<li>In the web app, go to &#39;You&rsquo; and click <strong>Add artwork</strong> to add a new piece. Then click the arrow button to push the artwork to your frame.</li>
+<li>You can also push artwork to your frame directly from the Stream (artwork created and published by other users).</li>
+</ul>
+
+<aside class="info">The web app is responsive and works well as a mobile app. If you&rsquo;ll be using it on your phone, we recommend <a href="http://lifehacker.com/5809338/add-web-site-bookmarks-to-your-iphones-homescreen">adding the website to your homescreen</a></aside>
+
+<h2 id="3-1-artwork-formats">3.1 Artwork formats</h2>
+
+<p>By default, Openframe supports four types of artwork formats:</p>
+
+<ul>
+<li>Images (PNG, JPG, JPEG)</li>
+<li>Videos (mp4)</li>
+<li>Websites (no webGL yet, sorry!)</li>
+<li>Shaders</li>
+</ul>
+
+<p>If you&rsquo;d like to add artwork with a different format (Processing, OpenFrameworks, etc.) you can <a href="https://npmsearch.com/?q=openframe-extension">search for existing extensions</a> on NPM or <a href="https://github.com/OpenframeProject/Openframe/wiki/Openframe-user-guide#42-how-to-create-an-extension">create an extension</a> to support a new format.</p>
+
+<p>See more about installing and creating Extensions <a href="#4-extensions">below</a>.</p>
+
+<h2 id="3-2-the-stream">3.2 The Stream</h2>
+
+<p>The Stream contains all artwork that users have made <strong>public</strong>. You can <strong>like</strong> artwork from the Stream to save it. Click the like button again to remove it.</p>
+
+<h2 id="3-3-your-artwork">3.3 Your Artwork</h2>
+
+<p>Your artwork collection contains artwork that you&rsquo;ve <strong>added</strong>, or you&rsquo;ve <strong>liked</strong> from the Stream.</p>
+
+<h3 id="adding-artwork">Adding artwork</h3>
+
+<p>Artwork added to Openframe requires an author, name, a format, a URL where the artwork is hosted, and a URL for a preview image (suggested width = 500px).</p>
+
+<p>When adding new artwork, you can set it to be private (default) or public. Private artworks are only visible to you, while public artworks will appear in the Stream for others to like and display.</p>
+
+<aside class="warning">By making an artwork public, you are claiming to be the author (or copyright holder) of the work — please do not publish works that are not your own.</aside>
+
+<h3 id="adding-shaders-from-the-book-of-shaders">Adding shaders from The Book of Shaders</h3>
+
+<p>Shaders can be added via the <a href="http://editor.thebookofshaders.com/">Book of Shaders Editor</a>. Create your shader, then select Export -&gt; [o] in the top menu. This will add the shader to your Artworks.</p>
+
+<h2 id="3-4-rights">3.4 Rights</h2>
+
+<p>Openframe does not store any artwork. Frames fetch artwork directly form the provided URL each time it&rsquo;s required to display it. Make sure you have the rights to the artwork you add and display using Openframe.</p>
+
+<p>The artwork will be available as long as the content in the URL is available.</p>
+
+<h1 id="4-extensions">4. Extensions</h1>
+
+<p>Openframe provides a baseline functionality that can be augmented with extensions. An extension may be created to support a new artwork format, to add interactivity to the frame, etc.</p>
+
+<h2 id="4-1-installing-an-extension">4.1 Installing an extension</h2>
+
+<blockquote>
+<p>E.G, to add an the openFrameworks extension:</p>
+</blockquote>
+<pre class="highlight shell_session"><code><span class="w">$ </span><span class="nc">openframe</span><span class="kv"> -i openframe-of
+</span></code></pre>
+<blockquote>
+<p>To remove the openFrameworks extension:</p>
+</blockquote>
+<pre class="highlight shell_session"><code><span class="w">$ </span><span class="nc">openframe</span><span class="kv"> -u openframe-of
+</span></code></pre>
+<p>At present, extensions must be installed and removed on the Raspberry Pi directly, via the command line.</p>
+
+<h2 id="4-2-creating-an-extension">4.2 Creating an extension</h2>
+
+<aside class="info">More documentation coming soon!</aside>
+
+<p>Extension are node modules which export an instance of the <a href="https://github.com/OpenframeProject/Openframe-Extension">Extension</a> class. The README for the Extension repo gives a bit of information about how Extensions work, and how to create them.</p>
+
+<p>If you&rsquo;re interested, take a look at the source for default extensions (<a href="https://github.com/OpenframeProject/Openframe-Image">openframe-image</a>, <a href="https://github.com/OpenframeProject/Openframe-Website">openframe-website</a>, <a href="https://github.com/OpenframeProject/Openframe-glslViewer">openframe-glslviewer</a>, and <a href="https://github.com/OpenframeProject/Openframe-Video">openframe-video</a>) to get a sense of how they work in practice.</p>
+
+<p>Keep in mind that Openframe is still in an early alpha state, and the way extensions are created and loaded will continue to evolve and improve!</p>
+
+<h1 id="5-extras">5. Extras</h1>
+
+<h2 id="5-1-add-a-timer">5.1 Add a timer</h2>
+
+<blockquote>
+<p>At the terminal, open crontab config:</p>
+</blockquote>
+<pre class="highlight shell_session"><code><span class="w">$ </span><span class="nc">crontab</span><span class="kv"> -e
+</span></code></pre>
+<blockquote>
+<p>and add the following cron rules:</p>
+</blockquote>
+<pre class="highlight plaintext"><code>00 23 * * * vcgencmd display_power 0
+30 7 * * * vcgencmd display_power 1
+</code></pre>
+<p>If you want your frame to go to sleep at certain hours, edit crontab.</p>
+
+<p>The example to the right will turn OFF the display of the frame at 23:00, and turn it ON at 7:30 in the morning. Change the values for different times. <a href="http://www.adminschoice.com/crontab-quick-reference">Learn more</a> about crontab to setup different timer for different days of the week.</p>
+
+<h2 id="5-2-change-the-rotation-of-the-display">5.2 Change the rotation of the display</h2>
+
+<blockquote>
+<p>At the terminal, edit <code class="prettyprint">/boot/config.txt</code>:</p>
+</blockquote>
+<pre class="highlight shell_session"><code><span class="w">$ </span><span class="nc">sudo</span><span class="kv"> nano /boot/config.txt
+</span></code></pre>
+<blockquote>
+<p>then add the desired display_rotate setting:</p>
+</blockquote>
+<pre class="highlight shell_session"><code>display_rotate=1
+</code></pre>
+<p>If you want to change the orientation from what has been set during the installation, edit the Raspberry Pi configuration file (/boot/config.txt).</p>
+
+<p><code class="prettyprint">0</code> is the display default (landscape). <code class="prettyprint">1</code> will rotate the display by 90° counterclockwise. Use <code class="prettyprint">2</code> for 180°, or <code class="prettyprint">3</code> for 270°.</p>
+
+<h2 id="5-3-adding-additional-curators-to-a-frame-you-own">5.3 Adding additional curators to a frame you own</h2>
+
+<p>If you&rsquo;re a frame <em>owner</em> (i.e. you&rsquo;ve created it using your username) you can add other users as <em>curators</em>. Curators will see another frame in their list of frames, and will be able to push artwork to it. They cannot edit the frame settings or delete it.</p>
+
+<p>Curators are added via the web app, within the frame&rsquo;s settings panel.</p>
+
+<h2 id="5-4-resetting-a-frame">5.4 Resetting a frame</h2>
+<pre class="highlight shell_session"><code><span class="w">$ </span><span class="nc">openframe</span><span class="kv"> -r
+</span></code></pre>
+<p>A frame can be reset to its default state — that is, a blank frame instance not yet attached to any particular account — by passing the <code class="prettyprint">-r</code> flag at startup. This will erase the user and frame data stored on the RPi, and will prompt you once again for your username, password, and a name for the frame. Once a frame is reset, it&rsquo;s previous state cannot be restored (though this is generally not an issue&hellip; you&rsquo;ll just need to start pushing artwork to the new frame).</p>
+
+<p>Resetting a frame will <em>not</em> remove it from your frame list in the web app; you will need to remove the instance of the old frame manually via the UI, under the frame&rsquo;s settings.</p>
+
+<h2 id="5-5-updating-openframe">5.5 Updating Openframe</h2>
+
+<p>If you&rsquo;ve already installed Openframe via the install script above, you can update the package using NPM directly:</p>
+<pre class="highlight shell_session"><code><span class="w">$ </span><span class="nc">npm</span><span class="kv"> install -g openframe
+</span></code></pre>
+<p>This will pull in the latest changes to the frame controller. We will also continue to make improvements to the install script itself —- you can re-install from scratch simply by re-running the install script.</p>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="Raspberry Pi terminal">Raspberry Pi terminal</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
