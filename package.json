@@ -1,0 +1,26 @@
+{
+  "name": "openframe-docs",
+  "version": "0.1.0",
+  "description": "Openframe documentation repository.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rm -rf docs/*",
+    "build": "npm run clean && npm run build:setup-guide && npm run build:js-client",
+    "build:setup-guide": "cd src/frame-setup-guide && bundle exec middleman build --clean && cp -R build ../../docs/frame-setup-guide",
+    "build:js-client": "cd src/js-client && bundle exec middleman build --clean && cp -R build ../../docs/js-client"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OpenframeProject/Openframe-Docs.git"
+  },
+  "keywords": [
+    "openframe",
+    "documentation"
+  ],
+  "author": "Jonathan Wohl <jon@jonwohl.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/OpenframeProject/Openframe-Docs/issues"
+  },
+  "homepage": "https://github.com/OpenframeProject/Openframe-Docs#readme"
+}
