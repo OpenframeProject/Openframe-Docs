@@ -5,7 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rm -rf docs/*",
-    "build": "npm run clean && npm run build:setup-guide && npm run build:js-client",
+    "build": "npm run clean && cp src/index.html docs/index.html && npm run build:setup-guide && npm run build:js-client",
     "build:setup-guide": "cd src/frame-setup-guide && bundle exec middleman build --clean && cp -R build ../../docs/frame-setup-guide",
     "build:js-client": "cd src/js-client && bundle exec middleman build --clean && cp -R build ../../docs/js-client"
   },
