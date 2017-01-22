@@ -4,10 +4,9 @@
   "description": "Openframe documentation repository.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "clean": "rm -rf docs/*",
-    "build": "npm run clean && cp src/index.html docs/index.html && npm run build:setup-guide && npm run build:js-client",
-    "build:setup-guide": "cd src/frame-setup-guide && bundle exec middleman build --clean && cp -R build ../../docs/frame-setup-guide",
-    "build:js-client": "cd src/js-client && bundle exec middleman build --clean && cp -R build ../../docs/js-client"
+    "start": "bundle exec middleman server",
+    "build": "bundle exec middleman build --clean",
+    "deploy": "git subtree push --prefix build origin gh-pages"
   },
   "repository": {
     "type": "git",
