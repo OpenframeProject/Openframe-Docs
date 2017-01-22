@@ -1,14 +1,14 @@
 ---
-title: Openframe Setup Guide
+title: Openframe Development Environment Setup
 
 language_tabs:
   - Terminal
 
 toc_footers:
-  - <a href='http://docs.openframe.io/frame-setup-guide'>Frame Setup Guide</a>
-  - <a href='http://docs.openframe.io/dev-env-setup'>Dev Environment Setup</a>
+  - <a href='/frame-setup-guide'>Frame Setup Guide</a>
+  - <a href='/dev-env-setup'>Dev Environment Setup</a>
   - <a href='https://api.openframe.io/explorer'>REST API Docs</a>
-  - <a href='http://docs.openframe.io/js-client'>JS Client</a>
+  - <a href='/js-client'>JS Client</a>
   - <a href='https://github.com/OpenframeProject'>Openframe on Github</a>
 
 includes:
@@ -16,250 +16,96 @@ includes:
 search: true
 ---
 
-# A quick note, before you start...
+# Openframe Development Environment
 
-This project is in an early state, and is under active development — we cannot promise everything will work 100%. Feedback and contributions are welcome!
+If you're planning to hack on Openframe, you'll want to set up a dev environment which makes it easy to update code and see the results right away. Openframe uses familiar tools like GitHub, Node, and NPM, and we'll use some of the standard development practices of these tools to get setup.
 
-<aside class="info">Please post questions to the <a href='https://groups.google.com/forum/#!forum/openframeio'>Google Group</a> so that others may benefit! Specific software bugs can be submitted as Github issues in the appropriate repo.</aside>
+This guide is for people developing on the Raspberry Pi. Here we'll describe setting up an environment suitable for working on the [Openframe frame controller](https://github.com/OpenframeProject/Openframe) and modifying or developing new extensions. This setup will still use the public Openframe server, so you can use your account at [openframe.io](http://openframe.io) to add and push artwork to your modified frame.
 
+# TL;DR
 
+1. Create an Openframe-ready SD Card following the [Frame Setup Guide](http://docs.openframe.io/frame-setup-guide). [Enable SSH](https://www.raspberrypi.org/documentation/configuration/raspi-config.md) and, optionally, [setup Samba](http://openframeworks.cc/setup/raspberrypi/raspberry-pi-smb/).
+2. Fork the [Openframe repo](https://github.com/OpenframeProject/Openframe), and any extension repos you plan to work on / mess around with.
+3. On the Pi, clone each forked repo, and `npm install` their dependencies.
+4. In each of the extension repos, use `npm link` to create a global symbolic link for this npm package
+5. In the Openframe repo, use `npm link [extension-a-package-name] [extension-b-package-name]`, passing each linked extension package name.
+6. In the Openframe repo, run `npm start`. Now Openframe is running from the source code, using the source code of the extensions.
+7. Get to work. You can SSH into the Pi and edit files directly there, or use Samba to mount the files on your computer and work on them with your favorite editor.
 
+# The Long Version
 
+## Create an Openframe SD Card
 
+In order to make sure the Pi has all of the necessary dependencies installed, the simplest thing to do is to set up an SD Card following the [Frame Setup Guide](http://docs.openframe.io/frame-setup-guide). Make sure you've got an Openframe account and that you can log in and push artwork to your frame. You probably don't want to enable 'autoboot to Openframe', since you'll be launching Openframe yourself.
 
-# 1. Create a user account
+It's helpful to [enable SSH](https://www.raspberrypi.org/documentation/configuration/raspi-config.md) on the Pi so that you can edit files remotely. If you're comfortable setting up and using vim (or whatever editor) on the Pi and doing your development work there, that's fine. If you'd prefer to use your usual editor, you can use Samba to mount the Pi's file system on your computer and edit the files directly.
 
-Go to [openframe.io](openframe.io) and create a new account.
+There's [a good tutorial on setting up Samba](http://openframeworks.cc/setup/raspberrypi/raspberry-pi-smb/) on the openFrameworks site.
 
+## Fork the Openframe Repo
 
+You'll want to fork the [Openframe repo](https://github.com/OpenframeProject/Openframe) to your own GitHub account. This way you'll be able to keep track of your work and contribute bug fixes or enhancements 😄.
 
+[More info on forks and the GitHub collaborative workflow](https://help.github.com/categories/collaborating-on-projects-using-issues-and-pull-requests/) is available on the GitHub site.
 
+## Clone and Install the Repos to the Pi
 
-
-# 2. Setup a frame
-
-Although technically it can run on any computer that runs Node.js, Openframe is designed for the Raspberry Pi.
-
-### Requirements
-
-* Raspberry Pi 1, 2, or 3 w/ power adaptor
-* HDMI monitor (or any monitor with an HDMI adaptor)
-* SD card pre-flashed w/ [NOOBS](https://www.raspberrypi.org/help/noobs-setup/)
-* WiFi dongle (note: RPi 3 has built-in wifi)
-* Keyboard + Mouse
-* HDMI Cable
-
-If you're looking for a Raspberry Pi starter pack, this would work well: [Starter pack](https://www.amazon.com/CanaKit-Raspberry-Complete-Starter-Kit/dp/B01C6Q2GSY)
-
-## 2.0 Preparing the Pi
-
-<aside class="info">If you already have a Raspberry Pi setup with WiFi connected, jump to step 2.1 Install Openframe. People have reported issues using Raspbian Wheezy — we recommend using Jessie (from the latest NOOBS).</aside>
-
-1. Insert the SD card, WiFi dongle, and connect the monitor, keyboard and mouse.
-2. Plug in the Pi, and follow the directions on screen, selecting Rasbian.
-  a. Once the installation finishes, the Pi will reboot and open to the configuration screen.
-  b. If your RPi booted to Desktop, find Terminal in the Menu and type `sudo raspi-config` to access the configuration screen. **We recommend booting the RPi to terminal: Select 'Boot Options' and select 'B2 Console Autologin'.**
-4. Select your timezone in Internationalisation Options > Change Timezone
-5. If you wish, change your password (the default password is raspberry)
-6. Select 'Finish', then 'Yes' when it asks about rebooting.
-7. When the Pi reboots, login with the root user (`pi`) and password (`raspberry`, unless you changed it).
-
-
-### Setup WiFi
-
-1. After you're logged in at the command line, we'll start up the GUI in order to configure WiFi. At the command line type `startx` to launch the GUI.
-2. Once the GUI is open, click the network icon in the upper right-hand corner, and select your WiFi network. Enter the password at the prompt, and connect.
-3. Assuming the WiFi has connected successfully, click 'Menu' on the upper left and select 'Shutdown', then select the 'Logout' or 'Exit to command line', and press 'Ok'.
-
-## 2.1 Install Openframe
+> On the Pi, clone your forks of the repos you want to work on, and install their deps:
 
 ```terminal
-$ bash -c "$(curl https://openframe.io/install.sh)"
+$ git clone git@github.com:mygithubusername/Openframe.git
+$ git clone git@github.com:mygithubusername/Openframe-Image.git
+$ git clone git@github.com:mygithubusername/Openframe-MyNewExtension.git
+$ cd ~/Openframe && npm install
+$ cd ~/Openframe-Image && npm install
+$ cd ~/Openframe-MyNewExtension && npm install
 ```
 
-In the command line on the Raspberry Pi, execute the install shell script.
-
-The installation takes around 20 minutes (could be longer on a slow connection). Follow the instructions at the end of the installation, you may need to restart the RPi.
-
-## 2.2 Start the frame
+> As a quick test, after all deps have installed, run Openframe from source:
 
 ```terminal
-$ openframe
-? Enter your Openframe username: lewisc
-? Enter your Openframe password: ****
-? Enter a name for this Frame: Living Room Frame
-? Do you want to boot openframe on startup? (Y/n): No
-
-[o]   Connected! You can now push artwork to this frame.
-
-This frame should now appear as Living Room Frame when you log in to Openframe at https://openframe.io.
+$ cd ~/Openframe
+$ npm start
 ```
 
-> If you haven't selected to autoboot, you can exit `openframe` with Ctrl+C, or Ctrl+W in web artworks.
+Log into the Pi terminal, via SSH or directly, and `git clone` your repos. You'll clone your forked Openframe repo, and whatever extension repos you're working on. These might be forks of existing extensions, or a repo for a new extension.
 
-After installation, just type `openframe` at the command line.
+Once you've got the source code for each project on the Pi, `npm install` in each repo directory to install all of the dependencies. Some extensions take quite a while to install!
 
-If it's the first time you start the frame, it will ask you for your Openframe username and password, a name for this frame, and if you want to boot into openframe automatically when the Pi starts.
+As a quick test, you can run the Openframe from the source code and make sure it works. Just go to the Openframe project dir and type `npm start`. If you've already logged in when you initially installed `openframe`, the frame should start using the same credentials. It may ask if you want to autoboot, which you should decline.
 
-<aside class="warning">If you choose to autoboot (the default), holding 'n' during startup of the Pi will bring you to the command line instead of launching openframe.</aside>
+## NPM Link the Extensions
 
-You're now ready to start displaying artwork!
-
-We recommend setting a timer so the frame goes to sleep at night. See how below.
-
-
-
-
-
-# 3. Displaying artwork
-
-**Quick guide** to send artwork to your frame:
-
-* Go to [openframe.io](http://openframe.io) and login to your account.
-* In the web app, go to 'You' and click **Add artwork** to add a new piece. Then click the arrow button to push the artwork to your frame.
-* You can also push artwork to your frame directly from the Stream (artwork created and published by other users).
-
-<aside class="info">The web app is responsive and works well as a mobile app. If you'll be using it on your phone, we recommend <a href="http://lifehacker.com/5809338/add-web-site-bookmarks-to-your-iphones-homescreen">adding the website to your homescreen</a></aside>
-
-## 3.1 Artwork formats
-
-By default, Openframe supports four types of artwork formats:
-
-* Images (PNG, JPG, JPEG)
-* Videos (mp4)
-* Websites (no webGL yet, sorry!)
-* Shaders
-
-If you'd like to add artwork with a different format (Processing, OpenFrameworks, etc.) you can [search for existing extensions](https://npmsearch.com/?q=openframe-extension) on NPM or [create an extension](https://github.com/OpenframeProject/Openframe/wiki/Openframe-user-guide#42-how-to-create-an-extension) to support a new format.
-
-See more about installing and creating Extensions [below](#4-extensions).
-
-## 3.2 The Stream
-
-The Stream contains all artwork that users have made **public**. You can **like** artwork from the Stream to save it. Click the like button again to remove it.
-
-## 3.3 Your Artwork
-
-Your artwork collection contains artwork that you've **added**, or you've **liked** from the Stream.
-
-### Adding artwork
-
-Artwork added to Openframe requires an author, name, a format, a URL where the artwork is hosted, and a URL for a preview image (suggested width = 500px).
-
-When adding new artwork, you can set it to be private (default) or public. Private artworks are only visible to you, while public artworks will appear in the Stream for others to like and display.
-
-<aside class="warning">By making an artwork public, you are claiming to be the author (or copyright holder) of the work — please do not publish works that are not your own.</aside>
-
-### Adding shaders from The Book of Shaders
-
-Shaders can be added via the [Book of Shaders Editor](http://editor.thebookofshaders.com/). Create your shader, then select Export -> [o] in the top menu. This will add the shader to your Artworks.
-
-## 3.4 Rights
-
-Openframe does not store any artwork. Frames fetch artwork directly form the provided URL each time it's required to display it. Make sure you have the rights to the artwork you add and display using Openframe.
-
-The artwork will be available as long as the content in the URL is available.
-
-
-
-
-
-# 4. Extensions
-
-Openframe provides a baseline functionality that can be augmented with extensions. An extension may be created to support a new artwork format, to add interactivity to the frame, etc.
-
-## 4.1 Installing an extension
-
-> E.G, to add an the openFrameworks extension:
+> E.g., assuming you're working on the Openframe-Image extension, and you've cloned all of the repos into the pi user's home folder:
 
 ```terminal
-$ openframe -i openframe-of
+$ cd ~/Openframe-Image
+$ npm link
+$ cd ~/Openframe-MyNewExtension
+$ npm link
+$ cd ~/Openframe
+$ npm link openframe-image openframe-mynewextension
 ```
 
-> To remove the openFrameworks extension:
+Extensions are just Node packages, following standard NPM package practices. They are specified by their NPM package name, as defined in the `package.json` file. The package name must be all lowercase, and as a convention should follow the pattern 'openframe-[extension-name]'. For example, the Openframe-glslViewer extension has a [package name of 'openframe-glslviewer'](https://github.com/OpenframeProject/Openframe-glslViewer/blob/master/package.json#L2).
+
+If you are indeed working on extensions, you need to make sure that the local version of Openframe you're running is pulling in the local versions of the extensions. As this is a common need when developing inter-dependent projects, NPM provides a handy way of managing this. You'll use [NPM's link command](https://docs.npmjs.com/cli/link) to create a global symlink for the dependencies, then use it again to tell the dependent project to use the symlinked version.
+
+In each of the extension project directories, run `npm link`. This will create the global symlink.
+
+Then in the Openframe project directory, run `npm link [extension-name] [another-extension-name]`, passing each package name (from `package.json`) for the extension repos you'll be working on.
+
+
+## Get to Work
+
+That's it! Now the Openframe project will point to the linked extensions, so changes to the extension's files will take effect immediately within the Openframe project. Great!
+
+Whenever you make changes to files, you'll need to restart Openframe on the Pi by running `npm start` in the Openframe project directory.
+
+## Debugging
+
+Openframe uses (and encourages you to use!) the [debug](https://www.npmjs.com/package/debug) package. You can see the debug output by specifying the `DEBUG` env var when starting Openframe. E.g. to see __all__ debug output:
 
 ```terminal
-$ openframe -u openframe-of
+$ DEBUG=* npm start
 ```
-
-At present, extensions must be installed and removed on the Raspberry Pi directly, via the command line.
-
-## 4.2 Creating an extension
-
-<aside class="info">More documentation coming soon!</aside>
-
-Extension are node modules which export an instance of the [Extension](https://github.com/OpenframeProject/Openframe-Extension) class. The README for the Extension repo gives a bit of information about how Extensions work, and how to create them.
-
-If you're interested, take a look at the source for default extensions ([openframe-image](https://github.com/OpenframeProject/Openframe-Image), [openframe-website](https://github.com/OpenframeProject/Openframe-Website), [openframe-glslviewer](https://github.com/OpenframeProject/Openframe-glslViewer), and [openframe-video](https://github.com/OpenframeProject/Openframe-Video)) to get a sense of how they work in practice.
-
-Keep in mind that Openframe is still in an early alpha state, and the way extensions are created and loaded will continue to evolve and improve!
-
-
-
-
-
-# 5. Extras
-
-## 5.1 Add a timer
-
-> At the terminal, open crontab config:
-
-```terminal
-$ crontab -e
-```
-
-> and add the following cron rules:
-
-```
-00 23 * * * vcgencmd display_power 0
-30 7 * * * vcgencmd display_power 1
-```
-
-If you want your frame to go to sleep at certain hours, edit crontab.
-
-The example to the right will turn OFF the display of the frame at 23:00, and turn it ON at 7:30 in the morning. Change the values for different times. [Learn more](http://www.adminschoice.com/crontab-quick-reference) about crontab to setup different timer for different days of the week.
-
-## 5.2 Change the rotation of the display
-
-> At the terminal, edit `/boot/config.txt`:
-
-```terminal
-$ sudo nano /boot/config.txt
-```
-
-> then add the desired display_rotate setting:
-
-```terminal
-display_rotate=1
-```
-
-If you want to change the orientation from what has been set during the installation, edit the Raspberry Pi configuration file (/boot/config.txt).
-
-`0` is the display default (landscape). `1` will rotate the display by 90° counterclockwise. Use `2` for 180°, or `3` for 270°.
-
-## 5.3 Adding additional curators to a frame you own
-
-If you're a frame *owner* (i.e. you've created it using your username) you can add other users as *curators*. Curators will see another frame in their list of frames, and will be able to push artwork to it. They cannot edit the frame settings or delete it.
-
-Curators are added via the web app, within the frame's settings panel.
-
-
-## 5.4 Resetting a frame
-
-```terminal
-$ openframe -r
-```
-
-A frame can be reset to its default state — that is, a blank frame instance not yet attached to any particular account — by passing the `-r` flag at startup. This will erase the user and frame data stored on the RPi, and will prompt you once again for your username, password, and a name for the frame. Once a frame is reset, it's previous state cannot be restored (though this is generally not an issue... you'll just need to start pushing artwork to the new frame).
-
-Resetting a frame will _not_ remove it from your frame list in the web app; you will need to remove the instance of the old frame manually via the UI, under the frame's settings.
-
-## 5.5 Updating Openframe
-
-If you've already installed Openframe via the install script above, you can update the package using NPM directly:
-
-```terminal
-$ npm install -g openframe
-```
-
-This will pull in the latest changes to the frame controller. We will also continue to make improvements to the install script itself —- you can re-install from scratch simply by re-running the install script.
