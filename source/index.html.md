@@ -27,7 +27,7 @@ A step-by-step guide to installing and setting a Raspberry Pi-based frame.
 ### [Development Environment Setup](http://docs.openframe.io/dev-env-setup)
 A general overview of how to setup an enviroment for Extension development or core contribution.
 
-### [API Docs](http://docs.openframe.io/js-client)
+### [API Docs](https://api.openframe.io/explorer)
 Swagger-generated API docs.
 
 ### [JS Client](http://docs.openframe.io/js-client)
