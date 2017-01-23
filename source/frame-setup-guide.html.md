@@ -29,7 +29,7 @@ This project is in an early state, and is under active development — we cannot
 
 # 1. Create a user account
 
-Go to [openframe.io](openframe.io) and create a new account.
+Go to [openframe.io](http://openframe.io) and create a new account.
 
 
 
