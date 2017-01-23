@@ -170,7 +170,7 @@ Openframe provides a baseline functionality that can be augmented with extension
 
 ## 4.1 Installing an extension
 
-> E.G, to add an the openFrameworks extension:
+> E.G, to add the openFrameworks extension:
 
 ```terminal
 $ openframe -i openframe-of
