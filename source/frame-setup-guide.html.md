@@ -254,7 +254,11 @@ A frame can be reset to its default state — that is, a blank frame instance no
 
 Resetting a frame will _not_ remove it from your frame list in the web app; you will need to remove the instance of the old frame manually via the UI, under the frame's settings.
 
-## 5.5 Updating Openframe
+
+
+
+
+# 6. Updating Openframe
 
 If you've already installed Openframe via the install script above, you can update the package using NPM directly:
 
