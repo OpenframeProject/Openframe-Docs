@@ -315,7 +315,7 @@ This frame should now appear as Living Room Frame when you log in to Openframe a
 </blockquote>
 <pre class="highlight shell_session"><code>display_rotate=1
 </code></pre>
-<p>If you want to change the orientation from what has been set during the installation, edit the Raspberry Pi configuration file (/boot/config.txt).</p>
+<p>If you want to change the orientation from what was set during the installation, edit the Raspberry Pi configuration file (/boot/config.txt).</p>
 
 <p><code class="prettyprint">0</code> is the display default (landscape). <code class="prettyprint">1</code> will rotate the display by 90° counterclockwise. Use <code class="prettyprint">2</code> for 180°, or <code class="prettyprint">3</code> for 270°.</p>
 
@@ -334,10 +334,20 @@ This frame should now appear as Living Room Frame when you log in to Openframe a
 
 <h1 id="6-updating-openframe">6. Updating Openframe</h1>
 
-<p>If you&rsquo;ve already installed Openframe via the install script above, you can update the package using NPM directly:</p>
-<pre class="highlight shell_session"><code><span class="w">$ </span><span class="nc">npm</span><span class="kv"> install -g openframe
+<blockquote>
+<p>Re-run the install script, then source your <code class="prettyprint">.bashrc</code> file:</p>
+</blockquote>
+<pre class="highlight shell_session"><code><span class="w">$ </span><span class="nc">bash</span><span class="kv"> -c "$(curl https://openframe.io/install.sh)"
+</span><span class="w">$ </span><span class="nc">source</span><span class="kv"> ~/.bashrc
 </span></code></pre>
-<p>This will pull in the latest changes to the frame controller. We will also continue to make improvements to the install script itself —- you can re-install from scratch simply by re-running the install script.</p>
+<blockquote>
+<p>Then run openframe:</p>
+</blockquote>
+<pre class="highlight shell_session"><code><span class="w">$ </span><span class="nc">openframe</span><span class="kv">
+</span></code></pre>
+<p>If you&rsquo;ve already installed Openframe via the install script above, you can simply re-run the install script to update.</p>
+
+<p>After upgrading, you&rsquo;ll need to reload your shell in order to pull in any enviroment changes.</p>
 
       </div>
       <div class="dark-box">
