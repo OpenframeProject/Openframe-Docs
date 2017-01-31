@@ -233,7 +233,7 @@ $ sudo nano /boot/config.txt
 display_rotate=1
 ```
 
-If you want to change the orientation from what has been set during the installation, edit the Raspberry Pi configuration file (/boot/config.txt).
+If you want to change the orientation from what was set during the installation, edit the Raspberry Pi configuration file (/boot/config.txt).
 
 `0` is the display default (landscape). `1` will rotate the display by 90° counterclockwise. Use `2` for 180°, or `3` for 270°.
 
@@ -260,10 +260,19 @@ Resetting a frame will _not_ remove it from your frame list in the web app; you 
 
 # 6. Updating Openframe
 
-If you've already installed Openframe via the install script above, you can update the package using NPM directly:
+> Re-run the install script, then source your `.bashrc` file:
 
 ```terminal
-$ npm install -g openframe
+$ bash -c "$(curl https://openframe.io/install.sh)"
+$ source ~/.bashrc
 ```
 
-This will pull in the latest changes to the frame controller. We will also continue to make improvements to the install script itself —- you can re-install from scratch simply by re-running the install script.
+> Then run openframe:
+
+```terminal
+$ openframe
+```
+
+If you've already installed Openframe via the install script above, you can simply re-run the install script to update.
+
+After upgrading, you'll need to reload your shell in order to pull in any enviroment changes.
