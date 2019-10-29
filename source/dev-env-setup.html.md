@@ -85,6 +85,8 @@ $ cd ~/Openframe-MyNewExtension
 $ npm link
 $ cd ~/Openframe
 $ npm link openframe-image openframe-mynewextension
+$ openframe -i openframe-image 
+$ openframe -i openframe-mynewextension
 ```
 
 Extensions are just Node packages, following standard NPM package practices. They are specified by their NPM package name, as defined in the `package.json` file. The package name must be all lowercase, and as a convention should follow the pattern 'openframe-[extension-name]'. For example, the Openframe-glslViewer extension has a [package name of 'openframe-glslviewer'](https://github.com/OpenframeProject/Openframe-glslViewer/blob/master/package.json#L2).
