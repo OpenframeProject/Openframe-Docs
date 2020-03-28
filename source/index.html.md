@@ -1,12 +1,6 @@
 ---
 title: Openframe v0.5
 
-language_tabs:
-  - Terminal
-  - Raspberry Pi terminal
-  - javascript
-
-
 toc_footers:
   - <a href='https://api.openframe.io/explorer'>REST API Docs</a>
   - <a href='https://github.com/OpenframeProject'>Openframe on Github</a>
