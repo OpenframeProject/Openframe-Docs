@@ -1,14 +1,20 @@
 ---
 title: Openframe v0.5
 
+language_tabs:
+  - Terminal
+  - Raspberry Pi terminal
+  - javascript
+
+
 toc_footers:
-  - <a href='/frame-setup-guide'>Frame Setup Guide</a>
-  - <a href='/dev-env-setup'>Dev Environment Setup</a>
   - <a href='https://api.openframe.io/explorer'>REST API Docs</a>
-  - <a href='/js-client'>JS Client</a>
   - <a href='https://github.com/OpenframeProject'>Openframe on Github</a>
 
 includes:
+    - frame-setup-guide
+    - dev-env-setup
+    - js-client.md.erb
 
 search: true
 ---

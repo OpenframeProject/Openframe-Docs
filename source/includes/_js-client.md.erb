@@ -1,27 +1,4 @@
----
-title: Openframe API Reference
-
-language_tabs:
-  - javascript
-
-toc_footers:
-  - <a href='http://docs.openframe.io/frame-setup-guide'>Frame Setup Guide</a>
-  - <a href='http://docs.openframe.io/dev-env-setup'>Dev Environment Setup</a>
-  - <a href='https://api.openframe.io/explorer'>REST API Docs</a>
-  - <a href='http://docs.openframe.io/js-client'>JS Client</a>
-  - <a href='https://github.com/OpenframeProject'>Openframe on Github</a>
-
-includes:
-  - users
-  - frames
-  - artwork
-  - filter
-  - errors
-
-search: true
----
-
-# Introduction
+# JavaScript Client
 
 <aside class="warning">Jan. 22, 2017 - These docs are incomplete.</aside>
 
@@ -31,7 +8,7 @@ At present we only have this JavaScript client library, but you're welcome to us
 
 All of the methods of the JS client return Promises which are resolved with the parsed response body or are rejected with an error message.
 
-# Initializing the JS Client
+## Initializing the JS Client
 
 ```javascript
 import OF from 'openframe-jsclient';
@@ -47,13 +24,13 @@ const OF = new OF({
 
 Import the Javascript client class and create a new instance, optionally passing configuration options.
 
-### Configuration Options
+#### Configuration Options
 
 Option | Default | Description
 --------- | ------- | -----------
 api_base | https://api.openframe.io/ | The base URL where the API is located
 
-# Authentication / Authorization
+## Authentication / Authorization
 
 Although some Openframe data is public and can be retrieved via unauthenticated access, the API requires an authenticated user's access token to be supplied with requests in order to manipulate a user's data. An access token can be obtained by hitting the `login` endpoint and providing a valid username (or email) and password.
 
@@ -67,7 +44,7 @@ or in an Authentication header:
 
 As noted below, after successful login, the JS client manages storage and inclusion of the header (in browsers with localStorage available).
 
-## Log in
+### Log in
 
 > This assumes you've got an instantiated OF client.
 
@@ -100,7 +77,7 @@ On success, the `login` endpoint responds with an access token that is valid for
 
 If localStorage is present (i.e. the browser), the JS client automatically saves the access token to localStorage and includes it in subsequent responses.
 
-## Log out
+### Log out
 
 Calling `logout` will destroy the access token on the server and, if present, clear it from localStorage. Successful logout will result in a 204 no content response and resolve the Promise. If there is any problem destroying the access token on the server, the promise will be rejected with an error.
 
@@ -113,3 +90,9 @@ OF.users.logout()
     console.log(error);
   });
 ```
+
+<%= partial "includes/js-client/users" %>
+<%= partial "includes/js-client/frames" %>
+<%= partial "includes/js-client/artwork" %>
+<%= partial "includes/js-client/filter" %>
+<%# partial "includes/js-client/errors" %>
