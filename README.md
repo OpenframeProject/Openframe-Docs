@@ -16,10 +16,10 @@ Based on https://github.com/slatedocs/slate and https://middlemanapp.com/
 
 ## Build
 
-`npm build`
+`npm run build`
 
 ## Deploy
 
-`npm deploy`
+`npm run deploy`
 
 The update will be pushed into `gh-pages` branch. The changes are then available at https://docs.openframe.io/.
