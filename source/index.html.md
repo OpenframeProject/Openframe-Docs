@@ -34,6 +34,8 @@ Feedback and contributions are welcome!
 
 Please post questions to the <a href='https://openframe.discourse.group/'>Openframe Forum</a> so that others may benefit! Specific software bugs can be submitted as Github issues in the appropriate repo (E.g. <a href="https://github.com/OpenframeProject/Openframe/issues">Raspberry Pi</a>, <a href="https://github.com/OpenframeProject/Openframe-WebApp/issues">Web App</a>, <a href="https://github.com/OpenframeProject/">etc.</a>).
 
+Please help <a href="https://github.com/OpenframeProject/Openframe-Docs">improving these docs</a>!
+
 ## Documentation Topics
 
 - **[Frame Setup Guide](#frame-setup-guide)**  
