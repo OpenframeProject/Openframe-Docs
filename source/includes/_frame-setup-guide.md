@@ -72,7 +72,7 @@ After installation, just type `openframe` at the command line.
 
 If it's the first time you start the frame, it will ask you for your Openframe username and password, a name for this frame, and if you want to boot into openframe automatically when the Pi starts.
 
-<aside class="warning">If you choose to autoboot (the default), holding 'n' during startup of the Pi will bring you to the command line instead of launching openframe.</aside>
+<aside class="warning">If you choose to autoboot (the default), holding <code>n</code> during startup of the Pi will bring you to the command line instead of launching Openframe.</aside>
 
 You're now ready to start displaying artwork!
 

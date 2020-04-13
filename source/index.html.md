@@ -1,5 +1,5 @@
 ---
-title: Openframe
+title: Openframe Documentation
 
 toc_footers:
   - <a href='https://api.openframe.io/explorer'>REST API Docs</a>
