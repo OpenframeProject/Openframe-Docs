@@ -3,8 +3,11 @@
 
 ## Development
 
-Based on https://github.com/slatedocs/slate and https://middlemanapp.com/
+Based on https://github.com/slatedocs/slate
 
+### Requirements / Prerequisites
+
+https://github.com/slatedocs/slate#prerequisites
 
 ### Install
 
