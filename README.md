@@ -29,4 +29,4 @@ https://github.com/slatedocs/slate#prerequisites
 
 `npm run deploy`
 
-The update will be pushed into `gh-pages` branch. The changes are then available at https://docs.openframe.io/.
+The update will be pushed into `gh-pages` branch. This is also going to create a commit. The changes are then available at https://docs.openframe.io/.
