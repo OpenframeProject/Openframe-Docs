@@ -15,7 +15,8 @@ search: true
 
 # Introduction
 
-<aside class="info">This project is in an early state, and is under active development — we cannot promise everything will work 100%. <a href="#bugs-contributions-and-feedback">Feedback and contributions</a> are welcome!</aside>
+<aside id="header-notice" class="notice sticky">This project is in an early state, and is under active development — we cannot promise everything will work 100%. <a href="#bugs-contributions-and-feedback">Feedback and contributions</a> are welcome. Please help <a href="https://github.com/OpenframeProject/Openframe-Docs">improving these docs</a>!
+</aside>
 
 ## What is Openframe?
 

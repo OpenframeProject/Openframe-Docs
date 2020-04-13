@@ -2,8 +2,6 @@
 
 ## A quick note, before you start...
 
-<aside class="info">This project is in an early state, and is under active development — we cannot promise everything will work 100%. <a href="#bugs-contributions-and-feedback">Feedback and contributions</a> are welcome!</aside>
-
 ## 1. Create a user account
 
 Go to [openframe.io](https://openframe.io/login) and create a new account.
