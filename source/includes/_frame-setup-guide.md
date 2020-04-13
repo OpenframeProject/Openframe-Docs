@@ -1,28 +1,17 @@
-# Setup Guide
+# Frame Setup Guide
 
 ## A quick note, before you start...
 
-This project is in an early state, and is under active development — we cannot promise everything will work 100%. Feedback and contributions are welcome!
-
-<aside class="info">Please post questions to the <a href='https://groups.google.com/forum/#!forum/openframeio'>Google Group</a> so that others may benefit! Specific software bugs can be submitted as Github issues in the appropriate repo.</aside>
-
-
-
-
-
+<aside class="info">This project is in an early state, and is under active development — we cannot promise everything will work 100%. <a href="#bugs-contributions-and-feedback">Feedback and contributions</a> are welcome!</aside>
 
 ## 1. Create a user account
 
-Go to [openframe.io](http://openframe.io) and create a new account.
-
-
-
-
+Go to [openframe.io](https://openframe.io/login) and create a new account.
 
 
 ## 2. Setup a frame
 
-Although technically it can run on any computer that runs Node.js, Openframe is designed for the Raspberry Pi.
+Although technically it can run on any computer that runs Node.js, Openframe is designed for the Raspberry Pi. 
 
 ### Requirements
 
@@ -37,7 +26,7 @@ If you're looking for a Raspberry Pi starter pack, this would work well: [Starte
 
 ### 2.0 Preparing the Pi
 
-<aside class="info">If you already have a Raspberry Pi setup with WiFi connected, jump to step 2.1 Install Openframe. People have reported issues using Raspbian Wheezy — we recommend using Jessie (from the latest NOOBS).</aside>
+<aside class="info">If you already have a Raspberry Pi setup with WiFi connected, jump to step <a href="#2-1-install-openframe">2.1 Install Openframe</a>. People have reported issues using Raspbian Wheezy — we recommend using Jessie (from the latest NOOBS).</aside>
 
 1. Insert the SD card, WiFi dongle, and connect the monitor, keyboard and mouse.
 2. Plug in the Pi, and follow the directions on screen, selecting Rasbian.
@@ -99,7 +88,7 @@ We recommend setting a timer so the frame goes to sleep at night. See how below.
 
 **Quick guide** to send artwork to your frame:
 
-* Go to [openframe.io](http://openframe.io) and login to your account.
+* Go to [openframe.io](https://openframe.io/login) and login to your account.
 * In the web app, go to 'You' and click **Add artwork** to add a new piece. Then click the arrow button to push the artwork to your frame.
 * You can also push artwork to your frame directly from the Stream (artwork created and published by other users).
 
@@ -111,10 +100,10 @@ By default, Openframe supports four types of artwork formats:
 
 * Images (PNG, JPG, JPEG)
 * Videos (mp4)
-* Websites (no webGL yet, sorry!)
+* Websites (including WebGL)
 * Shaders
 
-If you'd like to add artwork with a different format (Processing, OpenFrameworks, etc.) you can [search for existing extensions](https://npmsearch.com/?q=openframe-extension) on NPM or [create an extension](https://github.com/OpenframeProject/Openframe/wiki/Openframe-user-guide#42-how-to-create-an-extension) to support a new format.
+If you'd like to add artwork with a different format (Processing, OpenFrameworks, etc.) you can [search for existing extensions](https://npmsearch.com/?q=openframe-extension) on NPM or [create an extension](#4-2-creating-an-extension) to support a new format.
 
 See more about installing and creating Extensions [below](#4-extensions).
 
@@ -182,9 +171,9 @@ Keep in mind that Openframe is still in an early alpha state, and the way extens
 
 
 
-## 5. Extras
+## Extras
 
-### 5.1 Add a timer
+### Add a timer
 
 > At the terminal, open crontab config:
 
@@ -203,7 +192,7 @@ If you want your frame to go to sleep at certain hours, edit crontab.
 
 The example to the right will turn OFF the display of the frame at 23:00, and turn it ON at 7:30 in the morning. Change the values for different times. [Learn more](http://www.adminschoice.com/crontab-quick-reference) about crontab to setup different timer for different days of the week.
 
-### 5.2 Change the rotation of the display
+### Change the rotation of the display
 
 > At the terminal, edit `/boot/config.txt`:
 
@@ -221,14 +210,14 @@ If you want to change the orientation from what was set during the installation,
 
 `0` is the display default (landscape). `1` will rotate the display by 90° counterclockwise. Use `2` for 180°, or `3` for 270°.
 
-### 5.3 Adding additional curators to a frame you own
+### Adding additional curators to a frame you own
 
 If you're a frame *owner* (i.e. you've created it using your username) you can add other users as *curators*. Curators will see another frame in their list of frames, and will be able to push artwork to it. They cannot edit the frame settings or delete it.
 
 Curators are added via the web app, within the frame's settings panel.
 
 
-### 5.4 Resetting a frame
+### Resetting a frame
 
 ```terminal
 $ openframe -r
@@ -242,7 +231,7 @@ Resetting a frame will _not_ remove it from your frame list in the web app; you 
 
 
 
-## 6. Updating Openframe
+## Updating Openframe
 
 > Re-run the install script, then source your `.bashrc` file:
 
