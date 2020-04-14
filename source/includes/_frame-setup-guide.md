@@ -1,7 +1,5 @@
 # Frame Setup Guide
 
-## A quick note, before you start...
-
 ## 1. Create a user account
 
 Go to [openframe.io](https://openframe.io/login) and create a new account.
