@@ -5,8 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "bundle exec middleman server",
-    "build": "bundle exec middleman build --clean && cp CNAME build/CNAME",
-    "deploy": "npm run build && git add . && git commit --allow-empty -m \"build and deploy `date +%Y%m%d%H%m%S`\" && git subtree push --prefix build origin gh-pages"
+    "build": "./deploy.sh --source-only",
+    "deploy": "./deploy.sh"
   },
   "repository": {
     "type": "git",
