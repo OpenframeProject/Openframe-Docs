@@ -1,6 +1,6 @@
-# Artwork
+## Artwork
 
-## Fetch a list of Artworks
+### Fetch a list of Artworks
 
 ```javascript
 OF.artwork.fetch(filter)
@@ -45,4 +45,4 @@ OF.artwork.fetch(filter)
 
 This endpoint retrieves a list of Artworks. If called by an unauthenticated user, the list will include only public Artworks. If called by an authenticated user, private Artworks which the user has added will also be present in the response.
 
-## Fetch an Artwork by ID
+### Fetch an Artwork by ID

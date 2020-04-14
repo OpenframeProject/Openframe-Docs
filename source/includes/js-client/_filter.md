@@ -1,4 +1,4 @@
-# Filtering queries
+## Filtering queries
 
 ```javascript
 // an example filter for an OF.users.fetch(filter)

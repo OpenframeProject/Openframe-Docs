@@ -1,10 +1,10 @@
-# Users
+## Users
 
 
 
 
 
-## Fetch a list of Users
+### Fetch a list of Users
 
 ```javascript
 OF.users.fetch(filter)
@@ -44,7 +44,7 @@ OF.users.fetch(filter)
 
 This endpoint retrieves a list of users. At present, limited information is public for all Openframe users.
 
-### Arguments
+#### Arguments
 
 Arg | Default | Description
 --------- | ------- | -----------
@@ -54,7 +54,7 @@ filter | {} | A filter config object
 
 
 
-## Fetch a User by ID
+### Fetch a User by ID
 
 ```javascript
 OF.users.fetchById()
@@ -85,7 +85,7 @@ This method retrieves a specific user by ID.
 
 If no ID is passed, it defaults to 'current', which returns the currently authenticated user.
 
-### Arguments
+#### Arguments
 
 Arg | Default | Description
 --------- | ------- | -----------
@@ -95,7 +95,7 @@ ID | 'current' | A user ID
 
 
 
-## Fetch a User by username
+### Fetch a User by username
 
 ```javascript
 OF.users.fetchByUsername("slewitt")
@@ -114,7 +114,7 @@ OF.users.fetchByUsername("slewitt")
 
 This method retrieves a specific user by Username.
 
-### Arguments
+#### Arguments
 
 Arg | Default | Description
 --------- | ------- | -----------
