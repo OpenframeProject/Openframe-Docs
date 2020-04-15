@@ -6,7 +6,7 @@ This guide is for people developing on the Raspberry Pi. Here we'll describe set
 
 ## TL;DR
 
-1. Create an Openframe-ready SD Card following the [Frame Setup Guide](#frame-setup-guide). [Enable SSH](https://www.raspberrypi.org/documentation/configuration/raspi-config.md) and, optionally, [setup Samba](http://openframeworks.cc/setup/raspberrypi/raspberry-pi-smb/).
+1. Create an Openframe-ready SD Card following the [Getting started guide](#2-0-prepare-sd-card). [Enable SSH](https://www.raspberrypi.org/documentation/configuration/raspi-config.md) and, optionally, [setup Samba](http://openframeworks.cc/setup/raspberrypi/raspberry-pi-smb/).
 2. Fork the [Openframe repo](https://github.com/OpenframeProject/Openframe), and any extension repos you plan to work on / mess around with.
 3. On the Pi, clone each forked repo, and `npm install` their dependencies.
 4. In each of the extension repos, use `npm link` to create a global symbolic link for this npm package
@@ -18,7 +18,7 @@ This guide is for people developing on the Raspberry Pi. Here we'll describe set
 
 ### Create an Openframe SD Card
 
-In order to make sure the Pi has all of the necessary dependencies installed, the simplest thing to do is to set up an SD Card following the [Frame Setup Guide](#frame-setup-guide). Make sure you've got an Openframe account and that you can log in and push artwork to your frame. You probably don't want to enable 'autoboot to Openframe', since you'll be launching Openframe yourself.
+In order to make sure the Pi has all of the necessary dependencies installed, the simplest thing to do is to set up an SD Card following the [Getting started guide](#2-0-prepare-sd-card). Make sure you've got an Openframe account and that you can log in and push artwork to your frame. You probably don't want to enable 'autoboot to Openframe', since you'll be launching Openframe yourself.
 
 It's helpful to [enable SSH](https://www.raspberrypi.org/documentation/configuration/raspi-config.md) on the Pi so that you can edit files remotely. If you're comfortable setting up and using vim (or whatever editor) on the Pi and doing your development work there, that's fine. If you'd prefer to use your usual editor, you can use Samba to mount the Pi's file system on your computer and edit the files directly.
 
