@@ -245,13 +245,44 @@
                   <li>
                     <a href="#4-extensions" class="toc-h2 toc-link" data-title="4. Extensions">4. Extensions</a>
                   </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#display-controller" class="toc-h1 toc-link" data-title="Display Controller">Display Controller</a>
+              <ul class="toc-list-h2">
                   <li>
-                    <a href="#extras" class="toc-h2 toc-link" data-title="Extras">Extras</a>
+                    <a href="#timer" class="toc-h2 toc-link" data-title="Timer">Timer</a>
                   </li>
                   <li>
-                    <a href="#updating-openframe" class="toc-h2 toc-link" data-title="Updating Openframe">Updating Openframe</a>
+                    <a href="#change-the-rotation-of-the-display" class="toc-h2 toc-link" data-title="Change the rotation of the display">Change the rotation of the display</a>
+                  </li>
+                  <li>
+                    <a href="#adding-additional-curators" class="toc-h2 toc-link" data-title="Adding additional curators">Adding additional curators</a>
+                  </li>
+                  <li>
+                    <a href="#resetting-a-frame" class="toc-h2 toc-link" data-title="Resetting a frame">Resetting a frame</a>
+                  </li>
+                  <li>
+                    <a href="#updating" class="toc-h2 toc-link" data-title="Updating">Updating</a>
                   </li>
               </ul>
+          </li>
+          <li>
+            <a href="#hardware" class="toc-h1 toc-link" data-title="Hardware">Hardware</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#raspberry-pi" class="toc-h2 toc-link" data-title="Raspberry Pi">Raspberry Pi</a>
+                  </li>
+                  <li>
+                    <a href="#other-boards-computers" class="toc-h2 toc-link" data-title="Other boards / computers">Other boards / computers</a>
+                  </li>
+                  <li>
+                    <a href="#monitors" class="toc-h2 toc-link" data-title="Monitors">Monitors</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#platform" class="toc-h1 toc-link" data-title="Platform">Platform</a>
           </li>
           <li>
             <a href="#development-environment" class="toc-h1 toc-link" data-title="Development Environment">Development Environment</a>
@@ -305,7 +336,7 @@
 
 <p>Openframe is free. Anyone can set up a frame using an HDMI display and a Raspberry Pi.</p>
 
-<p>Openframe is a collaborative, on-going project. The platform consists of an API, a web app, and software for the RPi that currently supports images, video, web-based artwork, and shaders. Our goal is to create a system that is accessible and extensible, allowing artists to easily add support for new digital formats.</p>
+<p>Openframe is a collaborative, on-going project. The platform consists of an API, a web app, and software for the RPi that currently supports images, video, web-based artwork, and shaders (more on this in the <a href="#platform">Platform section</a>). Our goal is to create a system that is accessible and extensible, allowing artists to easily add support for new digital formats.</p>
 
 <p>Go to <a href="http://www.openframe.io">openframe.io</a> for more info.</p>
 <h2 id='bugs-contributions-and-feedback'>Bugs, contributions and feedback</h2>
@@ -318,6 +349,12 @@
 <ul>
 <li><strong><a href="#getting-started">Getting Started Guide</a></strong><br>
 A step-by-step guide to installing and setting up a Raspberry Pi-based frame.</li>
+<li><strong><a href="#display-controller">Display Controller</a></strong><br>
+Specific topics on using a frame.</li>
+<li><strong><a href="#hardware">Hardware</a></strong><br>
+Detailed infos on computer hardware, monitors and monitor encasings / frames.</li>
+<li><strong><a href="#platform">Platform</a></strong><br>
+An overview of all software components of the Openframe Platform.</li>
 <li><strong><a href="#development-environment">Development Environment Setup</a></strong><br>
 A general overview of how to setup an enviroment for Extension development or core contribution.</li>
 <li><strong><a href="https://api.openframe.io/explorer">API Docs</a></strong><br>
@@ -330,47 +367,49 @@ A JavaScript API client library for interacting with the Openframe REST API.</li
 <h2 id='1-create-a-user-account'>1. Create a user account</h2>
 <p>Go to <a href="https://openframe.io/login">openframe.io</a> and create a new account.</p>
 <h2 id='2-setup-a-frame'>2. Setup a frame</h2>
-<p>Although technically it can run on any computer that runs Node.js, Openframe is designed for the <a href="https://www.raspberrypi.org/">Raspberry Pi</a>. </p>
+<p>Openframe is designed for the <a href="https://www.raspberrypi.org/">Raspberry Pi</a> although it might run on other computers.</p>
 <h3 id='hardware-requirements'>Hardware requirements</h3>
 <ul>
-<li>Raspberry Pi Zero, 1, 2, 3 or 4 w/ power adaptor</li>
-<li>HDMI monitor (or any monitor with an HDMI adaptor)</li>
-<li>SD card pre-flashed w/ <a href="https://www.raspberrypi.org/help/noobs-setup/">NOOBS</a></li>
-<li>WiFi dongle (note: some Pis have built-in wifi like Pi 3, 4 and Zero W)</li>
+<li><strong>Any Raspberry Pi model</strong> w/ power adaptor.<br>
+It needs to connect to the internet either via ethernet or WiFi. <a href="https://en.wikipedia.org/wiki/Raspberry_Pi#Generations_of_released_models">Check here</a> if your model comes with built-in WiFi.</li>
+<li>Monitor that connects to the HDMI port of the Raspberry Pi (others are probably <a href="#tft-displays">not going to work</a>)</li>
+<li>SD card</li>
 <li>Keyboard + Mouse</li>
-<li>HDMI Cable</li>
 </ul>
 
 <p>If you&#39;re looking for a Raspberry Pi starter pack, this would work well: <a href="https://www.amazon.com/CanaKit-Raspberry-Complete-Starter-Kit/dp/B01C6Q2GSY">Starter pack</a></p>
 
-<aside class="warning">TFT HAT displays, e-paper/e-ink displays and alike are often using interfaces like SPI. They are reported not to work with Openframe. This is probably due to the displays' drivers. That said — it might be possible to write an extension for Openframe to add support.<br />
-<br />
-<span style="font-weight: bold;">👍 Stick to HDMI</span> or an HDMI adaptor to whatever connector your display supports (e.g. DVI), and you should be okay.</aside>
-<h3 id='2-0-preparing-the-pi'>2.0 Preparing the Pi</h3>
-<aside class="info">If you already have a Raspberry Pi setup with WiFi connected, jump to step <a href="#2-1-install-openframe">2.1 Install Openframe</a>. People have reported issues using Raspbian Wheezy — we recommend using Jessie (from the latest NOOBS).</aside>
+<p>Head over to the <a href="#hardware">Hardware section</a> for more info.</p>
 
+<aside class="info">If you already have a Raspberry Pi running and connected to the internet, jump to step <a href="#2-2-install-openframe">2.2 Install Openframe</a>.</aside>
+<h3 id='2-0-prepare-sd-card'>2.0 Prepare SD card</h3>
+<p>Follow the <a href="https://www.raspberrypi.org/documentation/installation/installing-images/README.md">Raspberry Pi installation guide</a> and copy the latest version of the Raspian operating system on to the SD card. Alternatively use a pre-flashed SD-card with <a href="https://www.raspberrypi.org/downloads/noobs/">NOOBS</a>.</p>
+
+<p>Alternatively, you can download an <a href="https://gist.github.com/jvolker/96a52b05459316643f8e110ff46b8e32">SD image with Openframe preinstalled</a>. If you choose this option, jump to step <a href="#2-3-start-the-frame">2.3 Start the frame</a>.</p>
+<h3 id='2-1-preparing-the-pi'>2.1 Preparing the Pi</h3>
 <ol>
-<li>Insert the SD card, WiFi dongle, and connect the monitor, keyboard and mouse.</li>
-<li>Plug in the Pi, and follow the directions on screen, selecting Rasbian.
-a. Once the installation finishes, the Pi will reboot and open to the configuration screen.
-b. If your RPi booted to Desktop, find Terminal in the Menu and type <code>sudo raspi-config</code> to access the configuration screen. <strong>We recommend booting the RPi to terminal: Select &#39;Boot Options&#39; and select &#39;B2 Console Autologin&#39;.</strong></li>
+<li><strong>Set up hardware:</strong> Insert the SD card, WiFi dongle, and connect the monitor, keyboard and mouse.</li>
+<li><strong>Plug in the Pi</strong>, and follow the directions on screen, selecting Rasbian.<br>
+a.) Once the installation finishes, the Pi will reboot and open to the configuration screen.<br>
+b.) If your RPi booted to Desktop, find Terminal in the Menu and type <code>sudo raspi-config</code> to access the configuration screen.<br>
+<strong>We recommend booting the RPi to terminal:</strong> Select <code>Boot Options</code> and select `B2 Console Autologin1.</li>
 <li>Select your timezone in Internationalisation Options &gt; Change Timezone</li>
-<li>If you wish, change your password (the default password is raspberry)</li>
+<li><em>Optional:</em> change your password (the default password is <code>raspberry</code>)</li>
 <li>Select &#39;Finish&#39;, then &#39;Yes&#39; when it asks about rebooting.</li>
 <li>When the Pi reboots, login with the root user (<code>pi</code>) and password (<code>raspberry</code>, unless you changed it).</li>
 </ol>
-<h4 id='setup-wifi'>Setup WiFi</h4>
+<h4 id='optional-setup-wifi'>Optional: Setup WiFi</h4>
 <ol>
 <li>After you&#39;re logged in at the command line, we&#39;ll start up the GUI in order to configure WiFi. At the command line type <code>startx</code> to launch the GUI.</li>
 <li>Once the GUI is open, click the network icon in the upper right-hand corner, and select your WiFi network. Enter the password at the prompt, and connect.</li>
 <li>Assuming the WiFi has connected successfully, click &#39;Menu&#39; on the upper left and select &#39;Shutdown&#39;, then select the &#39;Logout&#39; or &#39;Exit to command line&#39;, and press &#39;Ok&#39;.</li>
 </ol>
-<h3 id='2-1-install-openframe'>2.1 Install Openframe</h3><pre class="highlight shell_session"><code><span class="w">$ </span><span class="nc">bash</span><span class="kv"> -c "$(curl https://openframe.io/install.sh)"
+<h3 id='2-2-install-openframe'>2.2 Install Openframe</h3><pre class="highlight shell_session"><code><span class="w">$ </span><span class="nc">bash</span><span class="kv"> -c "$(curl https://openframe.io/install.sh)"
 </span></code></pre>
 <p>In the command line on the Raspberry Pi, execute the install shell script.</p>
 
 <p>The installation takes around 20 minutes (could be longer on a slow connection). Follow the instructions at the end of the installation, you may need to restart the RPi.</p>
-<h3 id='2-2-start-the-frame'>2.2 Start the frame</h3><pre class="highlight shell_session"><code><span class="w">$ </span><span class="nc">openframe</span><span class="kv">
+<h3 id='2-3-start-the-frame'>2.3 Start the frame</h3><pre class="highlight shell_session"><code><span class="w">$ </span><span class="nc">openframe</span><span class="kv">
 </span>? Enter your Openframe username: lewisc
 ? Enter your Openframe password: ****
 ? Enter a name for this Frame: Living Room Frame
@@ -392,13 +431,13 @@ This frame should now appear as Living Room Frame when you log in to Openframe a
 
 <p>You&#39;re now ready to start displaying artwork!</p>
 
-<p>We recommend setting a timer so the frame goes to sleep at night. See how below.</p>
+<p>We recommend <a href="#timer">setting a timer</a> so the frame goes to sleep at night.</p>
 <h2 id='3-displaying-artwork'>3. Displaying artwork</h2>
 <p><strong>Quick guide</strong> to send artwork to your frame:</p>
 
 <ul>
-<li>Go to <a href="https://openframe.io/login">openframe.io</a> and login to your account.</li>
-<li>In the web app, go to &#39;You&#39; and click <strong>Add artwork</strong> to add a new piece. Then click the arrow button to push the artwork to your frame.</li>
+<li>Head over to the Web-App and <a href="https://openframe.io/login">log in using your account</a>.</li>
+<li>In the web app, go to <strong>You</strong> and click <strong>Add artwork</strong> to add a new piece. Then click the arrow button to push the artwork to your frame.</li>
 <li>You can also push artwork to your frame directly from the Stream (artwork created and published by other users).</li>
 </ul>
 
@@ -454,7 +493,11 @@ This frame should now appear as Living Room Frame when you log in to Openframe a
 <p>If you&#39;re interested, take a look at the source for default extensions (<a href="https://github.com/OpenframeProject/Openframe-Image">openframe-image</a>, <a href="https://github.com/OpenframeProject/Openframe-Website">openframe-website</a>, <a href="https://github.com/OpenframeProject/Openframe-glslViewer">openframe-glslviewer</a>, and <a href="https://github.com/OpenframeProject/Openframe-Video">openframe-video</a>) to get a sense of how they work in practice.</p>
 
 <p>Keep in mind that Openframe is still in an early alpha state, and the way extensions are created and loaded will continue to evolve and improve!</p>
-<h2 id='extras'>Extras</h2><h3 id='add-a-timer'>Add a timer</h3>
+<h1 id='display-controller'>Display Controller</h1>
+<p>The <a href="https://github.com/OpenframeProject/Openframe">display or frame controller</a> is the software that runs on the frame itself (i.e. the RPi), acting as a process manager for starting, stopping, and transitioning between artworks. You can remote control it via the <a href="https://openframe.io/stream">Web-App</a>. Both communicate via an API Server (more on this in the <a href="#platform">Platform section</a>).</p>
+
+<p>The following are topics that might be interesting to you.</p>
+<h2 id='timer'>Timer</h2>
 <blockquote>
 <p>At the terminal, open crontab config:</p>
 </blockquote>
@@ -469,7 +512,7 @@ This frame should now appear as Living Room Frame when you log in to Openframe a
 <p>If you want your frame to go to sleep at certain hours, edit crontab.</p>
 
 <p>The example to the right will turn OFF the display of the frame at 23:00, and turn it ON at 7:30 in the morning. Change the values for different times. <a href="http://www.adminschoice.com/crontab-quick-reference">Learn more</a> about crontab to setup different timer for different days of the week.</p>
-<h3 id='change-the-rotation-of-the-display'>Change the rotation of the display</h3>
+<h2 id='change-the-rotation-of-the-display'>Change the rotation of the display</h2>
 <blockquote>
 <p>At the terminal, edit <code>/boot/config.txt</code>:</p>
 </blockquote>
@@ -483,16 +526,16 @@ This frame should now appear as Living Room Frame when you log in to Openframe a
 <p>If you want to change the orientation from what was set during the installation, edit the Raspberry Pi configuration file (/boot/config.txt).</p>
 
 <p><code>0</code> is the display default (landscape). <code>1</code> will rotate the display by 90° counterclockwise. Use <code>2</code> for 180°, or <code>3</code> for 270°.</p>
-<h3 id='adding-additional-curators-to-a-frame-you-own'>Adding additional curators to a frame you own</h3>
+<h2 id='adding-additional-curators'>Adding additional curators</h2>
 <p>If you&#39;re a frame <em>owner</em> (i.e. you&#39;ve created it using your username) you can add other users as <em>curators</em>. Curators will see another frame in their list of frames, and will be able to push artwork to it. They cannot edit the frame settings or delete it.</p>
 
 <p>Curators are added via the web app, within the frame&#39;s settings panel.</p>
-<h3 id='resetting-a-frame'>Resetting a frame</h3><pre class="highlight shell_session"><code><span class="w">$ </span><span class="nc">openframe</span><span class="kv"> -r
+<h2 id='resetting-a-frame'>Resetting a frame</h2><pre class="highlight shell_session"><code><span class="w">$ </span><span class="nc">openframe</span><span class="kv"> -r
 </span></code></pre>
 <p>A frame can be reset to its default state — that is, a blank frame instance not yet attached to any particular account — by passing the <code>-r</code> flag at startup. This will erase the user and frame data stored on the RPi, and will prompt you once again for your username, password, and a name for the frame. Once a frame is reset, it&#39;s previous state cannot be restored (though this is generally not an issue... you&#39;ll just need to start pushing artwork to the new frame).</p>
 
 <p>Resetting a frame will <em>not</em> remove it from your frame list in the web app; you will need to remove the instance of the old frame manually via the UI, under the frame&#39;s settings.</p>
-<h2 id='updating-openframe'>Updating Openframe</h2>
+<h2 id='updating'>Updating</h2>
 <blockquote>
 <p>Re-run the install script, then source your <code>.bashrc</code> file:</p>
 </blockquote>
@@ -507,6 +550,48 @@ This frame should now appear as Living Room Frame when you log in to Openframe a
 <p>If you&#39;ve already installed Openframe via the install script above, you can simply re-run the install script to update.</p>
 
 <p>After upgrading, you&#39;ll need to reload your shell in order to pull in any enviroment changes.</p>
+<h1 id='hardware'>Hardware</h1><h2 id='raspberry-pi'>Raspberry Pi</h2>
+<p>Although technically it can run on any computer that runs Node.js, Openframe is designed for the <a href="https://www.raspberrypi.org/">Raspberry Pi</a>. <strong>All versions of Raspberry Pi should work:</strong> Raspberry Pi Zero W, 1, 2, 3 or 4. You will need an internet connection, either via WiFi or ethernet.</p>
+
+<p>At this stage Raspberry Pi 4 is the fastest model and Raspberry Pi Zero W the most affordable.</p>
+
+<p>If you&#39;re looking for a Raspberry Pi starter pack, this would work well: <a href="https://www.amazon.com/CanaKit-Raspberry-Complete-Starter-Kit/dp/B01C6Q2GSY">Starter pack</a></p>
+<h2 id='other-boards-computers'>Other boards / computers</h2>
+<p>There are some attempts to run Openframe on a proprietary frames like <a href="https://openframe.discourse.group/t/make-it-possible-to-run-on-the-eo-electric-objects-hardware/88">Electric Objects</a> or <a href="https://openframe.discourse.group/t/anyone-here-ever-hack-a-memento-smart-frame/72">Memento Smart Frame</a>. Refer to the <a href="https://openframe.discourse.group/c/hardware/9">Hardware section</a> of the forum for more info, share your own progress or ask questions on that matter.</p>
+<h2 id='monitors'>Monitors</h2>
+<p>Most monitors should work. Just make sure it connects to the <strong>HDMI</strong> port of the Pi, not GPIO or SPI. If your monitor doesn&#39;t have an HDMI port you can also use an adaptor to DVI / Display Port / VGA / etc..</p>
+
+<aside id="tft-displays" class="warning">TFT HAT displays, e-paper/e-ink displays and alike are often using interfaces like SPI. They are reported not to work with Openframe. This is probably due to the displays' drivers. That said — it might be possible to write an extension for Openframe to add support.</aside>
+
+<p>If you are choosing a monitor these are things you might want to consider:</p>
+
+<ul>
+<li><strong>Size:</strong> This is depending on your use case. Openframe should work on any size, from tiny to extra-large. You could even hook up the Pi to a projector.</li>
+<li><strong>Resolution:</strong> The higher the resolution, the more crisp your content is going to look like. A large resolution might slow down your Pi, though. A 4k-display hooked up to a Pi Zero might be too slow (we have not tested it though). A good and affordable standard is probably Full HD (1920 x 1080).</li>
+<li><strong>Panel:</strong> Most common panel technologies are TN, IPS and VA. In general, TN is most affordable but doesn&#39;t work as well when looked at from the side. Also contrast and brightness might not be as good as IPS and VA. Refresh rate might also be a concern on older displays, if the content you want to show is rapidly changing. Check out this <a href="https://www.techspot.com/article/1788-display-tech-compared/">display panel technology guide</a> for more info.</li>
+<li><strong>Size of the bezel:</strong> most people probably prefer thin bezels. That also makes it easier to build a <a href="#monitor-frame">frame around your monitor</a>.</li>
+<li><strong>Case design:</strong> Buttons at the side or behind the display? Any visible logos? Again, this probably depends on your usecase.</li>
+<li><strong>Price:</strong> Prices for monitors usually vary depending on size, resolution, panel type and quality. But you can actually get very cheap second hand ones from Ebay, local second hand stores or even rescue one for free from the dump.</li>
+</ul>
+
+<p>A couple of specific models have been <a href="https://openframe.discourse.group/t/directory-list-of-screens-used-with-openframe-io/18">mentioned in the forum</a>.</p>
+<h3 id='monitor-frames'>Monitor Frames</h3>
+<p>You might consider framing your monitor to improve the design or make it look more like a classic picture frame. </p>
+
+<p><img src="https://cdn.instructables.com/FNJ/63AI/ILWLAXET/FNJ63AIILWLAXET.LARGE.jpg?auto=webp&amp;width=1024&amp;height=1024&amp;fit=bounds" title="Framed monitor showing artwork from Patricio Gonzalez Vivo and Anders Hoff" alt="Framed monitor showing artwork from Patricio Gonzalez Vivo and Anders Hoff" />
+There is a building <a href="https://www.instructables.com/id/A-Frame-for-Openframe/">guide based on a picture frame</a>.</p>
+
+<p>Other users have <a href="https://twitter.com/patxangas/status/749611553155080192">built one with extra physical buttons</a> or had one <a href="https://openframe.discourse.group/t/just-framed-a-27-monitor/53">built in a professional framing shop</a>.   </p>
+<h3 id='strip-down'>Strip down</h3>
+<p>Another option is to strip down the plastic case and reveal the bare-bones display. This has been done fore <a href="https://www.flickr.com/photos/78897029@N00/albums/72157668428434301/with/26577041814/">Alt-AI / Openframe exhibition</a>, for example. </p>
+<h1 id='platform'>Platform</h1>
+<p>The platform consists of an API, a web app, and software for the RPi that currently supports images, video, web-based artwork, and shaders. Our goal is to create a system that is accessible and extensible, allowing artists to easily add support for new digital formats.</p>
+
+<p>The block diagram below represents a proposed architecture for the Openframe platform. It will continue to evolve as development on the project progresses.</p>
+
+<p><img src="https://raw.githubusercontent.com/OpenframeProject/openframeproject.github.io/master/img/API%20Diagram%20v3.jpg" title="block diagram of proposed architecture for the Openframe platform" alt="block diagram of proposed architecture for the Openframe platform" /></p>
+
+<p>The Openframe controller is the software that runs on the frame itself (i.e. the RPi), acting as a process manager for starting, stopping, and transitioning between artworks. It communicates with an <a href="https://github.com/OpenframeProject/Openframe-APIServer">Openframe API Server</a> server via a REST API, and connects to a <a href="https://github.com/OpenframeProject/Openframe-PubSubServer">global event system</a> allowing for realtime updates. The idea is to work towards a system which supports the basic goals of Openframe, guided by a handful of <a href="https://github.com/OpenframeProject/Openframe-APIServer/wiki/Pilot-Use-Cases">pilot use cases</a>.</p>
 <h1 id='development-environment'>Development Environment</h1>
 <p>If you&#39;re planning to hack on Openframe, you&#39;ll want to set up a dev environment which makes it easy to update code and see the results right away. Openframe uses familiar tools like GitHub, Node, and NPM, and we&#39;ll use some of the standard development practices of these tools to get setup.</p>
 
