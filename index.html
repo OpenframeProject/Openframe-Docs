@@ -231,7 +231,7 @@
               </ul>
           </li>
           <li>
-            <a href="#frame-setup-guide" class="toc-h1 toc-link" data-title="Frame Setup Guide">Frame Setup Guide</a>
+            <a href="#getting-started" class="toc-h1 toc-link" data-title="Getting Started">Getting Started</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#1-create-a-user-account" class="toc-h2 toc-link" data-title="1. Create a user account">1. Create a user account</a>
@@ -325,21 +325,27 @@ Swagger-generated API docs.</li>
 <li><strong><a href="#javascript-client">JS Client</a></strong><br>
 A JavaScript API client library for interacting with the Openframe REST API.</li>
 </ul>
-<h1 id='frame-setup-guide'>Frame Setup Guide</h1><h2 id='1-create-a-user-account'>1. Create a user account</h2>
+<h1 id='getting-started'>Getting Started</h1>
+<p>This guide tells you everything you need to know to set up and use a frame quickly. We&#39;re going to add more in-depth information on specific topics elsewhere in this documentation over time.</p>
+<h2 id='1-create-a-user-account'>1. Create a user account</h2>
 <p>Go to <a href="https://openframe.io/login">openframe.io</a> and create a new account.</p>
 <h2 id='2-setup-a-frame'>2. Setup a frame</h2>
-<p>Although technically it can run on any computer that runs Node.js, Openframe is designed for the Raspberry Pi. </p>
-<h3 id='requirements'>Requirements</h3>
+<p>Although technically it can run on any computer that runs Node.js, Openframe is designed for the <a href="https://www.raspberrypi.org/">Raspberry Pi</a>. </p>
+<h3 id='hardware-requirements'>Hardware requirements</h3>
 <ul>
-<li>Raspberry Pi 1, 2, or 3 w/ power adaptor</li>
+<li>Raspberry Pi Zero, 1, 2, 3 or 4 w/ power adaptor</li>
 <li>HDMI monitor (or any monitor with an HDMI adaptor)</li>
 <li>SD card pre-flashed w/ <a href="https://www.raspberrypi.org/help/noobs-setup/">NOOBS</a></li>
-<li>WiFi dongle (note: RPi 3 has built-in wifi)</li>
+<li>WiFi dongle (note: some Pis have built-in wifi like Pi 3, 4 and Zero W)</li>
 <li>Keyboard + Mouse</li>
 <li>HDMI Cable</li>
 </ul>
 
 <p>If you&#39;re looking for a Raspberry Pi starter pack, this would work well: <a href="https://www.amazon.com/CanaKit-Raspberry-Complete-Starter-Kit/dp/B01C6Q2GSY">Starter pack</a></p>
+
+<aside class="warning">TFT HAT displays, e-paper/e-ink displays and alike are often using interfaces like SPI. They are reported not to work with Openframe. This is probably due to the displays' drivers. That said — it might be possible to write an extension for Openframe to add support.<br />
+<br />
+<span style="font-weight: bold;">👍 Stick to HDMI</span> or an HDMI adaptor to whatever connector your display supports (e.g. DVI), and you should be okay.</aside>
 <h3 id='2-0-preparing-the-pi'>2.0 Preparing the Pi</h3>
 <aside class="info">If you already have a Raspberry Pi setup with WiFi connected, jump to step <a href="#2-1-install-openframe">2.1 Install Openframe</a>. People have reported issues using Raspbian Wheezy — we recommend using Jessie (from the latest NOOBS).</aside>
 
