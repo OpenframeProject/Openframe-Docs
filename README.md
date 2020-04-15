@@ -40,7 +40,7 @@ Once you're done, commit your work and [create a pull request](https://help.gith
 
 `npm run deploy`
 
-This builds the docs, creates a commit on the `master` branch and pushes it into `gh-pages` branch. The changes are then available at https://docs.openframe.io/. 
+This builds the docs, creates a commit with the content of the `build` folder on the `gh-pages` branch. The changes are then available at https://docs.openframe.io/. 
 
 ## Build
 
