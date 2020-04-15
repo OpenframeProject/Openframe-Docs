@@ -602,7 +602,7 @@ There is a building <a href="https://www.instructables.com/id/A-Frame-for-Openfr
 <p>This guide is for people developing on the Raspberry Pi. Here we&#39;ll describe setting up an environment suitable for working on the <a href="https://github.com/OpenframeProject/Openframe">Openframe frame controller</a> and modifying or developing new extensions. This setup will still use the public Openframe server, so you can use your account at <a href="http://openframe.io">openframe.io</a> to add and push artwork to your modified frame.</p>
 <h2 id='tl-dr'>TL;DR</h2>
 <ol>
-<li>Create an Openframe-ready SD Card following the <a href="#frame-setup-guide">Frame Setup Guide</a>. <a href="https://www.raspberrypi.org/documentation/configuration/raspi-config.md">Enable SSH</a> and, optionally, <a href="http://openframeworks.cc/setup/raspberrypi/raspberry-pi-smb/">setup Samba</a>.</li>
+<li>Create an Openframe-ready SD Card following the <a href="#2-0-prepare-sd-card">Getting started guide</a>. <a href="https://www.raspberrypi.org/documentation/configuration/raspi-config.md">Enable SSH</a> and, optionally, <a href="http://openframeworks.cc/setup/raspberrypi/raspberry-pi-smb/">setup Samba</a>.</li>
 <li>Fork the <a href="https://github.com/OpenframeProject/Openframe">Openframe repo</a>, and any extension repos you plan to work on / mess around with.</li>
 <li>On the Pi, clone each forked repo, and <code>npm install</code> their dependencies.</li>
 <li>In each of the extension repos, use <code>npm link</code> to create a global symbolic link for this npm package</li>
@@ -611,7 +611,7 @@ There is a building <a href="https://www.instructables.com/id/A-Frame-for-Openfr
 <li>Get to work. You can SSH into the Pi and edit files directly there, or use Samba to mount the files on your computer and work on them with your favorite editor.</li>
 </ol>
 <h2 id='the-long-version'>The Long Version</h2><h3 id='create-an-openframe-sd-card'>Create an Openframe SD Card</h3>
-<p>In order to make sure the Pi has all of the necessary dependencies installed, the simplest thing to do is to set up an SD Card following the <a href="#frame-setup-guide">Frame Setup Guide</a>. Make sure you&#39;ve got an Openframe account and that you can log in and push artwork to your frame. You probably don&#39;t want to enable &#39;autoboot to Openframe&#39;, since you&#39;ll be launching Openframe yourself.</p>
+<p>In order to make sure the Pi has all of the necessary dependencies installed, the simplest thing to do is to set up an SD Card following the <a href="#2-0-prepare-sd-card">Getting started guide</a>. Make sure you&#39;ve got an Openframe account and that you can log in and push artwork to your frame. You probably don&#39;t want to enable &#39;autoboot to Openframe&#39;, since you&#39;ll be launching Openframe yourself.</p>
 
 <p>It&#39;s helpful to <a href="https://www.raspberrypi.org/documentation/configuration/raspi-config.md">enable SSH</a> on the Pi so that you can edit files remotely. If you&#39;re comfortable setting up and using vim (or whatever editor) on the Pi and doing your development work there, that&#39;s fine. If you&#39;d prefer to use your usual editor, you can use Samba to mount the Pi&#39;s file system on your computer and edit the files directly.</p>
 
