@@ -9,44 +9,49 @@ Go to [openframe.io](https://openframe.io/login) and create a new account.
 
 ## 2. Setup a frame
 
-Although technically it can run on any computer that runs Node.js, Openframe is designed for the [Raspberry Pi](https://www.raspberrypi.org/). 
+Openframe is designed for the [Raspberry Pi](https://www.raspberrypi.org/) although it might run on other computers.
 
 ### Hardware requirements
 
-* Raspberry Pi Zero, 1, 2, 3 or 4 w/ power adaptor
-* HDMI monitor (or any monitor with an HDMI adaptor)
-* SD card pre-flashed w/ [NOOBS](https://www.raspberrypi.org/help/noobs-setup/)
-* WiFi dongle (note: some Pis have built-in wifi like Pi 3, 4 and Zero W)
+* **Any Raspberry Pi model** w/ power adaptor.  
+It needs to connect to the internet either via ethernet or WiFi. [Check here](https://en.wikipedia.org/wiki/Raspberry_Pi#Generations_of_released_models) if your model comes with built-in WiFi.
+* Monitor that connects to the HDMI port of the Raspberry Pi (others are probably [not going to work](#tft-displays))
+* SD card
 * Keyboard + Mouse
-* HDMI Cable
 
 If you're looking for a Raspberry Pi starter pack, this would work well: [Starter pack](https://www.amazon.com/CanaKit-Raspberry-Complete-Starter-Kit/dp/B01C6Q2GSY)
 
-<aside class="warning">TFT HAT displays, e-paper/e-ink displays and alike are often using interfaces like SPI. They are reported not to work with Openframe. This is probably due to the displays' drivers. That said — it might be possible to write an extension for Openframe to add support.<br />
-<br />
-<span style="font-weight: bold;">👍 Stick to HDMI</span> or an HDMI adaptor to whatever connector your display supports (e.g. DVI), and you should be okay.</aside>
+Head over to the [Hardware section](#hardware) for more info.
 
-### 2.0 Preparing the Pi
-
-<aside class="info">If you already have a Raspberry Pi setup with WiFi connected, jump to step <a href="#2-1-install-openframe">2.1 Install Openframe</a>. People have reported issues using Raspbian Wheezy — we recommend using Jessie (from the latest NOOBS).</aside>
-
-1. Insert the SD card, WiFi dongle, and connect the monitor, keyboard and mouse.
-2. Plug in the Pi, and follow the directions on screen, selecting Rasbian.
-  a. Once the installation finishes, the Pi will reboot and open to the configuration screen.
-  b. If your RPi booted to Desktop, find Terminal in the Menu and type `sudo raspi-config` to access the configuration screen. **We recommend booting the RPi to terminal: Select 'Boot Options' and select 'B2 Console Autologin'.**
-4. Select your timezone in Internationalisation Options > Change Timezone
-5. If you wish, change your password (the default password is raspberry)
-6. Select 'Finish', then 'Yes' when it asks about rebooting.
-7. When the Pi reboots, login with the root user (`pi`) and password (`raspberry`, unless you changed it).
+<aside class="info">If you already have a Raspberry Pi running and connected to the internet, jump to step <a href="#2-2-install-openframe">2.2 Install Openframe</a>.</aside>
 
 
-#### Setup WiFi
+### 2.0 Prepare SD card
+
+Follow the [Raspberry Pi installation guide](https://www.raspberrypi.org/documentation/installation/installing-images/README.md) and copy the latest version of the Raspian operating system on to the SD card. Alternatively use a pre-flashed SD-card with [NOOBS](https://www.raspberrypi.org/downloads/noobs/).
+
+Alternatively, you can download an [SD image with Openframe preinstalled](https://gist.github.com/jvolker/96a52b05459316643f8e110ff46b8e32). If you choose this option, jump to step <a href="#2-3-start-the-frame">2.3 Start the frame</a>.
+
+### 2.1 Preparing the Pi
+
+1. **Set up hardware:** Insert the SD card, WiFi dongle, and connect the monitor, keyboard and mouse.
+2. **Plug in the Pi**, and follow the directions on screen, selecting Rasbian.  
+  a.) Once the installation finishes, the Pi will reboot and open to the configuration screen.  
+  b.) If your RPi booted to Desktop, find Terminal in the Menu and type `sudo raspi-config` to access the configuration screen.  
+  **We recommend booting the RPi to terminal:** Select `Boot Options` and select `B2 Console Autologin1.
+3. Select your timezone in Internationalisation Options > Change Timezone
+4. *Optional:* change your password (the default password is `raspberry`)
+5. Select 'Finish', then 'Yes' when it asks about rebooting.
+6. When the Pi reboots, login with the root user (`pi`) and password (`raspberry`, unless you changed it).
+
+
+#### Optional: Setup WiFi
 
 1. After you're logged in at the command line, we'll start up the GUI in order to configure WiFi. At the command line type `startx` to launch the GUI.
 2. Once the GUI is open, click the network icon in the upper right-hand corner, and select your WiFi network. Enter the password at the prompt, and connect.
 3. Assuming the WiFi has connected successfully, click 'Menu' on the upper left and select 'Shutdown', then select the 'Logout' or 'Exit to command line', and press 'Ok'.
 
-### 2.1 Install Openframe
+### 2.2 Install Openframe
 
 ```terminal
 $ bash -c "$(curl https://openframe.io/install.sh)"
@@ -56,7 +61,7 @@ In the command line on the Raspberry Pi, execute the install shell script.
 
 The installation takes around 20 minutes (could be longer on a slow connection). Follow the instructions at the end of the installation, you may need to restart the RPi.
 
-### 2.2 Start the frame
+### 2.3 Start the frame
 
 ```terminal
 $ openframe
@@ -80,7 +85,7 @@ If it's the first time you start the frame, it will ask you for your Openframe u
 
 You're now ready to start displaying artwork!
 
-We recommend setting a timer so the frame goes to sleep at night. See how below.
+We recommend [setting a timer](#timer) so the frame goes to sleep at night.
 
 
 
@@ -90,8 +95,8 @@ We recommend setting a timer so the frame goes to sleep at night. See how below.
 
 **Quick guide** to send artwork to your frame:
 
-* Go to [openframe.io](https://openframe.io/login) and login to your account.
-* In the web app, go to 'You' and click **Add artwork** to add a new piece. Then click the arrow button to push the artwork to your frame.
+* Head over to the Web-App and [log in using your account](https://openframe.io/login).
+* In the web app, go to **You** and click **Add artwork** to add a new piece. Then click the arrow button to push the artwork to your frame.
 * You can also push artwork to your frame directly from the Stream (artwork created and published by other users).
 
 <aside class="info">The web app is responsive and works well as a mobile app. If you'll be using it on your phone, we recommend <a href="http://lifehacker.com/5809338/add-web-site-bookmarks-to-your-iphones-homescreen">adding the website to your homescreen</a></aside>
@@ -168,86 +173,3 @@ Extension are node modules which export an instance of the [Extension](https://g
 If you're interested, take a look at the source for default extensions ([openframe-image](https://github.com/OpenframeProject/Openframe-Image), [openframe-website](https://github.com/OpenframeProject/Openframe-Website), [openframe-glslviewer](https://github.com/OpenframeProject/Openframe-glslViewer), and [openframe-video](https://github.com/OpenframeProject/Openframe-Video)) to get a sense of how they work in practice.
 
 Keep in mind that Openframe is still in an early alpha state, and the way extensions are created and loaded will continue to evolve and improve!
-
-
-
-
-
-## Extras
-
-### Add a timer
-
-> At the terminal, open crontab config:
-
-```terminal
-$ crontab -e
-```
-
-> and add the following cron rules:
-
-```
-00 23 * * * vcgencmd display_power 0
-30 7 * * * vcgencmd display_power 1
-```
-
-If you want your frame to go to sleep at certain hours, edit crontab.
-
-The example to the right will turn OFF the display of the frame at 23:00, and turn it ON at 7:30 in the morning. Change the values for different times. [Learn more](http://www.adminschoice.com/crontab-quick-reference) about crontab to setup different timer for different days of the week.
-
-### Change the rotation of the display
-
-> At the terminal, edit `/boot/config.txt`:
-
-```terminal
-$ sudo nano /boot/config.txt
-```
-
-> then add the desired display_rotate setting:
-
-```terminal
-display_rotate=1
-```
-
-If you want to change the orientation from what was set during the installation, edit the Raspberry Pi configuration file (/boot/config.txt).
-
-`0` is the display default (landscape). `1` will rotate the display by 90° counterclockwise. Use `2` for 180°, or `3` for 270°.
-
-### Adding additional curators to a frame you own
-
-If you're a frame *owner* (i.e. you've created it using your username) you can add other users as *curators*. Curators will see another frame in their list of frames, and will be able to push artwork to it. They cannot edit the frame settings or delete it.
-
-Curators are added via the web app, within the frame's settings panel.
-
-
-### Resetting a frame
-
-```terminal
-$ openframe -r
-```
-
-A frame can be reset to its default state — that is, a blank frame instance not yet attached to any particular account — by passing the `-r` flag at startup. This will erase the user and frame data stored on the RPi, and will prompt you once again for your username, password, and a name for the frame. Once a frame is reset, it's previous state cannot be restored (though this is generally not an issue... you'll just need to start pushing artwork to the new frame).
-
-Resetting a frame will _not_ remove it from your frame list in the web app; you will need to remove the instance of the old frame manually via the UI, under the frame's settings.
-
-
-
-
-
-## Updating Openframe
-
-> Re-run the install script, then source your `.bashrc` file:
-
-```terminal
-$ bash -c "$(curl https://openframe.io/install.sh)"
-$ source ~/.bashrc
-```
-
-> Then run openframe:
-
-```terminal
-$ openframe
-```
-
-If you've already installed Openframe via the install script above, you can simply re-run the install script to update.
-
-After upgrading, you'll need to reload your shell in order to pull in any enviroment changes.

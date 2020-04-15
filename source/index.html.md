@@ -7,6 +7,9 @@ toc_footers:
 
 includes:
     - getting-started
+    - display-controller
+    - hardware
+    - platform
     - dev-env-setup
     - js-client.md.erb
 
@@ -24,7 +27,7 @@ Openframe is an open source platform for artists, curators and art enthusiasts t
 
 Openframe is free. Anyone can set up a frame using an HDMI display and a Raspberry Pi.
 
-Openframe is a collaborative, on-going project. The platform consists of an API, a web app, and software for the RPi that currently supports images, video, web-based artwork, and shaders. Our goal is to create a system that is accessible and extensible, allowing artists to easily add support for new digital formats.
+Openframe is a collaborative, on-going project. The platform consists of an API, a web app, and software for the RPi that currently supports images, video, web-based artwork, and shaders (more on this in the [Platform section](#platform)). Our goal is to create a system that is accessible and extensible, allowing artists to easily add support for new digital formats.
 
 Go to [openframe.io](http://www.openframe.io) for more info.
 
@@ -40,6 +43,12 @@ Please help <a href="https://github.com/OpenframeProject/Openframe-Docs#how-to-c
 
 - **[Getting Started Guide](#getting-started)**  
   A step-by-step guide to installing and setting up a Raspberry Pi-based frame.
+- **[Display Controller](#display-controller)**  
+  Specific topics on using a frame.
+- **[Hardware](#hardware)**  
+  Detailed infos on computer hardware, monitors and monitor encasings / frames.
+- **[Platform](#platform)**  
+  An overview of all software components of the Openframe Platform.
 - **[Development Environment Setup](#development-environment)**  
   A general overview of how to setup an enviroment for Extension development or core contribution.
 - **[API Docs](https://api.openframe.io/explorer)**  
