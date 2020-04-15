@@ -23,7 +23,7 @@ If you are choosing a monitor these are things you might want to consider:
 - **Size:** This is depending on your use case. Openframe should work on any size, from tiny to extra-large. You could even hook up the Pi to a projector.
 - **Resolution:** The higher the resolution, the more crisp your content is going to look like. A large resolution might slow down your Pi, though. A 4k-display hooked up to a Pi Zero might be too slow (we have not tested it though). A good and affordable standard is probably Full HD (1920 x 1080).
 - **Panel:** Most common panel technologies are TN, IPS and VA. In general, TN is most affordable but doesn't work as well when looked at from the side. Also contrast and brightness might not be as good as IPS and VA. Refresh rate might also be a concern on older displays, if the content you want to show is rapidly changing. Check out this [display panel technology guide](https://www.techspot.com/article/1788-display-tech-compared/) for more info.
-- **Size of the bezel:** most people probably prefer thin bezels. That also makes it easier to build a [frame around your monitor](#monitor-frame).
+- **Size of the bezel:** most people probably prefer thin bezels. Thin bezels also makes it easier to build a [frame around your monitor](#monitor-frame).
 - **Case design:** Buttons at the side or behind the display? Any visible logos? Again, this probably depends on your usecase.
 - **Price:** Prices for monitors usually vary depending on size, resolution, panel type and quality. But you can actually get very cheap second hand ones from Ebay, local second hand stores or even rescue one for free from the dump.
 
@@ -36,8 +36,10 @@ You might consider framing your monitor to improve the design or make it look mo
 ![Framed monitor showing artwork from Patricio Gonzalez Vivo and Anders Hoff](https://cdn.instructables.com/FNJ/63AI/ILWLAXET/FNJ63AIILWLAXET.LARGE.jpg?auto=webp&width=1024&height=1024&fit=bounds "Framed monitor showing artwork from Patricio Gonzalez Vivo and Anders Hoff")
 There is a building [guide based on a picture frame](https://www.instructables.com/id/A-Frame-for-Openframe/).
 
-Other users have [built one with extra physical buttons](https://twitter.com/patxangas/status/749611553155080192) or had one [built in a professional framing shop](https://openframe.discourse.group/t/just-framed-a-27-monitor/53).   
+Other users have [built one with extra physical buttons](https://twitter.com/patxangas/status/749611553155080192) or had one [built in a professional framing shop](https://openframe.discourse.group/t/just-framed-a-27-monitor/53).
+
+Please share your framing projects in the [Woodwork category of the forum](https://openframe.discourse.group/c/woodwork/10).  
 
 ### Strip down
 
-Another option is to strip down the plastic case and reveal the bare-bones display. This has been done fore [Alt-AI / Openframe exhibition](https://www.flickr.com/photos/78897029@N00/albums/72157668428434301/with/26577041814/), for example. 
+Another option is to strip down the plastic case and reveal the bare-bone display. This has been done for the [Alt-AI / Openframe exhibition](https://www.flickr.com/photos/78897029@N00/albums/72157668428434301/with/26577041814/), for example. 

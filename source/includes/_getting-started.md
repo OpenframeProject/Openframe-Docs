@@ -30,7 +30,7 @@ Head over to the [Hardware section](#hardware) for more info.
 
 Follow the [Raspberry Pi installation guide](https://www.raspberrypi.org/documentation/installation/installing-images/README.md) and copy the latest version of the Raspian operating system on to the SD card. Alternatively use a pre-flashed SD-card with [NOOBS](https://www.raspberrypi.org/downloads/noobs/).
 
-Alternatively, you can download an [SD image with Openframe preinstalled](https://gist.github.com/jvolker/96a52b05459316643f8e110ff46b8e32). If you choose this option, jump to step <a href="#2-3-start-the-frame">2.3 Start the frame</a>.
+Alternatively, you can download an [SD image with Openframe preinstalled](https://gist.github.com/jvolker/96a52b05459316643f8e110ff46b8e32). If you choose this option, set up the hardware (as described below) boot the Pi, log in and jump to step <a href="#2-3-start-the-frame">2.3 Start the frame</a>.
 
 ### 2.1 Preparing the Pi
 
@@ -39,10 +39,10 @@ Alternatively, you can download an [SD image with Openframe preinstalled](https:
   a.) Once the installation finishes, the Pi will reboot and open to the configuration screen.  
   b.) If your RPi booted to Desktop, find Terminal in the Menu and type `sudo raspi-config` to access the configuration screen.  
   **We recommend booting the RPi to terminal:** Select `Boot Options` and select `B2 Console Autologin1.
-3. Select your timezone in Internationalisation Options > Change Timezone
-4. *Optional:* change your password (the default password is `raspberry`)
-5. Select 'Finish', then 'Yes' when it asks about rebooting.
-6. When the Pi reboots, login with the root user (`pi`) and password (`raspberry`, unless you changed it).
+3. **Select** your timezone in Internationalisation Options > Change Timezone
+4. *Optional:* **Change your password** (the default password is `raspberry`)
+5. **Select** 'Finish', then 'Yes' when it asks about rebooting.
+6. When the Pi reboots, **login** with the root user (`pi`) and password (`raspberry`, unless you changed it).
 
 
 #### Optional: Setup WiFi

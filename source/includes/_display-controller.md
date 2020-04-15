@@ -2,7 +2,7 @@
 
 The [display or frame controller](https://github.com/OpenframeProject/Openframe) is the software that runs on the frame itself (i.e. the RPi), acting as a process manager for starting, stopping, and transitioning between artworks. You can remote control it via the [Web-App](https://openframe.io/stream). Both communicate via an API Server (more on this in the [Platform section](#platform)).
 
-The following are topics that might be interesting to you.
+The following are topics interesting to everyone running a frame.
 
 ## Timer
 

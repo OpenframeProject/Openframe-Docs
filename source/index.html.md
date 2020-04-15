@@ -25,6 +25,8 @@ search: true
 
 Openframe is an open source platform for artists, curators and art enthusiasts to share, discover and display digital art.
 
+![](https://openframeproject.github.io/img/topbox.jpg)
+
 Openframe is free. Anyone can set up a frame using an HDMI display and a Raspberry Pi.
 
 Openframe is a collaborative, on-going project. The platform consists of an API, a web app, and software for the RPi that currently supports images, video, web-based artwork, and shaders (more on this in the [Platform section](#platform)). Our goal is to create a system that is accessible and extensible, allowing artists to easily add support for new digital formats.
