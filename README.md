@@ -26,13 +26,11 @@ This installs Slate's dependencies.
 
 `npm start`
 
-This starts a preview web-server (http://localhost:4567). 
+This starts a preview web-server (http://localhost:4567). Use this to verify your changes. 
 
 More info (https://middlemanapp.com/basics/development-cycle/#middleman-server): 
 > You can create and edit files in the `source` folder and see the changes reflected on the preview web-server.
 > You can stop the preview server from the command-line using `Ctrl + C`.
-
-Use this to verify your changes. 
 
 ### 3. Share your changes
 

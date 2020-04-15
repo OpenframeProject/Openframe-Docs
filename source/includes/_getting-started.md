@@ -1,4 +1,6 @@
-# Frame Setup Guide
+# Getting Started
+
+This guide tells you everything you need to know to set up and use a frame quickly. We're going to add more in-depth information on specific topics elsewhere in this documentation over time.
 
 ## 1. Create a user account
 
@@ -7,18 +9,22 @@ Go to [openframe.io](https://openframe.io/login) and create a new account.
 
 ## 2. Setup a frame
 
-Although technically it can run on any computer that runs Node.js, Openframe is designed for the Raspberry Pi. 
+Although technically it can run on any computer that runs Node.js, Openframe is designed for the [Raspberry Pi](https://www.raspberrypi.org/). 
 
-### Requirements
+### Hardware requirements
 
-* Raspberry Pi 1, 2, or 3 w/ power adaptor
+* Raspberry Pi Zero, 1, 2, 3 or 4 w/ power adaptor
 * HDMI monitor (or any monitor with an HDMI adaptor)
 * SD card pre-flashed w/ [NOOBS](https://www.raspberrypi.org/help/noobs-setup/)
-* WiFi dongle (note: RPi 3 has built-in wifi)
+* WiFi dongle (note: some Pis have built-in wifi like Pi 3, 4 and Zero W)
 * Keyboard + Mouse
 * HDMI Cable
 
 If you're looking for a Raspberry Pi starter pack, this would work well: [Starter pack](https://www.amazon.com/CanaKit-Raspberry-Complete-Starter-Kit/dp/B01C6Q2GSY)
+
+<aside class="warning">TFT HAT displays, e-paper/e-ink displays and alike are often using interfaces like SPI. They are reported not to work with Openframe. This is probably due to the displays' drivers. That said — it might be possible to write an extension for Openframe to add support.<br />
+<br />
+<span style="font-weight: bold;">👍 Stick to HDMI</span> or an HDMI adaptor to whatever connector your display supports (e.g. DVI), and you should be okay.</aside>
 
 ### 2.0 Preparing the Pi
 

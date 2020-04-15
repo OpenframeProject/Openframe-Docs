@@ -6,7 +6,7 @@ toc_footers:
   - <a href='https://github.com/OpenframeProject'>Openframe on Github</a>
 
 includes:
-    - frame-setup-guide
+    - getting-started
     - dev-env-setup
     - js-client.md.erb
 
