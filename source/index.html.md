@@ -38,8 +38,8 @@ Please help <a href="https://github.com/OpenframeProject/Openframe-Docs#how-to-c
 
 ## Documentation Topics
 
-- **[Frame Setup Guide](#frame-setup-guide)**  
-  A step-by-step guide to installing and setting a Raspberry Pi-based frame.
+- **[Getting Started Guide](#getting-started)**  
+  A step-by-step guide to installing and setting up a Raspberry Pi-based frame.
 - **[Development Environment Setup](#development-environment)**  
   A general overview of how to setup an enviroment for Extension development or core contribution.
 - **[API Docs](https://api.openframe.io/explorer)**  
