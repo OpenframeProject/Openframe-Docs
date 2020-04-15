@@ -334,6 +334,8 @@
 <h2 id='what-is-openframe'>What is Openframe?</h2>
 <p>Openframe is an open source platform for artists, curators and art enthusiasts to share, discover and display digital art.</p>
 
+<p><img src="https://openframeproject.github.io/img/topbox.jpg" alt="Topbox" /></p>
+
 <p>Openframe is free. Anyone can set up a frame using an HDMI display and a Raspberry Pi.</p>
 
 <p>Openframe is a collaborative, on-going project. The platform consists of an API, a web app, and software for the RPi that currently supports images, video, web-based artwork, and shaders (more on this in the <a href="#platform">Platform section</a>). Our goal is to create a system that is accessible and extensible, allowing artists to easily add support for new digital formats.</p>
@@ -385,7 +387,7 @@ It needs to connect to the internet either via ethernet or WiFi. <a href="https:
 <h3 id='2-0-prepare-sd-card'>2.0 Prepare SD card</h3>
 <p>Follow the <a href="https://www.raspberrypi.org/documentation/installation/installing-images/README.md">Raspberry Pi installation guide</a> and copy the latest version of the Raspian operating system on to the SD card. Alternatively use a pre-flashed SD-card with <a href="https://www.raspberrypi.org/downloads/noobs/">NOOBS</a>.</p>
 
-<p>Alternatively, you can download an <a href="https://gist.github.com/jvolker/96a52b05459316643f8e110ff46b8e32">SD image with Openframe preinstalled</a>. If you choose this option, jump to step <a href="#2-3-start-the-frame">2.3 Start the frame</a>.</p>
+<p>Alternatively, you can download an <a href="https://gist.github.com/jvolker/96a52b05459316643f8e110ff46b8e32">SD image with Openframe preinstalled</a>. If you choose this option, set up the hardware (as described below) boot the Pi, log in and jump to step <a href="#2-3-start-the-frame">2.3 Start the frame</a>.</p>
 <h3 id='2-1-preparing-the-pi'>2.1 Preparing the Pi</h3>
 <ol>
 <li><strong>Set up hardware:</strong> Insert the SD card, WiFi dongle, and connect the monitor, keyboard and mouse.</li>
@@ -393,10 +395,10 @@ It needs to connect to the internet either via ethernet or WiFi. <a href="https:
 a.) Once the installation finishes, the Pi will reboot and open to the configuration screen.<br>
 b.) If your RPi booted to Desktop, find Terminal in the Menu and type <code>sudo raspi-config</code> to access the configuration screen.<br>
 <strong>We recommend booting the RPi to terminal:</strong> Select <code>Boot Options</code> and select `B2 Console Autologin1.</li>
-<li>Select your timezone in Internationalisation Options &gt; Change Timezone</li>
-<li><em>Optional:</em> change your password (the default password is <code>raspberry</code>)</li>
-<li>Select &#39;Finish&#39;, then &#39;Yes&#39; when it asks about rebooting.</li>
-<li>When the Pi reboots, login with the root user (<code>pi</code>) and password (<code>raspberry</code>, unless you changed it).</li>
+<li><strong>Select</strong> your timezone in Internationalisation Options &gt; Change Timezone</li>
+<li><em>Optional:</em> <strong>Change your password</strong> (the default password is <code>raspberry</code>)</li>
+<li><strong>Select</strong> &#39;Finish&#39;, then &#39;Yes&#39; when it asks about rebooting.</li>
+<li>When the Pi reboots, <strong>login</strong> with the root user (<code>pi</code>) and password (<code>raspberry</code>, unless you changed it).</li>
 </ol>
 <h4 id='optional-setup-wifi'>Optional: Setup WiFi</h4>
 <ol>
@@ -496,7 +498,7 @@ This frame should now appear as Living Room Frame when you log in to Openframe a
 <h1 id='display-controller'>Display Controller</h1>
 <p>The <a href="https://github.com/OpenframeProject/Openframe">display or frame controller</a> is the software that runs on the frame itself (i.e. the RPi), acting as a process manager for starting, stopping, and transitioning between artworks. You can remote control it via the <a href="https://openframe.io/stream">Web-App</a>. Both communicate via an API Server (more on this in the <a href="#platform">Platform section</a>).</p>
 
-<p>The following are topics that might be interesting to you.</p>
+<p>The following are topics interesting to everyone running a frame.</p>
 <h2 id='timer'>Timer</h2>
 <blockquote>
 <p>At the terminal, open crontab config:</p>
@@ -569,7 +571,7 @@ This frame should now appear as Living Room Frame when you log in to Openframe a
 <li><strong>Size:</strong> This is depending on your use case. Openframe should work on any size, from tiny to extra-large. You could even hook up the Pi to a projector.</li>
 <li><strong>Resolution:</strong> The higher the resolution, the more crisp your content is going to look like. A large resolution might slow down your Pi, though. A 4k-display hooked up to a Pi Zero might be too slow (we have not tested it though). A good and affordable standard is probably Full HD (1920 x 1080).</li>
 <li><strong>Panel:</strong> Most common panel technologies are TN, IPS and VA. In general, TN is most affordable but doesn&#39;t work as well when looked at from the side. Also contrast and brightness might not be as good as IPS and VA. Refresh rate might also be a concern on older displays, if the content you want to show is rapidly changing. Check out this <a href="https://www.techspot.com/article/1788-display-tech-compared/">display panel technology guide</a> for more info.</li>
-<li><strong>Size of the bezel:</strong> most people probably prefer thin bezels. That also makes it easier to build a <a href="#monitor-frame">frame around your monitor</a>.</li>
+<li><strong>Size of the bezel:</strong> most people probably prefer thin bezels. Thin bezels also makes it easier to build a <a href="#monitor-frame">frame around your monitor</a>.</li>
 <li><strong>Case design:</strong> Buttons at the side or behind the display? Any visible logos? Again, this probably depends on your usecase.</li>
 <li><strong>Price:</strong> Prices for monitors usually vary depending on size, resolution, panel type and quality. But you can actually get very cheap second hand ones from Ebay, local second hand stores or even rescue one for free from the dump.</li>
 </ul>
@@ -581,9 +583,11 @@ This frame should now appear as Living Room Frame when you log in to Openframe a
 <p><img src="https://cdn.instructables.com/FNJ/63AI/ILWLAXET/FNJ63AIILWLAXET.LARGE.jpg?auto=webp&amp;width=1024&amp;height=1024&amp;fit=bounds" title="Framed monitor showing artwork from Patricio Gonzalez Vivo and Anders Hoff" alt="Framed monitor showing artwork from Patricio Gonzalez Vivo and Anders Hoff" />
 There is a building <a href="https://www.instructables.com/id/A-Frame-for-Openframe/">guide based on a picture frame</a>.</p>
 
-<p>Other users have <a href="https://twitter.com/patxangas/status/749611553155080192">built one with extra physical buttons</a> or had one <a href="https://openframe.discourse.group/t/just-framed-a-27-monitor/53">built in a professional framing shop</a>.   </p>
+<p>Other users have <a href="https://twitter.com/patxangas/status/749611553155080192">built one with extra physical buttons</a> or had one <a href="https://openframe.discourse.group/t/just-framed-a-27-monitor/53">built in a professional framing shop</a>.</p>
+
+<p>Please share your framing projects in the <a href="https://openframe.discourse.group/c/woodwork/10">Woodwork category of the forum</a>.  </p>
 <h3 id='strip-down'>Strip down</h3>
-<p>Another option is to strip down the plastic case and reveal the bare-bones display. This has been done fore <a href="https://www.flickr.com/photos/78897029@N00/albums/72157668428434301/with/26577041814/">Alt-AI / Openframe exhibition</a>, for example. </p>
+<p>Another option is to strip down the plastic case and reveal the bare-bone display. This has been done for the <a href="https://www.flickr.com/photos/78897029@N00/albums/72157668428434301/with/26577041814/">Alt-AI / Openframe exhibition</a>, for example. </p>
 <h1 id='platform'>Platform</h1>
 <p>The platform consists of an API, a web app, and software for the RPi that currently supports images, video, web-based artwork, and shaders. Our goal is to create a system that is accessible and extensible, allowing artists to easily add support for new digital formats.</p>
 
