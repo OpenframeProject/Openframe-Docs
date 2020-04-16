@@ -49,4 +49,4 @@ Another option is to strip down the plastic case and reveal the bare-bone displa
 
 ## GPIO for electronic components
 
-Using the [GPIO of the Raspberry Pi](https://www.raspberrypi.org/documentation/usage/gpio/) you can extend your frame with electronic components like sensors, buttons, motors and more. The sky is your limit. This [GPIO example Openframe extension](https://github.com/OpenframeProject/Openframe-GPIO) might help getting started.
+Using the [GPIO of the Raspberry Pi](https://www.raspberrypi.org/documentation/usage/gpio/) you can extend your frame with electronic components like sensors, buttons, motors and more. The sky is your limit. This [GPIO example Openframe extension](https://github.com/OpenframeProject/Openframe-GPIO) might help you getting started.
