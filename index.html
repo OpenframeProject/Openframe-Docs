@@ -279,6 +279,9 @@
                   <li>
                     <a href="#monitors" class="toc-h2 toc-link" data-title="Monitors">Monitors</a>
                   </li>
+                  <li>
+                    <a href="#gpio-for-electronic-components" class="toc-h2 toc-link" data-title="GPIO for electronic components">GPIO for electronic components</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -563,7 +566,9 @@ This frame should now appear as Living Room Frame when you log in to Openframe a
 <h2 id='monitors'>Monitors</h2>
 <p>Most monitors should work. Just make sure it connects to the <strong>HDMI</strong> port of the Pi, not GPIO or SPI. If your monitor doesn&#39;t have an HDMI port you can also use an adaptor to DVI / Display Port / VGA / etc..</p>
 
-<aside id="tft-displays" class="warning">TFT HAT displays, e-paper/e-ink displays and alike are often using interfaces like SPI. They are reported not to work with Openframe. This is probably due to the displays' drivers. That said — it might be possible to write an extension for Openframe to add support.</aside>
+<aside id="tft-displays" class="warning">TFT HAT displays, e-paper/e-ink displays and alike are reported not to work with Openframe. This is probably due to the displays' drivers. That said — it might be possible to write an extension for Openframe to add support. <br>
+<br>
+Please let us know if you are able to run Openframe on a display that doesn't connect via HDMI as this has not been tested much.</aside>
 
 <p>If you are choosing a monitor these are things you might want to consider:</p>
 
@@ -573,6 +578,7 @@ This frame should now appear as Living Room Frame when you log in to Openframe a
 <li><strong>Panel:</strong> Most common panel technologies are TN, IPS and VA. In general, TN is most affordable but doesn&#39;t work as well when looked at from the side. Also contrast and brightness might not be as good as IPS and VA. Refresh rate might also be a concern on older displays, if the content you want to show is rapidly changing. Check out this <a href="https://www.techspot.com/article/1788-display-tech-compared/">display panel technology guide</a> for more info.</li>
 <li><strong>Size of the bezel:</strong> most people probably prefer thin bezels. Thin bezels also makes it easier to build a <a href="#monitor-frame">frame around your monitor</a>.</li>
 <li><strong>Case design:</strong> Buttons at the side or behind the display? Any visible logos? Again, this probably depends on your usecase.</li>
+<li><strong>Touch:</strong> You might consider a touchscreen to interact with your frame. They usually work like a regular monitors connecting to the HDMI port of the Pi but come with an extra USB cord.</li>
 <li><strong>Price:</strong> Prices for monitors usually vary depending on size, resolution, panel type and quality. But you can actually get very cheap second hand ones from Ebay, local second hand stores or even rescue one for free from the dump.</li>
 </ul>
 
@@ -588,6 +594,8 @@ There is a building <a href="https://www.instructables.com/id/A-Frame-for-Openfr
 <p>Please share your framing projects in the <a href="https://openframe.discourse.group/c/woodwork/10">Woodwork category of the forum</a>.  </p>
 <h3 id='strip-down'>Strip down</h3>
 <p>Another option is to strip down the plastic case and reveal the bare-bone display. This has been done for the <a href="https://www.flickr.com/photos/78897029@N00/albums/72157668428434301/with/26577041814/">Alt-AI / Openframe exhibition</a>, for example. </p>
+<h2 id='gpio-for-electronic-components'>GPIO for electronic components</h2>
+<p>Using the <a href="https://www.raspberrypi.org/documentation/usage/gpio/">GPIO of the Raspberry Pi</a> you can extend your frame with electronic components like sensors, buttons, motors and more. The sky is your limit. This <a href="https://github.com/OpenframeProject/Openframe-GPIO">GPIO example Openframe extension</a> might help getting started.</p>
 <h1 id='platform'>Platform</h1>
 <p>The platform consists of an API, a web app, and software for the RPi that currently supports images, video, web-based artwork, and shaders. Our goal is to create a system that is accessible and extensible, allowing artists to easily add support for new digital formats.</p>
 
