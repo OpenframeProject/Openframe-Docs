@@ -16,7 +16,9 @@ There are some attempts to run Openframe on a proprietary frames like [Electric 
 
 Most monitors should work. Just make sure it connects to the **HDMI** port of the Pi, not GPIO or SPI. If your monitor doesn't have an HDMI port you can also use an adaptor to DVI / Display Port / VGA / etc..
 
-<aside id="tft-displays" class="warning">TFT HAT displays, e-paper/e-ink displays and alike are often using interfaces like SPI. They are reported not to work with Openframe. This is probably due to the displays' drivers. That said — it might be possible to write an extension for Openframe to add support.</aside>
+<aside id="tft-displays" class="warning">TFT HAT displays, e-paper/e-ink displays and alike are reported not to work with Openframe. This is probably due to the displays' drivers. That said — it might be possible to write an extension for Openframe to add support. <br>
+<br>
+Please let us know if you are able to run Openframe on a display that doesn't connect via HDMI as this has not been tested much.</aside>
 
 If you are choosing a monitor these are things you might want to consider:
 
@@ -25,6 +27,7 @@ If you are choosing a monitor these are things you might want to consider:
 - **Panel:** Most common panel technologies are TN, IPS and VA. In general, TN is most affordable but doesn't work as well when looked at from the side. Also contrast and brightness might not be as good as IPS and VA. Refresh rate might also be a concern on older displays, if the content you want to show is rapidly changing. Check out this [display panel technology guide](https://www.techspot.com/article/1788-display-tech-compared/) for more info.
 - **Size of the bezel:** most people probably prefer thin bezels. Thin bezels also makes it easier to build a [frame around your monitor](#monitor-frame).
 - **Case design:** Buttons at the side or behind the display? Any visible logos? Again, this probably depends on your usecase.
+- **Touch:** You might consider a touchscreen to interact with your frame. They usually work like a regular monitors connecting to the HDMI port of the Pi but come with an extra USB cord.
 - **Price:** Prices for monitors usually vary depending on size, resolution, panel type and quality. But you can actually get very cheap second hand ones from Ebay, local second hand stores or even rescue one for free from the dump.
 
 A couple of specific models have been [mentioned in the forum](https://openframe.discourse.group/t/directory-list-of-screens-used-with-openframe-io/18).
@@ -43,3 +46,7 @@ Please share your framing projects in the [Woodwork category of the forum](https
 ### Strip down
 
 Another option is to strip down the plastic case and reveal the bare-bone display. This has been done for the [Alt-AI / Openframe exhibition](https://www.flickr.com/photos/78897029@N00/albums/72157668428434301/with/26577041814/), for example. 
+
+## GPIO for electronic components
+
+Using the [GPIO of the Raspberry Pi](https://www.raspberrypi.org/documentation/usage/gpio/) you can extend your frame with electronic components like sensors, buttons, motors and more. The sky is your limit. This [GPIO example Openframe extension](https://github.com/OpenframeProject/Openframe-GPIO) might help getting started.
