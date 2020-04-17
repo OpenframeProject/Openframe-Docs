@@ -16,9 +16,11 @@ If you're looking for a Raspberry Pi starter pack, this would work well: [Starte
 
 There are some attempts to run Openframe on a proprietary frames like [Electric Objects](https://openframe.discourse.group/t/make-it-possible-to-run-on-the-eo-electric-objects-hardware/88) or [Memento Smart Frame](https://openframe.discourse.group/t/anyone-here-ever-hack-a-memento-smart-frame/72). Refer to the [Hardware section](https://openframe.discourse.group/c/hardware/9) of the forum for more info, share your own progress or ask questions on that matter.
 
+The idea to build a [browser based version of Openframe](https://github.com/OpenframeProject/Openframe-WebApp/issues/2) came up. It would run on any device with a browser – like PCs, tablets or smartphones.
+
 ## Monitors
 
-Most monitors should work. Just make sure it connects to the **HDMI** port of the Pi, not GPIO or SPI. If your monitor doesn't have an HDMI port you can also use an adaptor to DVI / Display Port / VGA / etc..
+Most monitors should work. Just make sure it connects to the **HDMI** port of the Pi, not GPIO or HAT. If your monitor doesn't have an HDMI port you can also use an adaptor to DVI / Display Port / VGA / etc..
 
 <aside id="tft-displays" class="warning">TFT HAT displays, e-paper/e-ink displays and alike are reported not to work with Openframe. This is probably due to the displays' drivers. That said — it might be possible to write an extension for Openframe to add support. <br>
 <br>
