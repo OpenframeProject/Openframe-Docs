@@ -38,6 +38,7 @@ In addition, there is a <a href="https://openframe.discourse.group/t/webclipper/
   When adding new artwork, you can set it to be <span style="font-weight: bold">private (default) or public</span>. Private artworks are only visible to you, while public artworks will appear in the Stream for others to like ♥ and display.
 </aside>
 
+Read more on [how to push uploaded artwork to your frame](#3-displaying-artwork).
 
 <aside class="warning">By <span style="font-weight: bold">making an artwork public</span>, you are claiming to be the author (or copyright holder) of the work — please do not publish works that are not your own. <br><br> More on this in the <a href="#rights">rights section</a>.</aside>
 

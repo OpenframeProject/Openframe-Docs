@@ -46,6 +46,8 @@ Please help <a href="https://github.com/OpenframeProject/Openframe-Docs#how-to-c
 
 - **[Getting Started Guide](#getting-started)**  
   A step-by-step guide to installing and setting up a Raspberry Pi-based frame.
+- **[Artwork](#artwork)**  
+  Adding and sharing artwork. Where is artwork stored and licenses apply?
 - **[Display Controller](#display-controller)**  
   Specific topics on using a frame.
 - **[Hardware](#hardware)**  
