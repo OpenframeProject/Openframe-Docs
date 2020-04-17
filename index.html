@@ -242,14 +242,14 @@
                   <li>
                     <a href="#3-displaying-artwork" class="toc-h2 toc-link" data-title="3. Displaying artwork">3. Displaying artwork</a>
                   </li>
-                  <li>
-                    <a href="#4-extensions" class="toc-h2 toc-link" data-title="4. Extensions">4. Extensions</a>
-                  </li>
               </ul>
           </li>
           <li>
             <a href="#display-controller" class="toc-h1 toc-link" data-title="Display Controller">Display Controller</a>
               <ul class="toc-list-h2">
+                  <li>
+                    <a href="#extensions" class="toc-h2 toc-link" data-title="Extensions">Extensions</a>
+                  </li>
                   <li>
                     <a href="#timer" class="toc-h2 toc-link" data-title="Timer">Timer</a>
                   </li>
@@ -285,6 +285,29 @@
               </ul>
           </li>
           <li>
+            <a href="#artwork" class="toc-h1 toc-link" data-title="Artwork">Artwork</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#public-artwork-stream" class="toc-h2 toc-link" data-title="Public Artwork stream">Public Artwork stream</a>
+                  </li>
+                  <li>
+                    <a href="#your-artwork-collection" class="toc-h2 toc-link" data-title="Your Artwork collection">Your Artwork collection</a>
+                  </li>
+                  <li>
+                    <a href="#adding-artwork" class="toc-h2 toc-link" data-title="Adding artwork">Adding artwork</a>
+                  </li>
+                  <li>
+                    <a href="#artwort-formats-and-extensions" class="toc-h2 toc-link" data-title="Artwort formats and extensions">Artwort formats and extensions</a>
+                  </li>
+                  <li>
+                    <a href="#hosting-artwork" class="toc-h2 toc-link" data-title="Hosting artwork">Hosting artwork</a>
+                  </li>
+                  <li>
+                    <a href="#rights" class="toc-h2 toc-link" data-title="Rights">Rights</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#platform" class="toc-h1 toc-link" data-title="Platform">Platform</a>
           </li>
           <li>
@@ -295,6 +318,9 @@
                   </li>
                   <li>
                     <a href="#the-long-version" class="toc-h2 toc-link" data-title="The Long Version">The Long Version</a>
+                  </li>
+                  <li>
+                    <a href="#creating-an-extension" class="toc-h2 toc-link" data-title="Creating an extension">Creating an extension</a>
                   </li>
               </ul>
           </li>
@@ -438,47 +464,41 @@ This frame should now appear as Living Room Frame when you log in to Openframe a
 
 <p>We recommend <a href="#timer">setting a timer</a> so the frame goes to sleep at night.</p>
 <h2 id='3-displaying-artwork'>3. Displaying artwork</h2>
-<p><strong>Quick guide</strong> to send artwork to your frame:</p>
+<ol>
+<li><a href="https://openframe.io/login">Log in to the Web-App</a> using your account.</li>
+<li>You can find artwork on the <a href="#public-artwork-stream">public stream</a> or <a href="#your-artwork-collection">your personal artwork collection</a>.</li>
+<li>Pick something you like and click the <strong><code>arrow button</code></strong> to push the artwork to your frame.<br>
+<br>
+<img src="https://paper-attachments.dropbox.com/s_47C66C780B27D1D2264AC535F55118B0B8C6F1BE72F9B3AD04CFC94291323268_1573847491114_image.png" alt="S 47c66c780b27d1d2264ac535f55118b0b8c6f1be72f9b3ad04cfc94291323268 1573847491114 image" />
+The artwork should show up on the frame a few seconds later.</li>
+</ol>
 
-<ul>
-<li>Head over to the Web-App and <a href="https://openframe.io/login">log in using your account</a>.</li>
-<li>In the web app, go to <strong>You</strong> and click <strong>Add artwork</strong> to add a new piece. Then click the arrow button to push the artwork to your frame.</li>
-<li>You can also push artwork to your frame directly from the Stream (artwork created and published by other users).</li>
-</ul>
+<p><span style="font-size: 19px">🙌 That&#39;s all. Enjoy your Openframe!</span></p>
+
+<p><strong>What&#39;s next?</strong> Now you are probably keen to <strong>add your own artwork</strong>. More on this <a href="#adding-artwork">here</a>.</p>
 
 <aside class="info">The web app is responsive and works well as a mobile app. If you'll be using it on your phone, we recommend <a href="http://lifehacker.com/5809338/add-web-site-bookmarks-to-your-iphones-homescreen">adding the website to your homescreen</a></aside>
-<h3 id='3-1-artwork-formats'>3.1 Artwork formats</h3>
-<p>By default, Openframe supports four types of artwork formats:</p>
 
-<ul>
-<li>Images (PNG, JPG, JPEG)</li>
-<li>Videos (mp4)</li>
-<li>Websites (including WebGL)</li>
-<li>Shaders</li>
-</ul>
+<aside class="warning">
+  <span style="font-weight: bold">Troubleshooting:</span> 
+  <ul>
+    <li>Some artwork might require you to install an extension on your Openframe, that might not be installed by default. More on <a href="#artwort-formats-and-extensions">extensions</a>.</li>
+    <li>Some artwork might be offline. You might not get any feedback if this happens.</li>
+    <li>Some artwork might be very large and it can take a while to download to the frame depending on the internet connection.</li>
+  </ul>
+  
+  <span style="font-weight: bold">Please help us <a href="#bugs-contributions-and-feedback">improving Openframe</a></span> to make things easier and run smoother.
+    
+</aside>
+<h1 id='display-controller'>Display Controller</h1>
+<p>The <a href="https://github.com/OpenframeProject/Openframe">display or frame controller</a> is the software that runs on the frame itself (i.e. the RPi), acting as a process manager for starting, stopping, and transitioning between artworks. You can remote control it via the <a href="https://openframe.io/stream">Web-App</a>. Both communicate via an API Server (more on this in the <a href="#platform">Platform section</a>).</p>
 
-<p>If you&#39;d like to add artwork with a different format (Processing, OpenFrameworks, etc.) you can <a href="https://npmsearch.com/?q=openframe-extension">search for existing extensions</a> on NPM or <a href="#4-2-creating-an-extension">create an extension</a> to support a new format.</p>
-
-<p>See more about installing and creating Extensions <a href="#4-extensions">below</a>.</p>
-<h3 id='3-2-the-stream'>3.2 The Stream</h3>
-<p>The Stream contains all artwork that users have made <strong>public</strong>. You can <strong>like</strong> artwork from the Stream to save it. Click the like button again to remove it.</p>
-<h3 id='3-3-your-artwork'>3.3 Your Artwork</h3>
-<p>Your artwork collection contains artwork that you&#39;ve <strong>added</strong>, or you&#39;ve <strong>liked</strong> from the Stream.</p>
-<h4 id='adding-artwork'>Adding artwork</h4>
-<p>Artwork added to Openframe requires an author, name, a format, a URL where the artwork is hosted, and a URL for a preview image (suggested width = 500px).</p>
-
-<p>When adding new artwork, you can set it to be private (default) or public. Private artworks are only visible to you, while public artworks will appear in the Stream for others to like and display.</p>
-
-<aside class="warning">By making an artwork public, you are claiming to be the author (or copyright holder) of the work — please do not publish works that are not your own.</aside>
-<h4 id='adding-shaders-from-the-book-of-shaders'>Adding shaders from The Book of Shaders</h4>
-<p>Shaders can be added via the <a href="http://editor.thebookofshaders.com/">Book of Shaders Editor</a>. Create your shader, then select Export -&gt; [o] in the top menu. This will add the shader to your Artworks.</p>
-<h3 id='3-4-rights'>3.4 Rights</h3>
-<p>Openframe does not store any artwork. Frames fetch artwork directly form the provided URL each time it&#39;s required to display it. Make sure you have the rights to the artwork you add and display using Openframe.</p>
-
-<p>The artwork will be available as long as the content in the URL is available.</p>
-<h2 id='4-extensions'>4. Extensions</h2>
+<p>The following are topics interesting to everyone running a frame.</p>
+<h2 id='extensions'>Extensions</h2>
 <p>Openframe provides a baseline functionality that can be augmented with extensions. An extension may be created to support a new artwork format, to add interactivity to the frame, etc.</p>
-<h3 id='4-1-installing-an-extension'>4.1 Installing an extension</h3>
+
+<p><strong>Installing / removing an extension</strong></p>
+
 <blockquote>
 <p>E.G, to add the openFrameworks extension:</p>
 </blockquote>
@@ -490,18 +510,12 @@ This frame should now appear as Living Room Frame when you log in to Openframe a
 <pre class="highlight shell_session"><code><span class="w">$ </span><span class="nc">openframe</span><span class="kv"> -u openframe-of
 </span></code></pre>
 <p>At present, extensions must be installed and removed on the Raspberry Pi directly, via the command line.</p>
-<h3 id='4-2-creating-an-extension'>4.2 Creating an extension</h3>
-<aside class="info">More documentation coming soon!</aside>
 
-<p>Extension are node modules which export an instance of the <a href="https://github.com/OpenframeProject/Openframe-Extension">Extension</a> class. The README for the Extension repo gives a bit of information about how Extensions work, and how to create them.</p>
-
-<p>If you&#39;re interested, take a look at the source for default extensions (<a href="https://github.com/OpenframeProject/Openframe-Image">openframe-image</a>, <a href="https://github.com/OpenframeProject/Openframe-Website">openframe-website</a>, <a href="https://github.com/OpenframeProject/Openframe-glslViewer">openframe-glslviewer</a>, and <a href="https://github.com/OpenframeProject/Openframe-Video">openframe-video</a>) to get a sense of how they work in practice.</p>
-
-<p>Keep in mind that Openframe is still in an early alpha state, and the way extensions are created and loaded will continue to evolve and improve!</p>
-<h1 id='display-controller'>Display Controller</h1>
-<p>The <a href="https://github.com/OpenframeProject/Openframe">display or frame controller</a> is the software that runs on the frame itself (i.e. the RPi), acting as a process manager for starting, stopping, and transitioning between artworks. You can remote control it via the <a href="https://openframe.io/stream">Web-App</a>. Both communicate via an API Server (more on this in the <a href="#platform">Platform section</a>).</p>
-
-<p>The following are topics interesting to everyone running a frame.</p>
+<aside class="info">
+  More on <a href="#artwort-formats-and-extensions">Extensions and artwork formats</a>.<br>
+  <br>
+  You may <a style="font-weight: bold" href="#creating-an-extension">create new extensions</a> to support new artwork formats, to add interactivity to the frame, etc.
+</aside>
 <h2 id='timer'>Timer</h2>
 <blockquote>
 <p>At the terminal, open crontab config:</p>
@@ -595,7 +609,180 @@ There is a building <a href="https://www.instructables.com/id/A-Frame-for-Openfr
 <h3 id='strip-down'>Strip down</h3>
 <p>Another option is to strip down the plastic case and reveal the bare-bone display. This has been done for the <a href="https://www.flickr.com/photos/78897029@N00/albums/72157668428434301/with/26577041814/">Alt-AI / Openframe exhibition</a>, for example. </p>
 <h2 id='gpio-for-electronic-components'>GPIO for electronic components</h2>
-<p>Using the <a href="https://www.raspberrypi.org/documentation/usage/gpio/">GPIO of the Raspberry Pi</a> you can extend your frame with electronic components like sensors, buttons, motors and more. The sky is your limit. This <a href="https://github.com/OpenframeProject/Openframe-GPIO">GPIO example Openframe extension</a> might help getting started.</p>
+<p>Using the <a href="https://www.raspberrypi.org/documentation/usage/gpio/">GPIO of the Raspberry Pi</a> you can extend your frame with electronic components like sensors, buttons, motors and more. The sky is your limit. This <a href="https://github.com/OpenframeProject/Openframe-GPIO">GPIO example Openframe extension</a> might help you getting started.</p>
+<h1 id='artwork'>Artwork</h1><h2 id='public-artwork-stream'>Public Artwork stream</h2>
+<p>The <a href="https://openframe.io/stream">Stream</a> contains all artwork that users have made <strong>public</strong>. You can <strong>like</strong> artwork from the Stream to save it. Click the like button again to remove it.</p>
+<h2 id='your-artwork-collection'>Your Artwork collection</h2>
+<p>Your artwork collection contains artwork that you&#39;ve <strong>added</strong>, or you&#39;ve <strong>liked</strong> from the Stream. You can find it clicking on the <strong><code>YOU</code></strong> button next to the <strong><code>BROWSE</code></strong> in the <a href="https://openframe.io/stream">stream</a>.</p>
+
+<p>It&#39;s located at this URL: <code>www.openframe.io/{username}</code></p>
+<h2 id='adding-artwork'>Adding artwork</h2>
+<p>You can add artwork through the <a href="https://openframe.io/stream">Openframe web-app</a>. </p>
+
+<aside class="info">
+In addition, there is a <a href="https://openframe.discourse.group/t/webclipper/61">Web Clipper extension for Chrome in the making</a>, which is going to make the uploading process a lot easier, in most cases. In the meantime, this guide is hopefully going to be helpful to you.
+</aside>
+
+<ol>
+<li><a href="https://openframe.io/login">Create a new account</a>, if you haven&#39;t done already.</li>
+<li>Then click on <strong><code>You</code></strong> to navigate to your personal artwork stream (which includes all artwork you have uploaded) and click <strong><code>Add artwork</code></strong> to add a new piece.
+<img src="https://paper-attachments.dropbox.com/s_47C66C780B27D1D2264AC535F55118B0B8C6F1BE72F9B3AD04CFC94291323268_1573847631491_image.png" alt="S 47c66c780b27d1d2264ac535f55118b0b8c6f1be72f9b3ad04cfc94291323268 1573847631491 image" /></li>
+<li>Your artwork must have a title.</li>
+<li>Choose the right artwork format (e.g. <code>openframe-image</code>). More on this further below in the <a href="#artwork-formats">Artwork formats</a> section.</li>
+<li>Enter the URL to your artwork into the field <code>URL where the artwork is hosted</code>. You have to <a href="#hosting-artwork">host the artwork</a> yourself.</li>
+<li>Optionally enter a URL to a preview image of the sketch which is useful to quickly identify the artwork in the web-app. This is even more important if you like to publish your beautiful artwork.</li>
+</ol>
+
+<aside class="info">
+  Artwork added to Openframe <span style="font-weight: bold">requires</span> the following: 
+  <ul>
+    <li>author</li> 
+    <li>title
+    <li>format
+    <li>URL where the artwork is hosted
+    <li><span style="font-style: italic;">optional:</span> URL for a preview image (suggested width = 500px).
+  </ul> 
+  When adding new artwork, you can set it to be <span style="font-weight: bold">private (default) or public</span>. Private artworks are only visible to you, while public artworks will appear in the Stream for others to like ♥ and display.
+</aside>
+
+<aside class="warning">By <span style="font-weight: bold">making an artwork public</span>, you are claiming to be the author (or copyright holder) of the work — please do not publish works that are not your own. <br><br> More on this in the <a href="#rights">rights section</a>.</aside>
+<h2 id='artwort-formats-and-extensions'>Artwort formats and extensions</h2>
+<p>By default, Openframe supports four types of artwork formats:</p>
+
+<ul>
+<li>Images (PNG, JPG, JPEG)</li>
+<li>Videos (mp4)</li>
+<li>Websites (including WebGL)</li>
+<li>Shaders</li>
+</ul>
+
+<p>At the moment each artwork format is coupled to a specific extension (<a href="https://github.com/OpenframeProject/Openframe/issues/68">this might change</a>). </p>
+
+<p>The following list should help you finding the right extension for the media type you would like to use. </p>
+
+<aside class="info">
+  Read more on how to <a style="font-weight: bold;" href="#extensions">installing and removing extensions</a>.<br>
+  <br>
+  In addition to the following list, you can <a href="https://npmsearch.com/?q=openframe-extension">search for existing extensions on NPM</a> or <a href="#creating-an-extension">create an extension</a> to support a new format.
+</aside>
+
+<p><strong>Images</strong></p>
+
+<ul>
+<li><a href="https://www.npmjs.com/package/openframe-image"><code>openframe-image</code></a> (installed by default) based on glsl-viewer
+
+<ul>
+<li>JPG and PNG support only</li>
+<li>might not work with larger images</li>
+</ul></li>
+<li><a href="https://www.npmjs.com/package/openframe-vlc"><code>openframe-vlc</code></a> based on VLC player
+
+<ul>
+<li><a href="https://wiki.videolan.org/Image/">supports lots of image formats</a></li>
+<li>might have issues with aspect ratio especially if screen is turned into portrait mode</li>
+</ul></li>
+<li><a href="https://www.npmjs.com/package/openframe-website"><code>openframe-website</code></a>` (installed by default) based on Chromium
+
+<ul>
+<li>supports several image formats. Even animated GIFs, yay!</li>
+<li>the image needs to be wrapped into HTML website for proper positioning and scaling </li>
+<li>starting the browser takes a while</li>
+</ul></li>
+</ul>
+
+<p><strong>Video/Audio</strong></p>
+
+<ul>
+<li><a href="https://www.npmjs.com/package/openframe-video"><code>openframe-video</code></a> (installed by default) based on omxplayer
+
+<ul>
+<li>supports H264 and probably a few other formats</li>
+</ul></li>
+<li><a href="https://www.npmjs.com/package/openframe-vlc"><code>openframe-vlc</code></a> based on VLC player 
+
+<ul>
+<li><a href="https://wiki.videolan.org/VLC_Features_Formats/">plays lots of different formats</a></li>
+<li>starts videos without downloading</li>
+<li>might have issues with aspect ratio especially if screen is turned into portrait mode</li>
+</ul></li>
+</ul>
+
+<p><strong>Websites</strong></p>
+
+<ul>
+<li><a href="https://www.npmjs.com/package/openframe-website"><code>openframe-website</code></a> (installed by default) based on Chromium
+
+<ul>
+<li>supports everything you would expect from a modern browser (including WEBGL)</li>
+<li>takes a while to start the browser</li>
+</ul></li>
+</ul>
+
+<p><strong>Maps</strong></p>
+
+<ul>
+<li><a href="https://www.npmjs.com/package/openframe-tangram"><code>openframe-tangram</code></a> <a href="https://www.npmjs.com/package/openframe-tangram"></a>
+
+<ul>
+<li>adds support for maps via tangram-es</li>
+</ul></li>
+</ul>
+
+<p><strong>Shader</strong></p>
+
+<ul>
+<li><a href="http://npmjs.com/package/openframe-glslviewer"><code>openframe-glslviewer</code></a> (installed by default) based on glsl-viewer
+
+<ul>
+<li>supports GLSL shader</li>
+<li>you can use <a href="http://editor.thebookofshaders.com/">editor.thebookofshaders.com</a> to edit and host a shader. The direct upload to Openframe from their website (<strong><code>Export</code></strong> -&gt; <strong><code>[o]</code></strong> in the top menu) is currently broken though. Download and host yourself instead.</li>
+</ul></li>
+</ul>
+
+<p><strong>Processing</strong></p>
+
+<ul>
+<li><a href="https://www.npmjs.com/package/openframe-processing"><code>openframe-processing</code></a> based on processing-java
+
+<ul>
+<li>adds support for Processing .pde files and .zip files including libraries</li>
+</ul></li>
+<li><code>openframe-processing-javascript</code> not on NPM yet. Follow the <a href="https://github.com/jvolker/Openframe-Processing-JavaScript#instructions">install instructions on Github</a>. 
+
+<ul>
+<li>supports sketches hosted on <a href="http://www.openframe.org">Openframe.org</a> based on p5.js or processing.js</li>
+</ul></li>
+</ul>
+
+<p><strong>Openframeworks</strong></p>
+
+<ul>
+<li><a href="https://www.npmjs.com/package/openframe-of"><code>openframe-of</code></a>`
+
+<ul>
+<li>adds support for openFrameworks executables</li>
+</ul></li>
+</ul>
+<h2 id='hosting-artwork'>Hosting artwork</h2>
+<aside class="info">
+  Currently, you have to upload your artwork to a publicly reachable webspace. 
+</aside>
+
+<p><strong>If you don&#39;t have a webspace/server?</strong> </p>
+
+<p>You could, as one out of many options, try Dropbox. Once it&#39;s uploaded to Dropbox, use the <code>Copy Dropbox Link</code>. You will end up with a URL like this <code>https://www.dropbox.com/s/vb17ehsdfqp2bjd/290317.jpg?dl=0</code>. Change the 0 at the end to 1 like this <code>https://www.dropbox.com/s/vb17ehsdfqp2bjd/290317.jpg?dl=1</code>, and you will be able to use the URL for Openframe.</p>
+<h2 id='rights'>Rights</h2>
+<aside class="info">
+<span style="font-weight: bold">Openframe does not store any artwork.</span> Frames fetch artwork directly form the provided URL each time it's required to display it. Make sure you have the rights to the artwork you add and display using Openframe.
+</aside>
+
+<p>The artwork will be available as long as the content in the URL is available.</p>
+
+<aside class="info">
+At this stage, there is no way to attach a <span style="font-weight: bold">license / copyright</span> to your artwork. We are aware that this is not ideal. If you have ideas on how to approach this topic, please let us know <a href="https://openframe.discourse.group/c/artwork/11">in the forum</a>.
+</aside>
+
+<aside class="warning">By <span style="font-weight: bold">making an artwork public</span>, you are claiming to be the author (or copyright holder) of the work — please do not publish works that are not your own.</aside>
 <h1 id='platform'>Platform</h1>
 <p>The platform consists of an API, a web app, and software for the RPi that currently supports images, video, web-based artwork, and shaders. Our goal is to create a system that is accessible and extensible, allowing artists to easily add support for new digital formats.</p>
 
@@ -677,7 +864,15 @@ There is a building <a href="https://www.instructables.com/id/A-Frame-for-Openfr
 <h3 id='debugging'>Debugging</h3>
 <p>Openframe uses (and encourages you to use!) the <a href="https://www.npmjs.com/package/debug">debug</a> package. You can see the debug output by specifying the <code>DEBUG</code> env var when starting Openframe. E.g. to see <strong>all</strong> debug output:</p>
 <pre class="highlight shell_session"><code><span class="w">$ </span><span class="nc">DEBUG=*</span><span class="kv"> npm start
-</span></code></pre><h1 id='javascript-client'>JavaScript Client</h1>
+</span></code></pre><h2 id='creating-an-extension'>Creating an extension</h2>
+<aside class="info">This section needs more documentation. Please help <a href="https://github.com/OpenframeProject/Openframe-Docs#how-to-contribute">improving these docs</a>.</aside>
+
+<p>Extensions are node modules which export an instance of the <a href="https://github.com/OpenframeProject/Openframe-Extension">Extension</a> class. The <a href="https://github.com/OpenframeProject/Openframe-Extension#openframe-extension">README of the Extension repo</a> gives a bit of information about how Extensions work, and how to create them.</p>
+
+<p>If you&#39;re interested, take a look at the source for default extensions (<a href="https://github.com/OpenframeProject/Openframe-Image">openframe-image</a>, <a href="https://github.com/OpenframeProject/Openframe-Website">openframe-website</a>, <a href="https://github.com/OpenframeProject/Openframe-glslViewer">openframe-glslviewer</a>, and <a href="https://github.com/OpenframeProject/Openframe-Video">openframe-video</a>) to get a sense of how they work in practice.</p>
+
+<p>Keep in mind that Openframe is still in an early alpha state, and the way extensions are created and loaded will continue to evolve and improve!</p>
+<h1 id='javascript-client'>JavaScript Client</h1>
 <aside class="warning">Jan. 22, 2017 - These docs are incomplete.</aside>
 
 <p>Welcome to the Openframe JavaScript Client! You can use this lib to access Openframe REST API endpoints, which can be used to fetch and update artworks, frames, and profile information for authenticated users.</p>
