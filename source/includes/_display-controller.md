@@ -79,11 +79,6 @@ The following list should help you finding the right extension for the media typ
     - supports everything you would expect from a modern browser (including WEBGL)
     - takes a while to start the browser
 
-**Maps**
-
-- [`openframe-tangram`](https://www.npmjs.com/package/openframe-tangram) [](https://www.npmjs.com/package/openframe-tangram)
-    - adds support for maps via tangram-es
-
 **Shader**
 
 - [`openframe-glslviewer`](http://npmjs.com/package/openframe-glslviewer) (installed by default) based on glsl-viewer
@@ -101,7 +96,11 @@ The following list should help you finding the right extension for the media typ
 
 - [`openframe-of`](https://www.npmjs.com/package/openframe-of)`
     - adds support for openFrameworks executables
+    
+**Maps**
 
+- [`openframe-tangram`](https://www.npmjs.com/package/openframe-tangram) [](https://www.npmjs.com/package/openframe-tangram)
+    - adds support for maps via tangram-es
 
 
 ## Timer

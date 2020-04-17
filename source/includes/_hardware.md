@@ -1,14 +1,18 @@
 # Hardware
 
-## Raspberry Pi
+## Requirements
 
-Although technically it can run on any computer that runs Node.js, Openframe is designed for the [Raspberry Pi](https://www.raspberrypi.org/). **All versions of Raspberry Pi should work:** Raspberry Pi Zero W, 1, 2, 3 or 4. You will need an internet connection, either via WiFi or ethernet.
+Although technically it can run on any computer that runs Node.js, Openframe is designed for the [Raspberry Pi](https://www.raspberrypi.org/). 
 
-At this stage Raspberry Pi 4 is the fastest model and Raspberry Pi Zero W the most affordable.
+**All versions of Raspberry Pi should work:**  
+
+- Raspberry Pi Zero W, 1, 2, 3 or 4
+- At this stage Pi 4 is the fastest model and Pi Zero W the most affordable. 
+- You will need an internet connection, either via WiFi or ethernet.
 
 If you're looking for a Raspberry Pi starter pack, this would work well: [Starter pack](https://www.amazon.com/CanaKit-Raspberry-Complete-Starter-Kit/dp/B01C6Q2GSY)
 
-## Other boards / computers
+## Other computers and operating systems
 
 There are some attempts to run Openframe on a proprietary frames like [Electric Objects](https://openframe.discourse.group/t/make-it-possible-to-run-on-the-eo-electric-objects-hardware/88) or [Memento Smart Frame](https://openframe.discourse.group/t/anyone-here-ever-hack-a-memento-smart-frame/72). Refer to the [Hardware section](https://openframe.discourse.group/c/hardware/9) of the forum for more info, share your own progress or ask questions on that matter.
 

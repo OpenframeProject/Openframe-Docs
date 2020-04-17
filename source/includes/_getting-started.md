@@ -11,7 +11,7 @@ Go to [openframe.io](https://openframe.io/login) and create a new account.
 
 Openframe is designed for the [Raspberry Pi](https://www.raspberrypi.org/) although it might run on other computers.
 
-### Hardware requirements
+**Hardware requirements**
 
 * **Any Raspberry Pi model** w/ power adaptor.  
 It needs to connect to the internet either via ethernet or WiFi. [Check here](https://en.wikipedia.org/wiki/Raspberry_Pi#Generations_of_released_models) if your model comes with built-in WiFi.
