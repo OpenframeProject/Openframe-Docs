@@ -109,7 +109,7 @@ The artwork should show up on the frame a few seconds later.
 <aside class="warning">
   <span style="font-weight: bold">Troubleshooting:</span> 
   <ul>
-    <li>Some artwork might require you to install an extension on your Openframe, that might not be installed by default. More on <a href="#artwort-formats-and-extensions">extensions</a>.</li>
+    <li>Some artwork might require you to install an extension on your Openframe, that might not be installed by default. More on <a href="#artwork-formats-and-extensions">extensions</a>.</li>
     <li>Some artwork might be offline. You might not get any feedback if this happens.</li>
     <li>Some artwork might be very large and it can take a while to download to the frame depending on the internet connection.</li>
   </ul>

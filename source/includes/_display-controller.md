@@ -25,13 +25,13 @@ $ openframe -u openframe-of
 At present, extensions must be installed and removed on the Raspberry Pi directly, via the command line.
 
 <aside class="info">
-  More on <a href="#artwort-formats-and-extensions">Extensions and artwork formats</a>.<br>
+  More on <a href="#artwork-formats-and-extensions">Extensions and artwork formats</a>.<br>
   <br>
   You may <a style="font-weight: bold" href="#creating-an-extension">create new extensions</a> to support new artwork formats, to add interactivity to the frame, etc.
 </aside>
 
 
-## Artwort formats and extensions
+## Artwork formats and extensions
 
 By default, Openframe supports four types of artwork formats:
 
