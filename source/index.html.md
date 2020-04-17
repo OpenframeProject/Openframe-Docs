@@ -7,9 +7,9 @@ toc_footers:
 
 includes:
     - getting-started
+    - artwork
     - display-controller
     - hardware
-    - artwork
     - platform
     - dev-env-setup
     - js-client.md.erb
