@@ -9,6 +9,7 @@ includes:
     - getting-started
     - display-controller
     - hardware
+    - artwork
     - platform
     - dev-env-setup
     - js-client.md.erb

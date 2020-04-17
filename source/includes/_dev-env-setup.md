@@ -93,3 +93,13 @@ Openframe uses (and encourages you to use!) the [debug](https://www.npmjs.com/pa
 ```terminal
 $ DEBUG=* npm start
 ```
+
+## Creating an extension
+
+<aside class="info">This section needs more documentation. Please help <a href="https://github.com/OpenframeProject/Openframe-Docs#how-to-contribute">improving these docs</a>.</aside>
+
+Extensions are node modules which export an instance of the [Extension](https://github.com/OpenframeProject/Openframe-Extension) class. The [README of the Extension repo](https://github.com/OpenframeProject/Openframe-Extension#openframe-extension) gives a bit of information about how Extensions work, and how to create them.
+
+If you're interested, take a look at the source for default extensions ([openframe-image](https://github.com/OpenframeProject/Openframe-Image), [openframe-website](https://github.com/OpenframeProject/Openframe-Website), [openframe-glslviewer](https://github.com/OpenframeProject/Openframe-glslViewer), and [openframe-video](https://github.com/OpenframeProject/Openframe-Video)) to get a sense of how they work in practice.
+
+Keep in mind that Openframe is still in an early alpha state, and the way extensions are created and loaded will continue to evolve and improve!

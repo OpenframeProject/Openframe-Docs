@@ -93,83 +93,27 @@ We recommend [setting a timer](#timer) so the frame goes to sleep at night.
 
 ## 3. Displaying artwork
 
-**Quick guide** to send artwork to your frame:
+1. [Log in to the Web-App](https://openframe.io/login) using your account.
+2. You can find artwork on the [public stream](#public-artwork-stream) or [your personal artwork collection](#your-artwork-collection).
+3. Pick something you like and click the **`arrow button`** to push the artwork to your frame.<br>
+<br>
+![](https://paper-attachments.dropbox.com/s_47C66C780B27D1D2264AC535F55118B0B8C6F1BE72F9B3AD04CFC94291323268_1573847491114_image.png)
+The artwork should show up on the frame a few seconds later.
 
-* Head over to the Web-App and [log in using your account](https://openframe.io/login).
-* In the web app, go to **You** and click **Add artwork** to add a new piece. Then click the arrow button to push the artwork to your frame.
-* You can also push artwork to your frame directly from the Stream (artwork created and published by other users).
+<span style="font-size: 19px">🙌 That's all. Enjoy your Openframe!</span>
+
+**What's next?** Now you are probably keen to **add your own artwork**. More on this [here](#adding-artwork).
 
 <aside class="info">The web app is responsive and works well as a mobile app. If you'll be using it on your phone, we recommend <a href="http://lifehacker.com/5809338/add-web-site-bookmarks-to-your-iphones-homescreen">adding the website to your homescreen</a></aside>
 
-### 3.1 Artwork formats
-
-By default, Openframe supports four types of artwork formats:
-
-* Images (PNG, JPG, JPEG)
-* Videos (mp4)
-* Websites (including WebGL)
-* Shaders
-
-If you'd like to add artwork with a different format (Processing, OpenFrameworks, etc.) you can [search for existing extensions](https://npmsearch.com/?q=openframe-extension) on NPM or [create an extension](#4-2-creating-an-extension) to support a new format.
-
-See more about installing and creating Extensions [below](#4-extensions).
-
-### 3.2 The Stream
-
-The Stream contains all artwork that users have made **public**. You can **like** artwork from the Stream to save it. Click the like button again to remove it.
-
-### 3.3 Your Artwork
-
-Your artwork collection contains artwork that you've **added**, or you've **liked** from the Stream.
-
-#### Adding artwork
-
-Artwork added to Openframe requires an author, name, a format, a URL where the artwork is hosted, and a URL for a preview image (suggested width = 500px).
-
-When adding new artwork, you can set it to be private (default) or public. Private artworks are only visible to you, while public artworks will appear in the Stream for others to like and display.
-
-<aside class="warning">By making an artwork public, you are claiming to be the author (or copyright holder) of the work — please do not publish works that are not your own.</aside>
-
-#### Adding shaders from The Book of Shaders
-
-Shaders can be added via the [Book of Shaders Editor](http://editor.thebookofshaders.com/). Create your shader, then select Export -> [o] in the top menu. This will add the shader to your Artworks.
-
-### 3.4 Rights
-
-Openframe does not store any artwork. Frames fetch artwork directly form the provided URL each time it's required to display it. Make sure you have the rights to the artwork you add and display using Openframe.
-
-The artwork will be available as long as the content in the URL is available.
-
-
-
-
-
-## 4. Extensions
-
-Openframe provides a baseline functionality that can be augmented with extensions. An extension may be created to support a new artwork format, to add interactivity to the frame, etc.
-
-### 4.1 Installing an extension
-
-> E.G, to add the openFrameworks extension:
-
-```terminal
-$ openframe -i openframe-of
-```
-
-> To remove the openFrameworks extension:
-
-```terminal
-$ openframe -u openframe-of
-```
-
-At present, extensions must be installed and removed on the Raspberry Pi directly, via the command line.
-
-### 4.2 Creating an extension
-
-<aside class="info">More documentation coming soon!</aside>
-
-Extension are node modules which export an instance of the [Extension](https://github.com/OpenframeProject/Openframe-Extension) class. The README for the Extension repo gives a bit of information about how Extensions work, and how to create them.
-
-If you're interested, take a look at the source for default extensions ([openframe-image](https://github.com/OpenframeProject/Openframe-Image), [openframe-website](https://github.com/OpenframeProject/Openframe-Website), [openframe-glslviewer](https://github.com/OpenframeProject/Openframe-glslViewer), and [openframe-video](https://github.com/OpenframeProject/Openframe-Video)) to get a sense of how they work in practice.
-
-Keep in mind that Openframe is still in an early alpha state, and the way extensions are created and loaded will continue to evolve and improve!
+<aside class="warning">
+  <span style="font-weight: bold">Troubleshooting:</span> 
+  <ul>
+    <li>Some artwork might require you to install an extension on your Openframe, that might not be installed by default. More on <a href="#artwort-formats-and-extensions">extensions</a>.</li>
+    <li>Some artwork might be offline. You might not get any feedback if this happens.</li>
+    <li>Some artwork might be very large and it can take a while to download to the frame depending on the internet connection.</li>
+  </ul>
+  
+  <span style="font-weight: bold">Please help us <a href="#bugs-contributions-and-feedback">improving Openframe</a></span> to make things easier and run smoother.
+    
+</aside>

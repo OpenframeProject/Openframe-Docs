@@ -4,6 +4,33 @@ The [display or frame controller](https://github.com/OpenframeProject/Openframe)
 
 The following are topics interesting to everyone running a frame.
 
+## Extensions
+
+Openframe provides a baseline functionality that can be augmented with extensions. An extension may be created to support a new artwork format, to add interactivity to the frame, etc.
+
+**Installing / removing an extension**
+
+> E.G, to add the openFrameworks extension:
+
+```terminal
+$ openframe -i openframe-of
+```
+
+> To remove the openFrameworks extension:
+
+```terminal
+$ openframe -u openframe-of
+```
+
+At present, extensions must be installed and removed on the Raspberry Pi directly, via the command line.
+
+<aside class="info">
+  More on <a href="#artwort-formats-and-extensions">Extensions and artwork formats</a>.<br>
+  <br>
+  You may <a style="font-weight: bold" href="#creating-an-extension">create new extensions</a> to support new artwork formats, to add interactivity to the frame, etc.
+</aside>
+
+
 ## Timer
 
 > At the terminal, open crontab config:
