@@ -294,10 +294,10 @@
             <a href="#hardware" class="toc-h1 toc-link" data-title="Hardware">Hardware</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#raspberry-pi" class="toc-h2 toc-link" data-title="Raspberry Pi">Raspberry Pi</a>
+                    <a href="#requirements" class="toc-h2 toc-link" data-title="Requirements">Requirements</a>
                   </li>
                   <li>
-                    <a href="#other-boards-computers" class="toc-h2 toc-link" data-title="Other boards / computers">Other boards / computers</a>
+                    <a href="#other-computers-and-operating-systems" class="toc-h2 toc-link" data-title="Other computers and operating systems">Other computers and operating systems</a>
                   </li>
                   <li>
                     <a href="#monitors" class="toc-h2 toc-link" data-title="Monitors">Monitors</a>
@@ -401,7 +401,9 @@ A JavaScript API client library for interacting with the Openframe REST API.</li
 <p>Go to <a href="https://openframe.io/login">openframe.io</a> and create a new account.</p>
 <h2 id='2-setup-a-frame'>2. Setup a frame</h2>
 <p>Openframe is designed for the <a href="https://www.raspberrypi.org/">Raspberry Pi</a> although it might run on other computers.</p>
-<h3 id='hardware-requirements'>Hardware requirements</h3>
+
+<p><strong>Hardware requirements</strong></p>
+
 <ul>
 <li><strong>Any Raspberry Pi model</strong> w/ power adaptor.<br>
 It needs to connect to the internet either via ethernet or WiFi. <a href="https://en.wikipedia.org/wiki/Raspberry_Pi#Generations_of_released_models">Check here</a> if your model comes with built-in WiFi.</li>
@@ -648,16 +650,6 @@ At this stage, there is no way to attach a <span style="font-weight: bold">licen
 </ul></li>
 </ul>
 
-<p><strong>Maps</strong></p>
-
-<ul>
-<li><a href="https://www.npmjs.com/package/openframe-tangram"><code>openframe-tangram</code></a> <a href="https://www.npmjs.com/package/openframe-tangram"></a>
-
-<ul>
-<li>adds support for maps via tangram-es</li>
-</ul></li>
-</ul>
-
 <p><strong>Shader</strong></p>
 
 <ul>
@@ -691,6 +683,16 @@ At this stage, there is no way to attach a <span style="font-weight: bold">licen
 
 <ul>
 <li>adds support for openFrameworks executables</li>
+</ul></li>
+</ul>
+
+<p><strong>Maps</strong></p>
+
+<ul>
+<li><a href="https://www.npmjs.com/package/openframe-tangram"><code>openframe-tangram</code></a> <a href="https://www.npmjs.com/package/openframe-tangram"></a>
+
+<ul>
+<li>adds support for maps via tangram-es</li>
 </ul></li>
 </ul>
 <h2 id='timer'>Timer</h2>
@@ -746,13 +748,19 @@ At this stage, there is no way to attach a <span style="font-weight: bold">licen
 <p>If you&#39;ve already installed Openframe via the install script above, you can simply re-run the install script to update.</p>
 
 <p>After upgrading, you&#39;ll need to reload your shell in order to pull in any enviroment changes.</p>
-<h1 id='hardware'>Hardware</h1><h2 id='raspberry-pi'>Raspberry Pi</h2>
-<p>Although technically it can run on any computer that runs Node.js, Openframe is designed for the <a href="https://www.raspberrypi.org/">Raspberry Pi</a>. <strong>All versions of Raspberry Pi should work:</strong> Raspberry Pi Zero W, 1, 2, 3 or 4. You will need an internet connection, either via WiFi or ethernet.</p>
+<h1 id='hardware'>Hardware</h1><h2 id='requirements'>Requirements</h2>
+<p>Although technically it can run on any computer that runs Node.js, Openframe is designed for the <a href="https://www.raspberrypi.org/">Raspberry Pi</a>. </p>
 
-<p>At this stage Raspberry Pi 4 is the fastest model and Raspberry Pi Zero W the most affordable.</p>
+<p><strong>All versions of Raspberry Pi should work:</strong>  </p>
+
+<ul>
+<li>Raspberry Pi Zero W, 1, 2, 3 or 4</li>
+<li>At this stage Pi 4 is the fastest model and Pi Zero W the most affordable. </li>
+<li>You will need an internet connection, either via WiFi or ethernet.</li>
+</ul>
 
 <p>If you&#39;re looking for a Raspberry Pi starter pack, this would work well: <a href="https://www.amazon.com/CanaKit-Raspberry-Complete-Starter-Kit/dp/B01C6Q2GSY">Starter pack</a></p>
-<h2 id='other-boards-computers'>Other boards / computers</h2>
+<h2 id='other-computers-and-operating-systems'>Other computers and operating systems</h2>
 <p>There are some attempts to run Openframe on a proprietary frames like <a href="https://openframe.discourse.group/t/make-it-possible-to-run-on-the-eo-electric-objects-hardware/88">Electric Objects</a> or <a href="https://openframe.discourse.group/t/anyone-here-ever-hack-a-memento-smart-frame/72">Memento Smart Frame</a>. Refer to the <a href="https://openframe.discourse.group/c/hardware/9">Hardware section</a> of the forum for more info, share your own progress or ask questions on that matter.</p>
 <h2 id='monitors'>Monitors</h2>
 <p>Most monitors should work. Just make sure it connects to the <strong>HDMI</strong> port of the Pi, not GPIO or SPI. If your monitor doesn&#39;t have an HDMI port you can also use an adaptor to DVI / Display Port / VGA / etc..</p>
