@@ -7,6 +7,7 @@ Although technically it can run on any computer that runs Node.js, Openframe is 
 **All versions of Raspberry Pi should work:**  
 
 - Raspberry Pi Zero W, 1, 2, 3 or 4
+- **Use of Raspberry Pi 4 is experimental!** Check the forum for reported issues and solutions.
 - At this stage Pi 4 is the fastest model and Pi Zero W the most affordable. 
 - You will need an internet connection, either via WiFi or ethernet.
 

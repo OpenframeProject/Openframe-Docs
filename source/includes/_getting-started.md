@@ -13,7 +13,7 @@ Openframe is designed for the [Raspberry Pi](https://www.raspberrypi.org/) altho
 
 **Hardware requirements**
 
-* **Any Raspberry Pi model** w/ power adaptor.  
+* **Any Raspberry Pi model** w/ power adaptor. [Use of Raspberry Pi 4 is experimental](#requirements).  
 It needs to connect to the internet either via ethernet or WiFi. [Check here](https://en.wikipedia.org/wiki/Raspberry_Pi#Generations_of_released_models) if your model comes with built-in WiFi.
 * Monitor that connects to the HDMI port of the Raspberry Pi (others are probably [not going to work](#tft-displays))
 * SD card
