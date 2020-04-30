@@ -44,6 +44,10 @@ Alternatively, you can download an [SD image with Openframe preinstalled](https:
 5. **Select** 'Finish', then 'Yes' when it asks about rebooting.
 6. When the Pi reboots, **login** with the root user (`pi`) and password (`raspberry`, unless you changed it).
 
+<aside class="info">
+  <span style="font-weight: bold">Highly recommended:</span> Increase the GPU memory split (from 64MB by default) to 256MB or 512MB. Otherwise, the image and shader extension might not work properly.<br />
+  <br />You can do this by running the Raspberry Pi config tool <code>sudo raspi-config</code>. Another way to do this is to edit <code>/boot/config.txt</code>. You can <a href="https://www.raspberrypi.org/documentation/configuration/config-txt/memory.md">read more on this here</a>.
+</aside>
 
 #### Optional: Setup WiFi
 
