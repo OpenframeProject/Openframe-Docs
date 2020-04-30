@@ -113,7 +113,8 @@ There is a [slideshow extensions](https://github.com/jmwohl/Openframe-Slideshow)
 $ openframe -i openframe-slideshow
 ```
 
-The interval between two artworks is hardcoded at this stage. You have to change it [in the code](https://github.com/jmwohl/Openframe-Slideshow/blob/dac94fd8173ede13a3e6c7e4c3f63deed2c4d69e/extension.js#L10) on your device.
+The default interval between two artworks is 1 minute. You can adjust this either through the [frame settings file](#frame-settings) applying to all artworks. Or by adding [per-artwork settings](#per-artwork-settings) using the API. There is no UI for this yet.
+There is a [guide on doing this using the API](https://openframe.discourse.group/t/openframe-slideshow-works-but/49/3) available in the forum. 
 
 ## Timer
 
@@ -170,7 +171,9 @@ A frame can be reset to its default state — that is, a blank frame instance no
 Resetting a frame will _not_ remove it from your frame list in the web app; you will need to remove the instance of the old frame manually via the UI, under the frame's settings.
 
 
+## Frame settings
 
+The frame's settings file is located on your device at: `~/.openframe/.ofrc`
 
 
 ## Updating

@@ -42,6 +42,11 @@ Read more on [how to push uploaded artwork to your frame](#3-displaying-artwork)
 
 <aside class="warning">By <span style="font-weight: bold">making an artwork public</span>, you are claiming to be the author (or copyright holder) of the work — please do not publish works that are not your own. <br><br> More on this in the <a href="#rights">rights section</a>.</aside>
 
+## Per Artwork settings
+
+Some extensions make use of settings attached to each artwork. While there is no UI for this in the Web app yet, you can still use the API / [JavaScript client](#javascript-client) to apply settings to an artwork.
+There is a [guide on adding settings for the slideshow extension using the API](https://openframe.discourse.group/t/openframe-slideshow-works-but/49/3) available in the forum. 
+
 ## Hosting artwork
 
 <aside class="info">
