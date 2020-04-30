@@ -257,6 +257,9 @@
                     <a href="#adding-artwork" class="toc-h2 toc-link" data-title="Adding artwork">Adding artwork</a>
                   </li>
                   <li>
+                    <a href="#per-artwork-settings" class="toc-h2 toc-link" data-title="Per Artwork settings">Per Artwork settings</a>
+                  </li>
+                  <li>
                     <a href="#hosting-artwork" class="toc-h2 toc-link" data-title="Hosting artwork">Hosting artwork</a>
                   </li>
                   <li>
@@ -287,6 +290,9 @@
                   </li>
                   <li>
                     <a href="#resetting-a-frame" class="toc-h2 toc-link" data-title="Resetting a frame">Resetting a frame</a>
+                  </li>
+                  <li>
+                    <a href="#frame-settings" class="toc-h2 toc-link" data-title="Frame settings">Frame settings</a>
                   </li>
                   <li>
                     <a href="#updating" class="toc-h2 toc-link" data-title="Updating">Updating</a>
@@ -540,6 +546,9 @@ In addition, there is a <a href="https://openframe.discourse.group/t/webclipper/
 <p>Read more on <a href="#3-displaying-artwork">how to push uploaded artwork to your frame</a>.</p>
 
 <aside class="warning">By <span style="font-weight: bold">making an artwork public</span>, you are claiming to be the author (or copyright holder) of the work — please do not publish works that are not your own. <br><br> More on this in the <a href="#rights">rights section</a>.</aside>
+<h2 id='per-artwork-settings'>Per Artwork settings</h2>
+<p>Some extensions make use of settings attached to each artwork. While there is no UI for this in the Web app yet, you can still use the API / <a href="#javascript-client">JavaScript client</a> to apply settings to an artwork.
+There is a <a href="https://openframe.discourse.group/t/openframe-slideshow-works-but/49/3">guide on adding settings for the slideshow extension using the API</a> available in the forum. </p>
 <h2 id='hosting-artwork'>Hosting artwork</h2>
 <aside class="info">
   Currently, you have to upload your artwork to a publicly reachable webspace. 
@@ -709,7 +718,8 @@ At this stage, there is no way to attach a <span style="font-weight: bold">licen
 <p><a href="#extensions">Install it like any other extension</a> on the display controller:  </p>
 <pre class="highlight shell_session"><code><span class="w">$ </span><span class="nc">openframe</span><span class="kv"> -i openframe-slideshow
 </span></code></pre>
-<p>The interval between two artworks is hardcoded at this stage. You have to change it <a href="https://github.com/jmwohl/Openframe-Slideshow/blob/dac94fd8173ede13a3e6c7e4c3f63deed2c4d69e/extension.js#L10">in the code</a> on your device.</p>
+<p>The default interval between two artworks is 1 minute. You can adjust this either through the <a href="#frame-settings">frame settings file</a> applying to all artworks. Or by adding <a href="#per-artwork-settings">per-artwork settings</a> using the API. There is no UI for this yet.
+There is a <a href="https://openframe.discourse.group/t/openframe-slideshow-works-but/49/3">guide on doing this using the API</a> available in the forum. </p>
 <h2 id='timer'>Timer</h2>
 <blockquote>
 <p>At the terminal, open crontab config:</p>
@@ -748,6 +758,8 @@ At this stage, there is no way to attach a <span style="font-weight: bold">licen
 <p>A frame can be reset to its default state — that is, a blank frame instance not yet attached to any particular account — by passing the <code>-r</code> flag at startup. This will erase the user and frame data stored on the RPi, and will prompt you once again for your username, password, and a name for the frame. Once a frame is reset, it&#39;s previous state cannot be restored (though this is generally not an issue... you&#39;ll just need to start pushing artwork to the new frame).</p>
 
 <p>Resetting a frame will <em>not</em> remove it from your frame list in the web app; you will need to remove the instance of the old frame manually via the UI, under the frame&#39;s settings.</p>
+<h2 id='frame-settings'>Frame settings</h2>
+<p>The frame&#39;s settings file is located on your device at: <code>~/.openframe/.ofrc</code></p>
 <h2 id='updating'>Updating</h2>
 <blockquote>
 <p>Re-run the install script, then source your <code>.bashrc</code> file:</p>
