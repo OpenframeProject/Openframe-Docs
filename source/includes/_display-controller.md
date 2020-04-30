@@ -103,6 +103,18 @@ The following list should help you finding the right extension for the media typ
     - adds support for maps via tangram-es
 
 
+## Slideshow
+
+There is a [slideshow extensions](https://github.com/jmwohl/Openframe-Slideshow) available which loops through [your artwork collection](#your-artwork-collection). In theory it can loop through other collections of artworks too, but at this stage the only collection available is your personal one.
+
+[Install it like any other extension](#extensions) on the display controller:  
+
+```terminal
+$ openframe -i openframe-slideshow
+```
+
+The interval between two artworks is hardcoded at this stage. You have to change it [in the code](https://github.com/jmwohl/Openframe-Slideshow/blob/dac94fd8173ede13a3e6c7e4c3f63deed2c4d69e/extension.js#L10) on your device.
+
 ## Timer
 
 > At the terminal, open crontab config:
