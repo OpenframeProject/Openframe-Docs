@@ -274,6 +274,9 @@
                     <a href="#artwork-formats-and-extensions" class="toc-h2 toc-link" data-title="Artwork formats and extensions">Artwork formats and extensions</a>
                   </li>
                   <li>
+                    <a href="#slideshow" class="toc-h2 toc-link" data-title="Slideshow">Slideshow</a>
+                  </li>
+                  <li>
                     <a href="#timer" class="toc-h2 toc-link" data-title="Timer">Timer</a>
                   </li>
                   <li>
@@ -358,7 +361,7 @@
       <div class="content">
         <h1>Openframe Documentation</h1>
         <h1 id='introduction'>Introduction</h1>
-<aside id="header-notice" class="notice sticky">This project is in an early state, and is under active development — we cannot promise everything will work 100%. <a href="#bugs-contributions-and-feedback">Feedback and contributions</a> are welcome. Please help <a href="https://github.com/OpenframeProject/Openframe-Docs#how-to-contribute">improving these docs</a>!
+<aside id="header-notice" class="notice sticky">This project is in an early state, and is under active development — we can not promise everything will work 100%. <a href="#bugs-contributions-and-feedback">Feedback and contributions</a> are welcome. Please help <a href="https://github.com/OpenframeProject/Openframe-Docs#how-to-contribute">improving these docs</a>!
 </aside>
 <h2 id='what-is-openframe'>What is Openframe?</h2>
 <p>Openframe is an open source platform for artists, curators and art enthusiasts to share, discover and display digital art.</p>
@@ -433,6 +436,11 @@ b.) If your RPi booted to Desktop, find Terminal in the Menu and type <code>sudo
 <li><strong>Select</strong> &#39;Finish&#39;, then &#39;Yes&#39; when it asks about rebooting.</li>
 <li>When the Pi reboots, <strong>login</strong> with the root user (<code>pi</code>) and password (<code>raspberry</code>, unless you changed it).</li>
 </ol>
+
+<aside class="info">
+  <span style="font-weight: bold">Highly recommended:</span> Increase the GPU memory split (from 64MB by default) to 256MB or 512MB. Otherwise, the image and shader extension might not work properly.<br />
+  <br />You can do this by running the Raspberry Pi config tool <code>sudo raspi-config</code>. Another way to do this is to edit <code>/boot/config.txt</code>. You can <a href="https://www.raspberrypi.org/documentation/configuration/config-txt/memory.md">read more on this here</a>.
+</aside>
 <h4 id='optional-setup-wifi'>Optional: Setup WiFi</h4>
 <ol>
 <li>After you&#39;re logged in at the command line, we&#39;ll start up the GUI in order to configure WiFi. At the command line type <code>startx</code> to launch the GUI.</li>
@@ -695,6 +703,13 @@ At this stage, there is no way to attach a <span style="font-weight: bold">licen
 <li>adds support for maps via tangram-es</li>
 </ul></li>
 </ul>
+<h2 id='slideshow'>Slideshow</h2>
+<p>There is a <a href="https://github.com/jmwohl/Openframe-Slideshow">slideshow extensions</a> available which loops through <a href="#your-artwork-collection">your artwork collection</a>. In theory it can loop through other collections of artworks too, but at this stage the only collection available is your personal one.</p>
+
+<p><a href="#extensions">Install it like any other extension</a> on the display controller:  </p>
+<pre class="highlight shell_session"><code><span class="w">$ </span><span class="nc">openframe</span><span class="kv"> -i openframe-slideshow
+</span></code></pre>
+<p>The interval between two artworks is hardcoded at this stage. You have to change it <a href="https://github.com/jmwohl/Openframe-Slideshow/blob/dac94fd8173ede13a3e6c7e4c3f63deed2c4d69e/extension.js#L10">in the code</a> on your device.</p>
 <h2 id='timer'>Timer</h2>
 <blockquote>
 <p>At the terminal, open crontab config:</p>
