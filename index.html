@@ -427,38 +427,59 @@ It needs to connect to the internet either via ethernet or WiFi. <a href="https:
 
 <aside class="info">If you already have a Raspberry Pi running and connected to the internet, jump to step <a href="#2-2-install-openframe">2.2 Install Openframe</a>.</aside>
 <h3 id='2-0-prepare-sd-card'>2.0 Prepare SD card</h3>
-<p>Follow the <a href="https://www.raspberrypi.org/documentation/installation/installing-images/README.md">Raspberry Pi installation guide</a> and copy the latest version of the Raspian operating system on to the SD card. Alternatively use a pre-flashed SD-card with <a href="https://www.raspberrypi.org/downloads/noobs/">NOOBS</a>.</p>
+<p>Follow the <a href="https://www.raspberrypi.org/documentation/installation/installing-images/README.md">Raspberry Pi installation guide</a> and copy the latest version of the Raspian operating system on to the SD card. Alternatively, use a pre-flashed SD-card with <a href="https://www.raspberrypi.org/downloads/noobs/">NOOBS</a>.</p>
 
-<p>Alternatively, you can download an <a href="https://gist.github.com/jvolker/96a52b05459316643f8e110ff46b8e32">SD image with Openframe preinstalled</a>. If you choose this option, set up the hardware (as described below) boot the Pi, log in and jump to step <a href="#2-3-start-the-frame">2.3 Start the frame</a>.</p>
-<h3 id='2-1-preparing-the-pi'>2.1 Preparing the Pi</h3>
+<p>Or you can download an <a href="https://gist.github.com/jvolker/96a52b05459316643f8e110ff46b8e32">SD image with Openframe preinstalled</a>. If you choose this option, set up the hardware (as described below) boot the Pi, log in and jump to step <a href="#2-3-start-the-frame">2.3 Start the frame</a>.</p>
+<h3 id='2-1-configure-the-pi'>2.1 Configure the Pi</h3>
 <ol>
 <li><strong>Set up hardware:</strong> Insert the SD card, WiFi dongle, and connect the monitor, keyboard and mouse.</li>
-<li><strong>Plug in the Pi</strong>, and follow the directions on screen, selecting Rasbian.<br>
-a.) Once the installation finishes, the Pi will reboot and open to the configuration screen.<br>
-b.) If your RPi booted to Desktop, find Terminal in the Menu and type <code>sudo raspi-config</code> to access the configuration screen.<br>
-<strong>We recommend booting the RPi to terminal:</strong> Select <code>Boot Options</code> and select `B2 Console Autologin1.</li>
-<li><strong>Select</strong> your timezone in Internationalisation Options &gt; Change Timezone</li>
-<li><em>Optional:</em> <strong>Change your password</strong> (the default password is <code>raspberry</code>)</li>
-<li><strong>Select</strong> &#39;Finish&#39;, then &#39;Yes&#39; when it asks about rebooting.</li>
-<li>When the Pi reboots, <strong>login</strong> with the root user (<code>pi</code>) and password (<code>raspberry</code>, unless you changed it).</li>
+<li><strong>Plug in the Pi</strong> Your Pi should boot into Desktop. </li>
+<li><strong>Connect to the internet</strong> if you are not connected via ethernet, click the network icon in the upper right-hand corner, turn on WiFi and select your WiFi network. </li>
+<li><strong>Configure:</strong> Open the Menu (top left corner) &gt; <code>Preferences</code> &gt; <code>Raspberry Pi Configuration</code>.<br></li>
 </ol>
 
 <aside class="info">
-  <span style="font-weight: bold">Highly recommended:</span> Increase the GPU memory split (from 64MB by default) to 256MB or 512MB. Otherwise, the image and shader extension might not work properly.<br />
-  <br />You can do this by running the Raspberry Pi config tool <code>sudo raspi-config</code>. Another way to do this is to edit <code>/boot/config.txt</code>. You can <a href="https://www.raspberrypi.org/documentation/configuration/config-txt/memory.md">read more on this here</a>.
+  <span style="font-weight: bold">Required/Highly recommended settings:</span> 
+  <ul>
+    <li>
+      Increase the GPU memory split. Otherwise, the image and shader extension might not work properly. <code>Performance</code> > <code>GPU Memory</code></br>
+      Depending on your Pis available memory, 128MB or 256MB for Pi 1 - 3 and 512MB for Pi 4 with more than 1GB of RAM are propbably good values.  </li>
+    <li>
+      Boot the Pi to terminal/CLI as Openframe doesn't work from the Desktop. Select <code>System</code> > <code>Boot</code> and select <code>To CLI</code>.
+    </li>
+  </ul>
 </aside>
-<h4 id='optional-setup-wifi'>Optional: Setup WiFi</h4>
-<ol>
-<li>After you&#39;re logged in at the command line, we&#39;ll start up the GUI in order to configure WiFi. At the command line type <code>startx</code> to launch the GUI.</li>
-<li>Once the GUI is open, click the network icon in the upper right-hand corner, and select your WiFi network. Enter the password at the prompt, and connect.</li>
-<li>Assuming the WiFi has connected successfully, click &#39;Menu&#39; on the upper left and select &#39;Shutdown&#39;, then select the &#39;Logout&#39; or &#39;Exit to command line&#39;, and press &#39;Ok&#39;.</li>
+
+<ul>
+<li>Select your timezone in <code>Localisation</code> &gt; <code>Set Timezone</code></li></li>
+<li><em>Optional</em> - Enable SSH: <code>Interfaces</code> &gt; <code>SSH</code> &gt; <code>Enabled</code> </li>
+<li><em>Optional</em> - Change your password: (the default password is <code>raspberry</code>)</li>
+</ul>
+
+<ol start="5">
+  <li><span style="font-weight: bold">Finish</span> Click <code>OK</code> to close the configuration tool <span style="font-weight: bold">and reboot</span>.</li>
+  <li>When the Pi reboots, <span style="font-weight: bold">login</span> with the root user <code>pi</code> and password <code>raspberry</code>, unless you changed it.</li>
 </ol>
+
+<aside class="info">
+  These settings can be edited later in either one of these ways: 
+  <ul>
+    <li>Through the <code>Raspberry Pi Configuration</code> in desktop</li>
+    <li>By running the config tool <code>sudo raspi-config</code> from command line</li>
+    <li>By editing the <code>/boot/config.txt</code>. You can <a href="https://www.raspberrypi.org/documentation/configuration/">read more on this here</a>.</li>
+    </li>
+  </ul>
+</aside>
 <h3 id='2-2-install-openframe'>2.2 Install Openframe</h3><pre class="highlight shell_session"><code><span class="w">$ </span><span class="nc">bash</span><span class="kv"> -c "$(curl https://openframe.io/install.sh)"
 </span></code></pre>
-<p>In the command line on the Raspberry Pi, execute the install shell script.</p>
+<p>In the command line on the Raspberry Pi, execute the install shell script. The installation takes around 20 minutes (could be longer on a slow connection). Follow the instructions at the end of the installation. </p>
 
-<p>The installation takes around 20 minutes (could be longer on a slow connection). Follow the instructions at the end of the installation, you may need to restart the RPi.</p>
-<h3 id='2-3-start-the-frame'>2.3 Start the frame</h3><pre class="highlight shell_session"><code><span class="w">$ </span><span class="nc">openframe</span><span class="kv">
+<p>You need to restart the Pi before the next step.</p>
+<h3 id='2-3-start-the-frame'>2.3 Start the frame</h3>
+<p>After installation, just type <code>openframe</code> at the command line.</p>
+
+<p>If it&#39;s the first time you start the frame, it will ask you for your Openframe username and password, a name for this frame, and if you want to boot into openframe automatically when the Pi starts.</p>
+<pre class="highlight shell_session"><code><span class="w">$ </span><span class="nc">openframe</span><span class="kv">
 </span>? Enter your Openframe username: lewisc
 ? Enter your Openframe password: ****
 ? Enter a name for this Frame: Living Room Frame
@@ -468,19 +489,14 @@ b.) If your RPi booted to Desktop, find Terminal in the Menu and type <code>sudo
 
 This frame should now appear as Living Room Frame when you log in to Openframe at https://openframe.io.
 </code></pre>
-<blockquote>
-<p>If you haven&#39;t selected to autoboot, you can exit <code>openframe</code> with Ctrl+C, or Ctrl+W in web artworks.</p>
-</blockquote>
-
-<p>After installation, just type <code>openframe</code> at the command line.</p>
-
-<p>If it&#39;s the first time you start the frame, it will ask you for your Openframe username and password, a name for this frame, and if you want to boot into openframe automatically when the Pi starts.</p>
-
-<aside class="warning">If you choose to autoboot (the default), holding <code>n</code> during startup of the Pi will bring you to the command line instead of launching Openframe.</aside>
+<aside class="info">
+  <ul>
+    <li>If you haven't selected to autoboot, you can exit Openframe with <code>Ctrl + C</code>, or <code>Ctrl + W</code> in website artworks.</li>
+    <li>If you choose to autoboot (the default), holding <code>n</code> during startup of the Pi will bring you to the command line instead of launching Openframe.</li>
+  </ul>
+</aside>
 
 <p>You&#39;re now ready to start displaying artwork!</p>
-
-<p>We recommend <a href="#timer">setting a timer</a> so the frame goes to sleep at night.</p>
 <h2 id='3-displaying-artwork'>3. Displaying artwork</h2>
 <ol>
 <li><a href="https://openframe.io/login">Log in to the Web-App</a> using your account.</li>
@@ -491,11 +507,32 @@ This frame should now appear as Living Room Frame when you log in to Openframe a
 The artwork should show up on the frame a few seconds later.</li>
 </ol>
 
+<p>These are some <strong>artwork examples</strong> of different formats you can try out straight away:</p>
+
+<ul>
+<li>Image
+
+<ul>
+<li><a href="https://openframe.io/artwork/56e5b16ba6b560d606184640">landscape.1</a> by Inconvergent</li>
+<li><a href="https://openframe.io/artwork/5850a83d7cb7f28d67892de5">Michelle Owusu</a> by Maxwell Runko</li>
+</ul></li>
+<li>Video</li>
+<li>Shader
+
+<ul>
+<li><a href="https://openframe.io/artwork/56d6be5c9e1daa041f456a47">DataStream</a> by Paitricio Gonzalez Vivo</li>
+<li><a href="https://openframe.io/artwork/58c3b79ba9c1b11803b2420d">shader_170311-3</a> by playdo</li>
+</ul></li>
+<li>Website</li>
+</ul>
+
 <p><span style="font-size: 19px">🙌 That&#39;s all. Enjoy your Openframe!</span></p>
 
 <p><strong>What&#39;s next?</strong> Now you are probably keen to <strong>add your own artwork</strong>. More on this <a href="#adding-artwork">here</a>.</p>
 
 <aside class="info">The web app is responsive and works well as a mobile app. If you'll be using it on your phone, we recommend <a href="http://lifehacker.com/5809338/add-web-site-bookmarks-to-your-iphones-homescreen">adding the website to your homescreen</a></aside>
+
+<aside class="info">We recommend <a href="#timer">setting a timer</a> so the frame goes to sleep at night.</aside>
 
 <aside class="warning">
   <span style="font-weight: bold">Troubleshooting:</span> 
