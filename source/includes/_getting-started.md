@@ -101,15 +101,9 @@ After installation, just type `openframe` at the command line.
 
 If it's the first time you start the frame, it will ask you for your Openframe username and password, a name for this frame, and if you want to boot into openframe automatically when the Pi starts.
 
-<aside class="warning">If you choose to autoboot (the default), holding <code>n</code> during startup of the Pi will bring you to the command line instead of launching Openframe.</aside>
+<aside class="info">If you choose to autoboot (the default), holding <code>n</code> during startup of the Pi will bring you to the command line instead of launching Openframe.</aside>
 
 You're now ready to start displaying artwork!
-
-We recommend [setting a timer](#timer) so the frame goes to sleep at night.
-
-
-
-
 
 ## 3. Displaying artwork
 
@@ -120,11 +114,24 @@ We recommend [setting a timer](#timer) so the frame goes to sleep at night.
 ![](https://paper-attachments.dropbox.com/s_47C66C780B27D1D2264AC535F55118B0B8C6F1BE72F9B3AD04CFC94291323268_1573847491114_image.png)
 The artwork should show up on the frame a few seconds later.
 
+These are some **artwork examples** of different formats you can try out straight away:
+
+- Image
+  - [landscape.1](https://openframe.io/artwork/56e5b16ba6b560d606184640) by Inconvergent
+  - [Michelle Owusu](https://openframe.io/artwork/5850a83d7cb7f28d67892de5) by Maxwell Runko
+- Video
+- Shader
+  - [DataStream](https://openframe.io/artwork/56d6be5c9e1daa041f456a47) by Paitricio Gonzalez Vivo
+  - [shader_170311-3](https://openframe.io/artwork/58c3b79ba9c1b11803b2420d) by playdo
+- Website
+
 <span style="font-size: 19px">🙌 That's all. Enjoy your Openframe!</span>
 
 **What's next?** Now you are probably keen to **add your own artwork**. More on this [here](#adding-artwork).
 
 <aside class="info">The web app is responsive and works well as a mobile app. If you'll be using it on your phone, we recommend <a href="http://lifehacker.com/5809338/add-web-site-bookmarks-to-your-iphones-homescreen">adding the website to your homescreen</a></aside>
+
+<aside class="info">We recommend <a href="#timer">setting a timer</a> so the frame goes to sleep at night.</aside>
 
 <aside class="warning">
   <span style="font-weight: bold">Troubleshooting:</span> 
