@@ -28,32 +28,48 @@ Head over to the [Hardware section](#hardware) for more info.
 
 ### 2.0 Prepare SD card
 
-Follow the [Raspberry Pi installation guide](https://www.raspberrypi.org/documentation/installation/installing-images/README.md) and copy the latest version of the Raspian operating system on to the SD card. Alternatively use a pre-flashed SD-card with [NOOBS](https://www.raspberrypi.org/downloads/noobs/).
+Follow the [Raspberry Pi installation guide](https://www.raspberrypi.org/documentation/installation/installing-images/README.md) and copy the latest version of the Raspian operating system on to the SD card. Alternatively, use a pre-flashed SD-card with [NOOBS](https://www.raspberrypi.org/downloads/noobs/).
 
-Alternatively, you can download an [SD image with Openframe preinstalled](https://gist.github.com/jvolker/96a52b05459316643f8e110ff46b8e32). If you choose this option, set up the hardware (as described below) boot the Pi, log in and jump to step <a href="#2-3-start-the-frame">2.3 Start the frame</a>.
+Or you can download an [SD image with Openframe preinstalled](https://gist.github.com/jvolker/96a52b05459316643f8e110ff46b8e32). If you choose this option, set up the hardware (as described below) boot the Pi, log in and jump to step <a href="#2-3-start-the-frame">2.3 Start the frame</a>.
 
-### 2.1 Preparing the Pi
+### 2.1 Configure the Pi
 
 1. **Set up hardware:** Insert the SD card, WiFi dongle, and connect the monitor, keyboard and mouse.
-2. **Plug in the Pi**, and follow the directions on screen, selecting Rasbian.  
-  a.) Once the installation finishes, the Pi will reboot and open to the configuration screen.  
-  b.) If your RPi booted to Desktop, find Terminal in the Menu and type `sudo raspi-config` to access the configuration screen.  
-  **We recommend booting the RPi to terminal:** Select `Boot Options` and select `B2 Console Autologin1.
-3. **Select** your timezone in Internationalisation Options > Change Timezone
-4. *Optional:* **Change your password** (the default password is `raspberry`)
-5. **Select** 'Finish', then 'Yes' when it asks about rebooting.
-6. When the Pi reboots, **login** with the root user (`pi`) and password (`raspberry`, unless you changed it).
-
+2. **Plug in the Pi** Your Pi should boot into Desktop. 
+3. **Connect to the internet** if you are not connected via ethernet, click the network icon in the upper right-hand corner, turn on WiFi and select your WiFi network. 
+4. **Configure:** Open the Menu (top left corner) > `Preferences` > `Raspberry Pi Configuration`.  
+   
 <aside class="info">
-  <span style="font-weight: bold">Highly recommended:</span> Increase the GPU memory split (from 64MB by default) to 256MB or 512MB. Otherwise, the image and shader extension might not work properly.<br />
-  <br />You can do this by running the Raspberry Pi config tool <code>sudo raspi-config</code>. Another way to do this is to edit <code>/boot/config.txt</code>. You can <a href="https://www.raspberrypi.org/documentation/configuration/config-txt/memory.md">read more on this here</a>.
+  <span style="font-weight: bold">Required/Highly recommended settings:</span> 
+  <ul>
+    <li>
+      Increase the GPU memory split (from 64MB by default) to 256MB (up to Pi 3) or 512MB (Pi 4). Otherwise, the image and shader extension might not work properly. <code>Performance</code> > <code>GPU Memory</code></li>
+    <li>
+      Boot the Pi to terminal/CLI as Openframe doesn't work from the Desktop. Select <code>System</code> > <code>Boot</code> and select <code>To CLI</code>.
+    </li>
+  </ul>
 </aside>
 
-#### Optional: Setup WiFi
+- Select your timezone in `Localisation` > `Set Timezone`</li>
 
-1. After you're logged in at the command line, we'll start up the GUI in order to configure WiFi. At the command line type `startx` to launch the GUI.
-2. Once the GUI is open, click the network icon in the upper right-hand corner, and select your WiFi network. Enter the password at the prompt, and connect.
-3. Assuming the WiFi has connected successfully, click 'Menu' on the upper left and select 'Shutdown', then select the 'Logout' or 'Exit to command line', and press 'Ok'.
+**Optional:**
+
+- Enable SSH: `Interfaces` > `SSH` > `Enabled` 
+- Change your password: (the default password is `raspberry`)
+
+<ol start="5"><li><span style="font-weight: bold">Finish</span> Click <code>OK</code> to close the configuration tool <span style="font-weight: bold">and reboot</span>.</li></ol>
+
+<aside class="info">
+  These settings can be edited later in either one of these ways: 
+  <ul>
+    <li>Through the <code>Raspberry Pi Configuration</code> in desktop</li>
+    <li>By running the config tool <code>sudo raspi-config</code> from command line</li>
+    <li>By editing the <code>/boot/config.txt</code>. You can <a href="https://www.raspberrypi.org/documentation/configuration/">read more on this here</a>.</li>
+    </li>
+  </ul>
+</aside>
+
+<ol start="6"><li>When the Pi reboots, <span style="font-weight: bold">login</span> with the root user <code>pi</code> and password <code>raspberry</code>, unless you changed it.</li></ol>
 
 ### 2.2 Install Openframe
 
@@ -61,9 +77,9 @@ Alternatively, you can download an [SD image with Openframe preinstalled](https:
 $ bash -c "$(curl https://openframe.io/install.sh)"
 ```
 
-In the command line on the Raspberry Pi, execute the install shell script.
+In the command line on the Raspberry Pi, execute the install shell script. The installation takes around 20 minutes (could be longer on a slow connection). Follow the instructions at the end of the installation. 
 
-The installation takes around 20 minutes (could be longer on a slow connection). Follow the instructions at the end of the installation, you may need to restart the RPi.
+You need to restart the Pi before the next step.
 
 ### 2.3 Start the frame
 
