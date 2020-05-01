@@ -51,13 +51,13 @@ Or you can download an [SD image with Openframe preinstalled](https://gist.githu
 </aside>
 
 - Select your timezone in `Localisation` > `Set Timezone`</li>
+- *Optional* - Enable SSH: `Interfaces` > `SSH` > `Enabled` 
+- *Optional* - Change your password: (the default password is `raspberry`)
 
-**Optional:**
-
-- Enable SSH: `Interfaces` > `SSH` > `Enabled` 
-- Change your password: (the default password is `raspberry`)
-
-<ol start="5"><li><span style="font-weight: bold">Finish</span> Click <code>OK</code> to close the configuration tool <span style="font-weight: bold">and reboot</span>.</li></ol>
+<ol start="5">
+  <li><span style="font-weight: bold">Finish</span> Click <code>OK</code> to close the configuration tool <span style="font-weight: bold">and reboot</span>.</li>
+  <li>When the Pi reboots, <span style="font-weight: bold">login</span> with the root user <code>pi</code> and password <code>raspberry</code>, unless you changed it.</li>
+</ol>
 
 <aside class="info">
   These settings can be edited later in either one of these ways: 
@@ -68,8 +68,6 @@ Or you can download an [SD image with Openframe preinstalled](https://gist.githu
     </li>
   </ul>
 </aside>
-
-<ol start="6"><li>When the Pi reboots, <span style="font-weight: bold">login</span> with the root user <code>pi</code> and password <code>raspberry</code>, unless you changed it.</li></ol>
 
 ### 2.2 Install Openframe
 
@@ -83,6 +81,10 @@ You need to restart the Pi before the next step.
 
 ### 2.3 Start the frame
 
+After installation, just type `openframe` at the command line.
+
+If it's the first time you start the frame, it will ask you for your Openframe username and password, a name for this frame, and if you want to boot into openframe automatically when the Pi starts.
+
 ```terminal
 $ openframe
 ? Enter your Openframe username: lewisc
@@ -95,13 +97,12 @@ $ openframe
 This frame should now appear as Living Room Frame when you log in to Openframe at https://openframe.io.
 ```
 
-> If you haven't selected to autoboot, you can exit `openframe` with Ctrl+C, or Ctrl+W in web artworks.
-
-After installation, just type `openframe` at the command line.
-
-If it's the first time you start the frame, it will ask you for your Openframe username and password, a name for this frame, and if you want to boot into openframe automatically when the Pi starts.
-
-<aside class="info">If you choose to autoboot (the default), holding <code>n</code> during startup of the Pi will bring you to the command line instead of launching Openframe.</aside>
+<aside class="info">
+  <ul>
+    <li>If you haven't selected to autoboot, you can exit Openframe with <code>Ctrl + C</code>, or <code>Ctrl + W</code> in website artworks.</li>
+    <li>If you choose to autoboot (the default), holding <code>n</code> during startup of the Pi will bring you to the command line instead of launching Openframe.</li>
+  </ul>
+</aside>
 
 You're now ready to start displaying artwork!
 
