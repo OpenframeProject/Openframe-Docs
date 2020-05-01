@@ -43,7 +43,7 @@ Or you can download an [SD image with Openframe preinstalled](https://gist.githu
   <span style="font-weight: bold">Required/Highly recommended settings:</span> 
   <ul>
     <li>
-      Increase the GPU memory split (from 64MB by default) to 256MB (up to Pi 3) or 512MB (Pi 4). Otherwise, the image and shader extension might not work properly. <code>Performance</code> > <code>GPU Memory</code></li>
+      Increase the GPU memory split. Depending on your Pis available memory, 128MB or 256MB for Pi 1 - 3 and 512MB for Pi 4 with more than 1GB of RAM are propbably good values. Otherwise, the image and shader extension might not work properly. <code>Performance</code> > <code>GPU Memory</code></li>
     <li>
       Boot the Pi to terminal/CLI as Openframe doesn't work from the Desktop. Select <code>System</code> > <code>Boot</code> and select <code>To CLI</code>.
     </li>
